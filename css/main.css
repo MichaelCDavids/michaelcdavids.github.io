@@ -1,0 +1,101 @@
+html {
+  scroll-behavior: smooth;
+}
+h1,h2,h3,h4,h5,h6 {
+  text-align: center;
+}
+.twelve.columns.header img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.twelve.columns.bio {
+  padding-bottom: 8em;
+}
+.twelve.columns.bio p {
+  text-align: center;
+}
+.twelve.columns.fe-projects {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+.twelve.columns.fe-projects img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.twelve.columns.fe-projects button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.twelve.columns.fe-projects a {
+  text-decoration: none;
+}
+
+.twelve.columns.be-projects {
+  padding-top: 8em;
+  padding-bottom: 8em;
+}
+.twelve.columns.be-projects img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.twelve.columns.be-projects button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.twelve.columns.be-projects a {
+  text-decoration: none;
+}
+.three.columns.social-icons {
+  padding-top: 4em;
+  padding-bottom: 4em;
+}
+.three.columns.social-icons img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.three.columns.article img {
+  float: left;
+  padding-right: 15px;
+}
+.three.columns.article p {
+  text-align: justify;
+}
+.project{
+  width: 120px;
+  height: 120px;
+  background-color: lightgreen;
+  margin: 15px;
+  padding: 50px;
+  overflow: hidden;
+  color: aliceblue;
+}
+
+.nav-bar{
+  padding-top: 0em;
+  height: 60px;
+  background-color: black;
+  color: white;
+}
+@media (max-width: 400px) {
+
+}
+
+.nav-bar ul{
+  list-style: none;
+}
+.nav-bar li{
+  padding-top: 25px;
+  float: left;
+  width: 150px;
+  height: 100%;
+  text-align: center;
+  /* width: 50px; */
+  /* padding: 4%; */
+  /* list-style: none; */
+}

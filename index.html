@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Michael Davids Portfolio</title>
+  <meta name="description" content="">
+  <meta name="author" content="Mike">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+  <!-- Favicon
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- Templates
+      –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <script type="text/x-template" class="projectsTemplate">
+    {{#each repo}}
+    <a href="https://michaelcdavids.github.io/basic-webpage/landingpage.html" target="_blank">
+      <div class="three columns project">
+          <p>{{name}}</p>      
+      </div>
+    </a>
+    {{/each}}
+  </script>
+</head>
+
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="nav-bar">
+      <ul>
+        <li><i class="fas fa-bars"></i></li>
+        <li>
+          <a href="#About">About</a>
+        </li>
+        <li>
+          <a href="#FE-Projects">Front-End</a>
+        </li>
+        <li>
+          <a href="#BE-Projects">Back-End</a>
+        </li>
+        <li>
+          <a href="#SocialMedia">Social Media</a>
+        </li>
+        <li>
+          <a href="./articles.html">Articles</a>
+        </li>
+        <li>
+          <a href="./docs/Basic_Curriculum_Vitae_example.pdf" target="_blank">Curriculum Vitae</a>
+        </li>
+            
+
+      </ul>
+    </div>
+  <div class="container">
+    
+
+    <div class="row">
+      <div class="twelve columns header">
+        <img src="https://placebear.com/g/180/180" alt="Me">
+        <h4>Michael Davids</h4>
+        <hr>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="twelve columns button-bar">
+       
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="twelve columns bio">
+        <h5 id="About">About</h5>
+        <p>
+          <i>"A junior Full Stack Developer born and raised in the City of Cape Town. His contribution and
+            collaborative skills he shared earned the team top honors at the final round of the 2017 'Year
+            Beyond Social Innovation Challenge'. When his not glued to a computer he spends time inspiring his
+            friends and peers to do good in society and enjoys learning how to speak different languages. I'm currently
+            undertaking a one year course at projectcode-X which focuses on Full Stack Software Development."</i>
+        </p>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <h5 id="FE-Projects">Front-End Projects</h5>
+      <div class="twelve columns fe-projects">
+<!-- 
+        <div class="four columns">
+          <a href="https://michaelcdavids.github.io/basic-webpage/landingpage.html" target="_blank">
+            <img src="./images/Landing_Page.png" alt="BasicWebPages">
+            <button type="button" name="button">Basic Webpages</button>
+          </a>
+        </div>
+        <div class="four columns">
+          <a href="https://michaelcdavids.github.io/bootcamp-tests/index.html" target="_blank">
+            <img src="./images/Unit_Testing.png" alt="UnitTesting">
+            <button type="button" name="button">Unit Testing</button>
+          </a>
+        </div>
+        <div class="four columns">
+          <a href="https://michaelcdavids.github.io/portfolio-page/index.html" target="_blank">
+            <img src="./images/Portfolio_Page.png" alt="PortfolioPage">
+            <button type="button" name="button">Portfolio Page</button>
+          </a>
+        </div>
+      </div> -->
+    </div>
+    <hr>
+    <div class="row">
+      <h5 id="BE-Projects">Back-End Projects</h5>
+      <div class="twelve columns be-projects">
+        
+        
+        <!-- <div class="four columns">
+          <a href="#" target="_blank">
+            <img src="https://placebear.com/g/50/50" alt="Project 1">
+            <button type="button" name="button">Project 1</button>
+          </a>
+        </div>
+        <div class="four columns">
+          <a href="#" target="_blank">
+            <img src="https://placebear.com/g/50/50" alt="Project 2">
+            <button type="button" name="button">Project 2</button>
+          </a>
+        </div>
+        <div class="four columns">
+          <a href="#" target="_blank">
+            <img src="https://placebear.com/g/50/50" alt="Project 3">
+            <button type="button" name="button">Project 3</button>
+          </a>
+        </div> -->
+      </div>
+    </div>
+    <hr>
+    <footer>
+      <div class="row">
+        <div class="twelve columns">
+          <h5 id='SocialMedia'>Contact:</h5>
+          <div class="row">
+            <div class="three columns social-icons">
+              <a href="https://www.facebook.com/michael.davids.1023" target="_blank">
+                <img src="./images/004-facebook.png" alt="Facebook">
+              </a>
+            </div>
+            <div class="three columns social-icons">
+              <a href="https://twitter.com/michaelcdavids" target="_blank">
+                <img src="./images/005-twitter.png" alt="Twitter">
+              </a>
+            </div>
+            <div class="three columns social-icons">
+              <a href="https://github.com/MichaelCDavids" target="_blank">
+                <img src="./images/002-github-logo.png" alt="Github">
+              </a>
+            </div>
+            <div class="three columns social-icons">
+              <a href="https://www.linkedin.com/in/michaeldavidsfoundation/" target="_blank">
+                <img src="./images/001-linkedin.png" alt="LinkedIn">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  </footer>
+  </div>
+
+  <!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+<script src="./js/dom-code.js" charset="utf-8"></script>
+</html>
