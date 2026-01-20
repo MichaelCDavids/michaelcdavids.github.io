@@ -3,10 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Michael Davids | Full-Stack Developer</title>
-  <meta name="description" content="Portfolio of Michael Davids - Full-Stack Developer (Java, JavaScript, Python, Cloud).">
-  <meta name="author" content="Michael Davids">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <link href="                                                                                        
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
@@ -16,16 +13,181 @@
 <body>
   <div class="container">
     <header class="header">
-      <img src="https://placebear.com/g/150/150" alt="Michael Davids">
+      <img src="https://placebear.com/g/150/150" alt="Michael Davids" class="avatar">
       <h1>Michael Davids</h1>
       <p>Full-Stack Developer | Java • JavaScript • Python • AWS • RPA</p>
     </header>
 
-    <nav class="nav" id="navbar">
-      <div class="nav-wrap">
+    <nav class="nav" id="nav">
+      <div class="nav-inner">
         <div class="brand">MD</div>
-        <div class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span></div>
-        <div class="nav-links" id="navLinks">
-          <a href="                                  
-          <a href="#skills"><button>Skills</button></a>
-          <a href="#front-end"><button>Front-End</button></a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">☰</button>
+        <div class="links" id="links">
+          <a href="                 
+          <a href="#skills">Skills</a>
+          <a href="                  
+          <a href="#be">Back-End</a>
+          <a href="                       
+          <a href="#stories">Short Stories</a>
+          <a href="                          
+          <a href="#contact">Contact</a>
+          <a href="docs/CV.pdf" target="_blank">CV</a>
+        </div>
+      </div>
+    </nav>
+
+    <section id="about" class="section">
+      <h2>About</h2>
+      <p class="center">Cape Town-based developer with strong OOP, Java, AWS, and RPA experience at Accenture and Sasol. Passionate about building clean, maintainable software and automation testing (Selenium, Cypress).</p>
+    </section>
+
+    <section id="skills" class="section">
+      <h2>Skills</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Languages</h3>
+          <ul>
+            <li>Java, JavaScript (ES6+), TypeScript</li>
+            <li>Python, C#, SQL</li>
+            <li>HTML5, CSS3</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Frameworks</h3>
+          <ul>
+            <li>React, Angular, Vue</li>
+            <li>Node.js, Express, Spring Boot</li>
+            <li>jQuery, Bootstrap, Tailwind</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Cloud & Tools</h3>
+          <ul>
+            <li>AWS (Cloud Practitioner), Azure</li>
+            <li>Blue Prism, Power BI, SAP, XML</li>
+            <li>Git, Docker, CI/CD, Jira</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="fe" class="section">
+      <h2>Front-End Projects</h2>
+      <div class="grid-3">
+        <div class="card">
+          <img src="images/Landing_Page.png" alt="Basic Web Pages">
+          <div class="card-body">
+            <h3>Basic Web Pages</h3>
+            <p>Responsive landing pages using HTML, CSS, and JS.</p>
+            <a class="btn" href="https:                                                                                   
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/Unit_Testing.png" alt="Unit Testing">
+          <div class="card-body">
+            <h3>Unit Testing</h3>
+            <p>JavaScript testing with Mocha and Chai.</p>
+            <a class="btn" href="https://michaelcdavids.github.io/bootcamp-tests/index.html" target="_blank">View</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/Portfolio_Page.png" alt="Portfolio Page">
+          <div class="card-body">
+            <h3>Portfolio Page</h3>
+            <p>This site. Built with Skeleton and custom CSS.</p>
+            <a class="btn" href="https:                                                                              
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="be" class="section">
+      <h2>Back-End Projects</h2>
+      <div class="grid-3">
+        <div class="card">
+          <img src="https://placebear.com/g/600/400" alt="Project 1">
+          <div class="card-body">
+            <h3>API Service</h3>
+            <p>REST API with Spring Boot and MySQL.</p>
+            <a class="btn" href="                           
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://placebear.com/g/600/400" alt="Project 2">
+          <div class="card-body">
+            <h3>Data Pipeline</h3>
+            <p>ETL with Python and AWS Lambda.</p>
+            <a class="btn" href="                           
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://placebear.com/g/600/400" alt="Project 3">
+          <div class="card-body">
+            <h3>Auth Service</h3>
+            <p>JWT auth with Node.js and Express.</p>
+            <a class="btn" href="                           
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="articles" class="section">
+      <h2>Articles</h2>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-body">
+            <h3>How I Built an RPA Solution</h3>
+            <p>Lessons from a Blue Prism implementation at Sasol.</p>
+            <a class="btn" href="articles/rpa-sasol.html">Read</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h3>Java vs JavaScript: Key Differences</h3>
+            <p>A quick guide for new developers.</p>
+            <a class="btn" href="articles/java-vs-js.html">Read</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h3>Getting Started with AWS</h3>
+            <p>Tips for Cloud Practitioner certification.</p>
+            <a class="btn" href="articles/aws-start.html">Read</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stories" class="section">
+      <h2>Short Stories</h2>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-body">
+            <h3>The Last Commit</h3>
+            <p>A dev's journey through a night of debugging.</p>
+            <a class="btn" href="stories/last-commit.html">Read</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h3>Cape Town Sunrise</h3>
+            <p>A short story about inspiration and code.</p>
+            <a class="btn" href="stories/cape-town-sunrise.html">Read</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h3>The Automation Dream</h3>
+            <p>Fiction about a bot that changed the world.</p>
+            <a class="btn" href="stories/automation-dream.html">Read</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="other" class="section">
+      <h2>Other Projects</h2>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-body">
+            <
