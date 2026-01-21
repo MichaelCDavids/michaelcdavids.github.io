@@ -16,12 +16,12 @@ body {
   scroll-behavior: smooth;
 }
 
-/* --- The Navbar Fix --- */
+/* --- Navigation --- */
 .nav {
   position: sticky;
   top: 0;
   width: 100%;
-  background-color: #111827; /* Darker grey to stand out */
+  background-color: #111827; 
   z-index: 9999;
   border-bottom: 2px solid var(--primary);
   min-height: 70px;
@@ -54,28 +54,29 @@ body {
   gap: 20px;
 }
 
-/* --- Ensuring Nav Text is Visible --- */
+/* Ensure Nav Links are White and Visible */
 .links a {
   text-decoration: none;
-  color: #ffffff !important; /* Force white text */
+  color: #ffffff !important; 
   font-weight: 600;
   font-size: 1rem;
-  display: block;
 }
 
 .links a:hover {
   color: var(--primary) !important;
 }
 
-/* --- Rounded Buttons --- */
+/* --- Standardized Rounded Buttons --- */
 .nav-btn, .btn {
   background-color: var(--primary);
   color: #0b1220 !important;
-  padding: 8px 16px;
-  border-radius: 8px; /* Simple rounded corners */
+  padding: 10px 20px;
+  border-radius: 8px; /* Simple Rounded Corners */
   font-weight: 700;
   text-decoration: none;
   border: none;
+  display: inline-block;
+  transition: background 0.3s ease;
 }
 
 .btn:hover, .nav-btn:hover {
@@ -83,15 +84,14 @@ body {
   color: #ffffff !important;
 }
 
-/* --- Section Layout --- */
+/* --- Content Styling --- */
 .header { text-align: center; padding: 60px 0; }
 .section { padding: 60px 0; }
 .center { text-align: center; max-width: 800px; margin: 0 auto; }
 
-/* Grid for Projects/Skills */
 .grid-3 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
   margin-top: 30px;
 }
@@ -103,9 +103,21 @@ body {
   text-align: center;
 }
 
+.card ul {
+  text-align: left;
+  display: inline-block;
+}
+
+.socials-flex {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
 /* Mobile Fix */
 @media (max-width: 768px) {
-  .links { gap: 10px; }
+  .nav-inner { flex-direction: column; padding: 10px 0; }
+  .links { gap: 10px; margin-top: 10px; }
   .links a { font-size: 0.85rem; }
-  .brand { font-size: 1.2rem; }
 }
