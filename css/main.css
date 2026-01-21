@@ -1,3 +1,4 @@
+/* Variables */
 :root {
   --bg: #0b1220; 
   --bg-soft: #0f172a; 
@@ -11,9 +12,8 @@
 body {
   margin: 0;
   font-family: 'Raleway', sans-serif;
-  background: var(--bg);
+  background-color: var(--bg);
   color: var(--text);
-  line-height: 1.6;
 }
 
 .container {
@@ -22,12 +22,12 @@ body {
   padding: 0 20px;
 }
 
-/* Navigation - FIXED STICKY & MOBILE */
+/* --- Navigation --- */
 .nav {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(15, 23, 42, 0.95);
+  background: rgba(11, 18, 32, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -36,17 +36,26 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 0;
+  padding: 12px 0;
 }
 
+.brand { font-weight: 700; font-size: 1.2rem; color: var(--primary); }
+
+/* Hamburger Button */
+.hamburger {
+  display: block;
+  background: none;
+  border: 1px solid var(--muted);
+  color: white;
+  font-size: 1.5rem;
+  padding: 4px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Mobile Links Drawer */
 .links {
-  display: none; /* Hidden on mobile by default */
-  gap: 15px;
-}
-
-/* Mobile Menu Open State */
-.links.open {
-  display: flex;
+  display: none; /* Fully hidden by default */
   flex-direction: column;
   position: absolute;
   top: 100%;
@@ -54,65 +63,59 @@ body {
   right: 0;
   background: var(--bg-soft);
   padding: 20px;
-  border-bottom: 1px solid var(--primary);
+  border-bottom: 2px solid var(--primary);
+  text-align: center;
 }
 
-@media (min-width: 768px) {
-  .links {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  .hamburger { display: none; }
+.links.open {
+  display: flex; /* Shown only when toggled */
 }
 
-/* Button Uniformity (Rounded Corners) */
-.btn, .nav-btn, .links a {
-  padding: 8px 16px;
-  border-radius: 8px; /* Simple rounded corners */
+/* Standardized Rounded Buttons */
+.links a, .btn {
   text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
-  font-size: 0.9rem;
-}
-
-/* Navbar Links */
-.links a {
   color: var(--text);
+  padding: 12px 20px;
+  margin: 5px 0;
+  border-radius: 8px; /* Simple rounded corners */
+  transition: 0.3s;
+  font-weight: 600;
 }
 
-.links a:hover {
-  color: var(--primary);
-  background: rgba(255,255,255,0.05);
-}
-
-/* High-contrast Buttons */
 .nav-btn, .btn {
   background: var(--primary);
   color: var(--bg) !important;
 }
 
-.nav-btn:hover, .btn:hover {
+.btn:hover, .nav-btn:hover {
   background: var(--primary-blue);
   color: white !important;
 }
 
-/* General Layout Clean-up */
-.header { text-align: center; padding: 60px 0; }
-.section { padding: 40px 0; }
-.card {
-  background: var(--card);
-  padding: 25px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.05);
+/* Desktop Styles */
+@media (min-width: 768px) {
+  .hamburger { display: none; }
+  
+  .links {
+    display: flex; /* Always shown on desktop */
+    flex-direction: row;
+    position: static;
+    background: none;
+    padding: 0;
+    border: none;
+  }
+  
+  .links a { margin: 0 5px; padding: 8px 15px; }
 }
 
-.hamburger {
-  background: none;
-  border: 1px solid var(--muted);
-  color: white;
-  font-size: 1.5rem;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
+/* Clean Cards (No Images) */
+.section { padding: 40px 0; }
+.center { text-align: center; max-width: 700px; margin: 0 auto; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.card {
+  background: var(--card);
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.05);
+  text-align: center;
 }
