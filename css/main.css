@@ -3,7 +3,7 @@
   --bg: #0b1220; 
   --bg-soft: #0f172a; 
   --card: #1f2937; 
-  --text: #e5e7eb; 
+  --text: #ffffff; /* Increased to pure white for visibility */
   --muted: #9ca3af;
   --primary: #22c55e; 
   --primary-blue: #3b82f6;
@@ -11,10 +11,22 @@
 
 body {
   margin: 0;
+  padding: 0;
   font-family: 'Raleway', sans-serif;
   background-color: var(--bg);
   color: var(--text);
   scroll-behavior: smooth;
+}
+
+/* --- Fixed Sticky Navbar --- */
+.nav {
+  position: fixed; /* Changed to fixed to ensure it stays visible */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #0b1220; /* Solid background so links aren't lost */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .container {
@@ -23,97 +35,80 @@ body {
   padding: 0 20px;
 }
 
-/* --- Sticky Navbar Flex --- */
-.nav {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: rgba(11, 18, 32, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
 .nav-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 0;
-  flex-wrap: wrap; /* Allows wrapping on very small screens */
+  height: 70px; /* Consistent height */
 }
 
 .brand { 
   font-weight: 700; 
-  font-size: 1.2rem; 
+  font-size: 1.4rem; 
   color: var(--primary); 
 }
 
 .links {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px; /* Spacing between links */
 }
 
-/* --- Buttons & Links (Standardized Rounded) --- */
-.links a, .btn {
+.links a {
   text-decoration: none;
-  color: var(--text);
-  padding: 8px 14px;
-  border-radius: 8px; /* Clean rounded corners */
-  transition: 0.3s;
+  color: var(--text) !important; /* Forces visibility */
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
+  transition: color 0.3s;
 }
 
 .links a:hover {
-  color: var(--primary);
-  background: rgba(255, 255, 255, 0.05);
+  color: var(--primary) !important;
 }
 
-/* Highlight Buttons */
+/* Rounded Buttons */
 .nav-btn, .btn {
-  background: var(--primary);
-  color: var(--bg) !important;
+  background-color: var(--primary);
+  color: #0b1220 !important;
+  padding: 8px 18px;
+  border-radius: 8px; /* Rounded corners */
   border: none;
+  cursor: pointer;
+  font-weight: 700;
 }
 
 .btn:hover, .nav-btn:hover {
-  background: var(--primary-blue);
-  color: white !important;
+  background-color: var(--primary-blue);
+  color: #fff !important;
 }
 
-/* --- Content Sections --- */
-.header { text-align: center; padding: 80px 0 40px; }
-.section { padding: 60px 0; }
+/* Content Spacing (Offset for fixed navbar) */
+.header { padding-top: 120px; text-align: center; }
+.section { padding: 80px 0 40px; }
 .center { text-align: center; max-width: 750px; margin: 0 auto; }
 
 .grid-3 { 
   display: grid; 
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-  gap: 20px; 
+  gap: 25px; 
 }
 
 .card {
   background: var(--card);
   padding: 30px;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .socials-flex {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
+    gap: 20px;
 }
 
-/* Responsive adjust for mobile */
-@media (max-width: 600px) {
-  .nav-inner { justify-content: center; gap: 10px; }
-  .brand { width: 100%; text-align: center; margin-bottom: 10px; }
-  .links { flex-wrap: wrap; justify-content: center; }
-  .links a { font-size: 0.75rem; padding: 6px 10px; }
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .brand { font-size: 1.1rem; }
+  .links { gap: 10px; }
+  .links a { font-size: 0.8rem; }
 }
