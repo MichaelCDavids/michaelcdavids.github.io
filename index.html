@@ -14,13 +14,10 @@
     <div class="container">
       <div class="nav-inner">
         <div class="brand">MD</div>
-        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">☰</button>
-        <div class="links" id="links">
+        <div class="links">
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
-          <a href="#fe">Front-End</a>
-          <a href="#be">Back-End</a>
-          <a href="#stories">Short Stories</a>
+          <a href="#fe">Projects</a>
           <a href="#contact">Contact</a>
           <a href="docs/CV.pdf" class="nav-btn" target="_blank">CV</a>
         </div>
@@ -40,37 +37,35 @@
     </section>
 
     <section id="fe" class="section">
-      <h2>Front-End Projects</h2>
+      <h2>Projects</h2>
       <div class="grid-3">
         <div class="card">
           <h3>Unit Testing</h3>
           <p>JavaScript testing with Mocha and Chai.</p>
-          <a class="btn" href="https://michaelcdavids.github.io/bootcamp-tests/index.html" target="_blank">View</a>
+          <a class="btn" href="#" target="_blank">View</a>
         </div>
+        <div class="card">
+          <h3>API Service</h3>
+          <p>REST API with Spring Boot and MySQL.</p>
+          <a class="btn" href="#" target="_blank">View</a>
         </div>
+        <div class="card">
+          <h3>Auth Service</h3>
+          <p>JWT auth with Node.js and Express.</p>
+          <a class="btn" href="#" target="_blank">View</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <div class="socials-flex">
+          <a href="mailto:michael@example.com" class="btn">Email</a>
+          <a href="https://github.com/michaelcdavids" target="_blank" class="btn">GitHub</a>
+          <a href="https://linkedin.com/in/michaelcdavids" target="_blank" class="btn">LinkedIn</a>
+      </div>
     </section>
   </div>
 
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const links = document.getElementById('links');
-
-    hamburger.addEventListener('click', (e) => {
-      e.stopPropagation();
-      links.classList.toggle('open');
-    });
-
-    // Close menu when clicking a link
-    document.querySelectorAll('.links a').forEach(link => {
-      link.addEventListener('click', () => {
-        links.classList.remove('open');
-      });
-    });
-
-    // Close menu if clicking outside
-    document.addEventListener('click', () => {
-      links.classList.remove('open');
-    });
-  </script>
 </body>
 </html>
