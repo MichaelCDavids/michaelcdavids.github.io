@@ -79,6 +79,14 @@ body {
   transition: background 0.3s ease;
 }
 
+.btn.disabled {
+  pointer-events: none; /* Prevents clicking */
+  cursor: default;      /* Changes cursor back to arrow */
+  opacity: 0.6;         /* Makes it look "grayed out" */
+  text-decoration: none;
+}
+
+
 .btn:hover, .nav-btn:hover {
   background-color: var(--primary-blue);
   color: #ffffff !important;
