@@ -8,37 +8,46 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <style>
-    /* Supplemental styles to ensure consistency if main.css is minimal */
+    /* Refined styles for Article Page */
     .article-hero {
-      padding: 60px 0;
-      background: #f9fafb;
+      text-align: center;
+      padding: 60px 40px;
+      background: #ffffff;
+      border: 1px solid #eeeeee;
       border-radius: 12px;
-      margin-bottom: 60px;
-      border: 1px solid #eee;
+      margin-bottom: 40px;
     }
-    .tag {
+    .tag-pill {
       display: inline-block;
-      background: #e0f2fe;
-      color: #0369a1;
       padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 0.75rem;
+      background: #f3f4f6;
+      border-radius: 50px;
+      font-size: 0.7rem;
       font-weight: 700;
+      color: #374151;
       text-transform: uppercase;
-      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
     }
-    .article-body {
-      line-height: 1.8;
-      color: #4b5563;
+    .grid-articles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
     }
-    .back-link {
-      display: inline-block;
-      margin-bottom: 20px;
+    .article-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .article-card h3 { margin: 10px 0; font-size: 1.4rem; }
+    .article-card p { font-size: 0.95rem; color: #4b5563; flex-grow: 1; }
+    .read-more {
+      margin-top: 15px;
+      font-weight: 700;
+      color: #33C3F0;
       text-decoration: none;
-      color: #6b7280;
-      font-weight: 600;
+      font-size: 0.9rem;
     }
-    .back-link:hover { color: #333; }
   </style>
 </head>
 <body>
@@ -48,7 +57,6 @@
       <div class="brand"><strong>MD</strong></div>
       <div class="links">
         <a href="index.html#about">About</a>
-        <a href="index.html#skills">Skills</a>
         <a href="index.html#projects">Projects</a>
         <a href="index.html#articles">Articles</a>
         <a href="index.html#contact">Contact</a>
@@ -58,73 +66,51 @@
   </nav>
 
   <div class="container">
-    <header class="header">
-      <a href="index.html" class="back-link">&larr; Back to Portfolio</a>
-      <h1>Technical Blog & Stories</h1>
-      <p>Exploring the intersection of Java backend architecture and Flutter mobile development.</p>
+    <header class="header" style="padding-bottom: 40px;">
+      <a href="index.html" style="text-decoration: none; color: #9ca3af; font-size: 0.9rem;">&larr; Back to Portfolio</a>
+      <h1 style="margin-top: 20px;">Technical Insights</h1>
+      <p>Thoughts on engineering, mobile architecture, and modernizing development workflows.</p>
     </header>
 
-    <hr>
-
     <section class="article-hero">
-      <div class="center">
-        <span class="tag">Mobile Development</span>
-        <h2 style="margin-bottom: 20px;">Why Flutter is Winning in 2026</h2>
-        <p class="article-body">The shift from RPA (Robotic Process Automation) to native-performance cross-platform development wasn't just a career move—it was a response to the market's demand for speed. In this article, I break down why the Skia/Impeller rendering engine gives Flutter the edge over React Native for high-fidelity apps.</p>
-        <a href="#" class="btn">Keep Reading</a>
-      </div>
+      <span class="tag-pill" style="background: #33C3F0; color: #fff;">Mobile Development</span>
+      <h2>Why Flutter is Winning in 2026</h2>
+      <p class="center">Moving from RPA to Flutter wasn't just a pivot—it was a strategic bet on the future of performance. We explore how Flutter's rendering engine has redefined the developer experience for iOS and Android.</p>
+      <a href="#" class="btn">Read the Full Post</a>
     </section>
 
-    <section class="section">
-      <h2 style="text-align: left;">All Stories</h2>
-      <div class="grid-3">
-        
-        <div class="card" id="java-school">
-          <span class="tag">Java</span>
+    <div class="grid-articles">
+      
+      <div class="card article-card">
+        <div>
+          <span class="tag-pill">Backend Architecture</span>
           <h3>The Logic of School Systems</h3>
-          <p>A deep dive into managing complex object-oriented relationships and data integrity within academic management software.</p>
-          <a href="#" style="color: #33C3F0; font-weight: 600; text-decoration: none;">Read More &rarr;</a>
+          <p>Managing student data requires more than just a database. This article explores how I leveraged Java's OOP principles to build a maintainable academic engine.</p>
         </div>
-
-        <div class="card" id="snakes-ladders">
-          <span class="tag">Engineering</span>
-          <h3>Game Loops & State</h3>
-          <p>How building a functional Snakes and Ladders game in Java taught me about deterministic logic and game state synchronization.</p>
-          <a href="#" style="color: #33C3F0; font-weight: 600; text-decoration: none;">Read More &rarr;</a>
-        </div>
-
-        <div class="card" id="career">
-          <span class="tag">Career</span>
-          <h3>The Accenture Influence</h3>
-          <p>Applying enterprise-grade strategies, robust documentation, and consulting precision to agile, full-stack development.</p>
-          <a href="#" style="color: #33C3F0; font-weight: 600; text-decoration: none;">Read More &rarr;</a>
-        </div>
-
-        <div class="card">
-          <span class="tag">Cloud</span>
-          <h3>Serverless with AWS</h3>
-          <p>Moving beyond EC2: How Lambda and DynamoDB are reshaping how we build scalable backends in Cape Town's tech scene.</p>
-          <a href="#" style="color: #33C3F0; font-weight: 600; text-decoration: none;">Read More &rarr;</a>
-        </div>
-
-        <div class="card">
-          <span class="tag">Web</span>
-          <h3>Node.js vs Spring Boot</h3>
-          <p>Choosing the right tool for the job: When to favor the speed of Express and when to rely on the type-safety of Spring.</p>
-          <a href="#" style="color: #33C3F0; font-weight: 600; text-decoration: none;">Read More &rarr;</a>
-        </div>
-
-        <div class="card">
-          <span class="tag">Database</span>
-          <h3>SQL for Simulators</h3>
-          <p>Using PostgreSQL and JDBi to handle the heavy lifting for a data-driven sports league simulator.</p>
-          <a href="#" style="color: #33C3F0; font-weight: 600; text-decoration: none;">Read More &rarr;</a>
-        </div>
-
+        <a href="#" class="read-more">Read Entry &rarr;</a>
       </div>
-    </section>
 
-    <footer style="text-align: center; padding: 40px 0; color: #9ca3af; font-size: 0.9rem;">
+      <div class="card article-card">
+        <div>
+          <span class="tag-pill">Game Engineering</span>
+          <h3>Game Loops & State</h3>
+          <p>Even a simple game of Snakes and Ladders needs a robust state machine. A look at handling deterministic logic and turn-based mechanics in Java.</p>
+        </div>
+        <a href="#" class="read-more">Read Entry &rarr;</a>
+      </div>
+
+      <div class="card article-card">
+        <div>
+          <span class="tag-pill">Strategy</span>
+          <h3>The Accenture Influence</h3>
+          <p>How the rigor of enterprise consulting shapes my approach to software. From technical documentation to client-first development strategies.</p>
+        </div>
+        <a href="#" class="read-more">Read Entry &rarr;</a>
+      </div>
+
+    </div>
+
+    <footer style="text-align: center; padding: 60px 0; color: #9ca3af; font-size: 0.8rem;">
       <p>&copy; 2026 Michael Davids. Built with passion in Cape Town.</p>
     </footer>
   </div>
