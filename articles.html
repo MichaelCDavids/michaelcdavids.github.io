@@ -2,51 +2,94 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Articles | Michael Davids</title>
+  <title>Technical Insights | Michael Davids</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <style>
-    /* Refined styles for Article Page */
-    .article-hero {
-      text-align: center;
-      padding: 60px 40px;
+    /* Article Page Specific Refinements */
+    .featured-article {
+      display: flex;
+      flex-direction: column;
       background: #ffffff;
       border: 1px solid #eeeeee;
       border-radius: 12px;
-      margin-bottom: 40px;
+      padding: 40px;
+      margin-bottom: 50px;
+      border-left: 5px solid #33C3F0;
+      transition: transform 0.3s ease;
     }
+
+    .featured-article:hover {
+      transform: translateY(-5px);
+    }
+
+    @media (min-width: 768px) {
+      .featured-article {
+        flex-direction: row;
+        align-items: center;
+        gap: 40px;
+      }
+      .featured-info { flex: 3; }
+      .featured-visual { flex: 2; }
+    }
+
     .tag-pill {
       display: inline-block;
-      padding: 4px 12px;
+      padding: 5px 14px;
       background: #f3f4f6;
       border-radius: 50px;
       font-size: 0.7rem;
       font-weight: 700;
       color: #374151;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 12px;
+      letter-spacing: 0.8px;
+      margin-bottom: 15px;
     }
+
     .grid-articles {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
+      gap: 30px;
     }
+
     .article-card {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      height: 100%; /* Ensures cards in a row have equal height */
     }
-    .article-card h3 { margin: 10px 0; font-size: 1.4rem; }
-    .article-card p { font-size: 0.95rem; color: #4b5563; flex-grow: 1; }
-    .read-more {
-      margin-top: 15px;
+
+    .article-card h3 { 
+      margin: 10px 0; 
+      font-size: 1.3rem; 
+      color: #1f2937;
+    }
+
+    .article-card p { 
+      font-size: 0.95rem; 
+      color: #6b7280; 
+      line-height: 1.6;
+    }
+
+    .read-more-link {
+      margin-top: 20px;
       font-weight: 700;
       color: #33C3F0;
       text-decoration: none;
       font-size: 0.9rem;
+      display: inline-block;
+    }
+
+    .read-more-link:hover {
+      text-decoration: underline;
+    }
+    
+    .visual-placeholder {
+      background: #f9fafb;
+      border-radius: 8px;
+      overflow: hidden;
     }
   </style>
 </head>
@@ -66,17 +109,25 @@
   </nav>
 
   <div class="container">
-    <header class="header" style="padding-bottom: 40px;">
-      <a href="index.html" style="text-decoration: none; color: #9ca3af; font-size: 0.9rem;">&larr; Back to Portfolio</a>
-      <h1 style="margin-top: 20px;">Technical Insights</h1>
-      <p>Thoughts on engineering, mobile architecture, and modernizing development workflows.</p>
+    <header class="header" style="text-align: left; padding: 60px 0 40px;">
+      <a href="index.html" style="text-decoration: none; color: #9ca3af; font-size: 0.9rem; font-weight: 600;">&larr; BACK TO PORTFOLIO</a>
+      <h1 style="margin-top: 20px; font-size: 2.5rem;">Technical Insights</h1>
+      <p style="font-size: 1.2rem; color: #6b7280;">Modern software engineering, mobile architecture, and professional growth.</p>
     </header>
 
-    <section class="article-hero">
-      <span class="tag-pill" style="background: #33C3F0; color: #fff;">Mobile Development</span>
-      <h2>Why Flutter is Winning in 2026</h2>
-      <p class="center">Moving from Web to Flutter wasn't just a pivot—it was a strategic bet on the future of performance. We explore how Flutter's rendering engine has redefined the developer experience for iOS and Android.</p>
-      <a href="article-flutter.html.html" class="btn">Read the Full Post</a>
+    <section class="featured-article">
+      <div class="featured-info">
+        <span class="tag-pill" style="background: #33C3F0; color: #fff;">Mobile Strategy</span>
+        <h2>Why Flutter is Winning in 2026</h2>
+        <p>A strategic look at how Flutter's Impeller engine and Dart's unified logic have redefined cross-platform development. We explore why the "native vs cross-platform" debate is finally being settled in favor of high-performance rendering.</p>
+        <a href="article-flutter.html" class="btn">Read the Full Post</a>
+      </div>
+      
+      <div class="featured-visual">
+        <div class="visual-placeholder">
+          
+        </div>
+      </div>
     </section>
 
     <div class="grid-articles">
@@ -85,33 +136,33 @@
         <div>
           <span class="tag-pill">Backend Architecture</span>
           <h3>The Logic of School Systems</h3>
-          <p>Managing student data requires more than just a database. This article explores how I leveraged Java's OOP principles to build a maintainable academic engine.</p>
+          <p>Effective student management goes beyond simple CRUD operations. I discuss implementing robust OOP patterns in Java to handle complex academic relationships.</p>
         </div>
-        <a href="#" class="read-more">Read Entry &rarr;</a>
+        <a href="#" class="read-more-link">Read Entry &rarr;</a>
       </div>
 
       <div class="card article-card">
         <div>
           <span class="tag-pill">Game Engineering</span>
           <h3>Game Loops & State</h3>
-          <p>Even a simple game of Snakes and Ladders needs a robust state machine. A look at handling deterministic logic and turn-based mechanics in Java.</p>
+          <p>Breaking down the architecture of a deterministic game engine. How state management in a Java-based Snakes and Ladders board game mirrors enterprise logic.</p>
         </div>
-        <a href="#" class="read-more">Read Entry &rarr;</a>
+        <a href="#" class="read-more-link">Read Entry &rarr;</a>
       </div>
 
       <div class="card article-card">
         <div>
           <span class="tag-pill">Strategy</span>
           <h3>The Accenture Influence</h3>
-          <p>How the rigor of enterprise consulting shapes my approach to software. From technical documentation to client-first development strategies.</p>
+          <p>Consulting is about more than just code. Insights into how enterprise rigor and client-first documentation have shaped my freelance development workflow.</p>
         </div>
-        <a href="#" class="read-more">Read Entry &rarr;</a>
+        <a href="#" class="read-more-link">Read Entry &rarr;</a>
       </div>
 
     </div>
 
-    <footer style="text-align: center; padding: 60px 0; color: #9ca3af; font-size: 0.8rem;">
-      <p>&copy; 2026 Michael Davids. Built with passion in Cape Town.</p>
+    <footer style="text-align: center; padding: 80px 0 40px; color: #9ca3af; font-size: 0.85rem;">
+      <p>&copy; 2026 Michael Davids • Built for Web, iOS, and Android.</p>
     </footer>
   </div>
 
