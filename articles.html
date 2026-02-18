@@ -1,126 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-  <title>Articles</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <title>Insights & Stories | Michael Davids</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/main.css">
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="images/favicon.png">
-
+  <style>
+    /* Quick custom styles to spice up the Skeleton grid */
+    body { padding-top: 50px; background-color: #fcfcfc; }
+    .hero-article { background: #fff; padding: 40px; border-radius: 8px; border: 1px solid #eee; margin-bottom: 60px; }
+    .article-card { background: #fff; padding: 20px; border-radius: 4px; border: 1px solid #eee; transition: transform 0.2s; margin-bottom: 20px; }
+    .article-card:hover { transform: translateY(-5px); border-color: #33C3F0; }
+    .tag { text-transform: uppercase; font-size: 1rem; font-weight: 600; color: #33C3F0; letter-spacing: 1px; }
+    .read-time { font-size: 1.2rem; color: #999; }
+    img { border-radius: 4px; width: 100%; height: auto; margin-bottom: 15px; }
+    .hero-img { max-height: 400px; object-fit: cover; }
+    h2, h5 { margin-top: 10px; font-weight: 600; }
+    .btn-full { width: 100%; text-align: center; margin-top: 10px; }
+  </style>
 </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="three columns article">
-          <h5>Article 1</h5>
-          <img src="https://placebear.com/g/100/100" alt="article1">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius
-            mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-            id est laborum.</p>
-        </div>
-        <div class="three columns article">
-          <h5>Article 1</h5>
-          <img src="https://placebear.com/g/100/100" alt="article1">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius
-            mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-            id est laborum.</p>
-        </div>
-        <div class="three columns article">
-          <h5>Article 1</h5>
-          <img src="https://placebear.com/g/100/100" alt="article1">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius
-            mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-            id est laborum.</p>
-        </div>
-        <div class="three columns article">
-          <h5>Article 1</h5>
-          <img src="https://placebear.com/g/100/100" alt="article1">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius
-            mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-            id est laborum.</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="three columns article">
-          <h5>Article 1</h5>
-          <img src="https://placebear.com/g/100/100" alt="article1">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius
-            mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-            id est laborum.</p>
-        </div>
-        <div class="three columns article">
-          <h5>Article 1</h5>
-          <img src="https://placebear.com/g/100/100" alt="article1">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius
-            mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-            id est laborum.</p>
-        </div>
-        <div class="three columns article">
-          <h5>Article 1</h5>
-          <img src="https://placebear.com/g/100/100" alt="article1">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius
-            mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-            id est laborum.</p>
-        </div>
-        <div class="three columns article">
-          <h5>Article 1</h5>
-          <img src="https://placebear.com/g/100/100" alt="article1">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius
-            mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-            id est laborum.</p>
-        </div>
+<body>
+
+  <div class="container">
+    
+    <div class="row">
+      <div class="twelve columns">
+        <h1 style="margin-bottom: 40px;">Articles</h1>
       </div>
     </div>
-  </body>
+
+    <section class="hero-article">
+      <div class="row">
+        <div class="six columns">
+          <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80" class="hero-img" alt="coding">
+        </div>
+        <div class="six columns">
+          <span class="tag">Flutter & Dart</span> • <span class="read-time">4 min read</span>
+          <h2>Building the Future of Cross-Platform Mobile Apps</h2>
+          <p>Why I've shifted my focus from RPA to the Flutter ecosystem, and how it's changing the way we think about high-performance Android and iOS development in 2026.</p>
+          <a class="button button-primary" href="#">Read Story</a>
+        </div>
+      </div>
+    </section>
+
+    <h4 style="margin-bottom: 30px;">Latest Stories</h4>
+    
+    <div class="row">
+      <div class="four columns article-card">
+        <span class="tag">Java</span>
+        <h5>The School System Logic</h5>
+        <p>A deep dive into managing complex object-oriented relationships in backend systems.</p>
+        <a class="button btn-full" href="#">View Article</a>
+      </div>
+
+      <div class="four columns article-card">
+        <span class="tag">Engineering</span>
+        <h5>Snakes, Ladders, & Logic</h5>
+        <p>How a simple board game can teach us advanced state management and game loops.</p>
+        <a class="button btn-full" href="#">View Article</a>
+      </div>
+
+      <div class="four columns article-card">
+        <span class="tag">Database</span>
+        <h5>PostgreSQL Performance</h5>
+        <p>Optimizing league simulations with JDBi and relational data modeling.</p>
+        <a class="button btn-full" href="#">View Article</a>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px;">
+      <div class="four columns article-card">
+        <span class="tag">Cloud</span>
+        <h5>AWS for Full-Stackers</h5>
+        <p>The essential services every modern developer needs to master in the current year.</p>
+        <a class="button btn-full" href="#">View Article</a>
+      </div>
+
+      <div class="four columns article-card">
+        <span class="tag">Career</span>
+        <h5>From Accenture to Indie</h5>
+        <p>My journey through corporate consulting to building bespoke mobile solutions.</p>
+        <a class="button btn-full" href="#">View Article</a>
+      </div>
+
+      <div class="four columns article-card">
+        <span class="tag">JavaScript</span>
+        <h5>React vs. Flutter</h5>
+        <p>Comparing the developer experience for web-first vs. mobile-first projects.</p>
+        <a class="button btn-full" href="#">View Article</a>
+      </div>
+    </div>
+
+    <footer style="margin-top: 100px; text-align: center; padding-bottom: 50px;">
+      <p>&larr; <a href="index.html">Back to Portfolio</a></p>
+    </footer>
+
+  </div>
+
+</body>
 </html>
