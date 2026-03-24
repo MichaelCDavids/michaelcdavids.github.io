@@ -1,163 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Technical Insights | Michael Davids</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
-  <style>
-    /* Brand Colors */
-    :root {
-      --flutter-blue: #33C3F0;
-      --react-purple: #6366f1;
-      --java-gold: #f59e0b;
-    }
+<div class="container">
+  <header class="header" style="text-align: left; padding: 60px 0 40px;">
+    <a href="index.html" style="text-decoration: none; color: #9ca3af; font-size: 0.9rem; font-weight: 600;">&larr; BACK TO PORTFOLIO</a>
+    <h1 style="margin-top: 20px; font-size: 2.5rem;">Technical Insights</h1>
+    <p style="font-size: 1.1rem; color: #6b7280;">A collection of perspectives on modern architecture and engineering leadership.</p>
+  </header>
 
-    .featured-article {
-      display: flex;
-      flex-direction: column;
-      border: 1px solid #eeeeee;
-      border-radius: 12px;
-      padding: 40px;
-      margin-bottom: 50px;
-      border-left: 5px solid var(--react-purple); /* Highlighted most recent */
-      transition: transform 0.3s ease;
-      background: white;
-    }
-
-    .featured-article:hover { transform: translateY(-5px); }
-
-    @media (min-width: 768px) {
-      .featured-article { flex-direction: row; align-items: center; gap: 40px; }
-      .featured-info { flex: 3; }
-      .featured-visual { flex: 2; }
-    }
-
-    .tag-pill {
-      display: inline-block;
-      padding: 5px 14px;
-      background: #f3f4f6;
-      border-radius: 50px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: #374151;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      margin-bottom: 15px;
-    }
-
-    .tag-react { border-left: 3px solid var(--react-purple); padding-left: 10px; }
-    .tag-mobile { border-left: 3px solid var(--flutter-blue); padding-left: 10px; }
-    .tag-backend { border-left: 3px solid var(--java-gold); padding-left: 10px; }
-
-    .grid-articles {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-
-    .article-card {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
-    }
-
-    .read-more-link {
-      margin-top: 20px;
-      font-weight: 700;
-      color: var(--react-purple);
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
-
-    .read-more-link:hover { text-decoration: underline; }
-    
-    .visual-placeholder {
-      background: #f9fafb;
-      border-radius: 8px;
-      height: 200px; /* Gives the placeholder some presence */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #d1d5db;
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
-
-  <nav class="nav">
-    <div class="container nav-inner">
-      <div class="brand"><strong>MD</strong></div>
-      <div class="links">
-        <a href="index.html">Home</a>
-        <a href="index.html#projects">Projects</a>
-        <a href="articles.html" class="active">Articles</a>
-        <a href="index.html#contact">Contact</a>
-      </div>
+  <h2 class="section-label">Latest Feature</h2>
+  <section class="featured-article" style="border-left: 5px solid #6366f1;">
+    <div class="featured-info">
+      <span class="tag-pill" style="color:#6366f1;">Web Architecture</span>
+      <h2>Mastering React in 2026</h2>
+      <p>Navigating the shift to Server Components and the "React Forget" compiler to build enterprise-grade web platforms.</p>
+      <a href="learning-react.html" class="btn" style="background-color: #6366f1; border-color: #6366f1;">Read Full Article</a>
     </div>
-  </nav>
+    <div class="featured-visual"><div class="visual-placeholder">JS / RSC</div></div>
+  </section>
 
-  <div class="container">
-    <header class="header" style="text-align: left; padding: 60px 0 40px;">
-      <a href="index.html" style="text-decoration: none; color: #9ca3af; font-size: 0.9rem; font-weight: 600;">&larr; BACK TO PORTFOLIO</a>
-      <h1 style="margin-top: 20px; font-size: 2.5rem;">Technical Insights</h1>
-      <p style="font-size: 1.2rem; color: #6b7280;">Engineering perspectives on modern web architecture and mobile ecosystems.</p>
-    </header>
+  <hr style="margin: 60px 0;">
 
-    <section class="featured-article">
-      <div class="featured-info">
-        <span class="tag-pill tag-react">Web Architecture</span>
-        <h2>Mastering React in 2026</h2>
-        <p>A deep dive into the evolution of React. From the shift toward Server Components to the introduction of the React Forget compiler, we explore how to build future-proof web applications by respecting the library's core paradigms.</p>
-        <a href="learning-react.html" class="btn" style="background-color: var(--react-purple); border-color: var(--react-purple);">Read Full Article</a>
+  <h2 class="section-label">Technical Deep Dives</h2>
+  <div class="grid-articles">
+    <div class="card article-card">
+      <div>
+        <span class="tag-pill" style="color:#33C3F0;">Mobile Strategy</span>
+        <h3>Why Flutter is Winning</h3>
+        <p>A look at high-performance rendering and the Impeller engine's impact on 2026 mobile development.</p>
       </div>
-      
-      <div class="featured-visual">
-        <div class="visual-placeholder">
-          &lt; RSC /&gt;
-        </div>
-      </div>
-    </section>
-
-    <div class="grid-articles">
-      
-      <div class="card article-card">
-        <div>
-          <span class="tag-pill tag-mobile">Mobile Strategy</span>
-          <h3>Why Flutter is Winning in 2026</h3>
-          <p>How the Impeller engine and Dart’s unified logic have settled the cross-platform debate for high-performance mobile engineering.</p>
-        </div>
-        <a href="article-flutter.html" class="read-more-link" style="color: var(--flutter-blue);">Read Entry &rarr;</a>
-      </div>
-
-      <div class="card article-card">
-        <div>
-          <span class="tag-pill tag-backend">Backend Architecture</span>
-          <h3>The Logic of School Systems</h3>
-          <p>Implementing robust OOP patterns in Java to manage complex academic data relationships beyond standard CRUD operations.</p>
-        </div>
-        <a href="#" class="read-more-link" style="color: var(--java-gold);">Read Entry &rarr;</a>
-      </div>
-
-      <div class="card article-card">
-        <div>
-          <span class="tag-pill">Professional Strategy</span>
-          <h3>The Accenture Influence</h3>
-          <p>Applying enterprise rigor and client-first documentation from global consulting to agile software development workflows.</p>
-        </div>
-        <a href="#" class="read-more-link">Read Entry &rarr;</a>
-      </div>
-
+      <a href="article-flutter.html" class="read-more-link" style="color:#33C3F0;">Read Entry &rarr;</a>
     </div>
 
-    <footer style="text-align: center; padding: 80px 0 40px; color: #9ca3af; font-size: 0.85rem;">
-      <p>&copy; 2026 Michael Davids • All rights reserved.</p>
-    </footer>
+    <div class="card article-card">
+      <div>
+        <span class="tag-pill" style="color:#f59e0b;">Backend Architecture</span>
+        <h3>Logic of School Systems</h3>
+        <p>Beyond CRUD: Implementing robust Java OOP patterns for complex academic data relationships.</p>
+      </div>
+      <a href="#" class="read-more-link" style="color:#f59e0b;">Read Entry &rarr;</a>
+    </div>
   </div>
 
-</body>
-</html>
+  <hr style="margin: 60px 0;">
+
+  <h2 class="section-label">Career & Strategy</h2>
+  <div class="grid-articles">
+    <div class="card article-card">
+      <div>
+        <span class="tag-pill" style="color:#a855f7;">Professional Growth</span>
+        <h3>The Accenture Influence</h3>
+        <p>Lessons in enterprise rigor and the strategic move toward agile, modern framework ecosystems.</p>
+      </div>
+      <a href="accenture-influence.html" class="read-more-link" style="color:#a855f7;">Read Entry &rarr;</a>
+    </div>
+
+    <div class="card article-card">
+      <div>
+        <span class="tag-pill">Game Engineering</span>
+        <h3>Loops & Game State</h3>
+        <p>Exploring deterministic logic through a Java-based implementation of classic board games.</p>
+      </div>
+      <a href="#" class="read-more-link">Read Entry &rarr;</a>
+    </div>
+  </div>
+</div>
