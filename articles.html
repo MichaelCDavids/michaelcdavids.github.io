@@ -8,7 +8,13 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <style>
-    /* Article Page Specific Refinements */
+    /* Brand Colors */
+    :root {
+      --flutter-blue: #33C3F0;
+      --react-purple: #6366f1;
+      --java-gold: #f59e0b;
+    }
+
     .featured-article {
       display: flex;
       flex-direction: column;
@@ -16,20 +22,15 @@
       border-radius: 12px;
       padding: 40px;
       margin-bottom: 50px;
-      border-left: 5px solid #33C3F0;
+      border-left: 5px solid var(--react-purple); /* Highlighted most recent */
       transition: transform 0.3s ease;
+      background: white;
     }
 
-    .featured-article:hover {
-      transform: translateY(-5px);
-    }
+    .featured-article:hover { transform: translateY(-5px); }
 
     @media (min-width: 768px) {
-      .featured-article {
-        flex-direction: row;
-        align-items: center;
-        gap: 40px;
-      }
+      .featured-article { flex-direction: row; align-items: center; gap: 40px; }
       .featured-info { flex: 3; }
       .featured-visual { flex: 2; }
     }
@@ -47,6 +48,10 @@
       margin-bottom: 15px;
     }
 
+    .tag-react { border-left: 3px solid var(--react-purple); padding-left: 10px; }
+    .tag-mobile { border-left: 3px solid var(--flutter-blue); padding-left: 10px; }
+    .tag-backend { border-left: 3px solid var(--java-gold); padding-left: 10px; }
+
     .grid-articles {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -57,38 +62,28 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: 100%; /* Ensures cards in a row have equal height */
-    }
-
-    .article-card h3 { 
-      margin: 10px 0; 
-      font-size: 1.3rem; 
-      color: #1f2937;
-    }
-
-    .article-card p { 
-      font-size: 0.95rem; 
-      color: #6b7280; 
-      line-height: 1.6;
+      height: 100%;
     }
 
     .read-more-link {
       margin-top: 20px;
       font-weight: 700;
-      color: #33C3F0;
+      color: var(--react-purple);
       text-decoration: none;
       font-size: 0.9rem;
-      display: inline-block;
     }
 
-    .read-more-link:hover {
-      text-decoration: underline;
-    }
+    .read-more-link:hover { text-decoration: underline; }
     
     .visual-placeholder {
       background: #f9fafb;
       border-radius: 8px;
-      overflow: hidden;
+      height: 200px; /* Gives the placeholder some presence */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #d1d5db;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -98,11 +93,10 @@
     <div class="container nav-inner">
       <div class="brand"><strong>MD</strong></div>
       <div class="links">
-        <a href="index.html#about">About</a>
+        <a href="index.html">Home</a>
         <a href="index.html#projects">Projects</a>
-        <a href="index.html#articles">Articles</a>
+        <a href="articles.html" class="active">Articles</a>
         <a href="index.html#contact">Contact</a>
-        <a href="docs/cv.docx" class="nav-btn" target="_blank">CV</a>
       </div>
     </div>
   </nav>
@@ -111,20 +105,20 @@
     <header class="header" style="text-align: left; padding: 60px 0 40px;">
       <a href="index.html" style="text-decoration: none; color: #9ca3af; font-size: 0.9rem; font-weight: 600;">&larr; BACK TO PORTFOLIO</a>
       <h1 style="margin-top: 20px; font-size: 2.5rem;">Technical Insights</h1>
-      <p style="font-size: 1.2rem; color: #6b7280;">Modern software engineering, mobile architecture, and professional growth.</p>
+      <p style="font-size: 1.2rem; color: #6b7280;">Engineering perspectives on modern web architecture and mobile ecosystems.</p>
     </header>
 
     <section class="featured-article">
       <div class="featured-info">
-        <span class="tag-pill";">Mobile Strategy</span>
-        <h2>Why Flutter is Winning in 2026</h2>
-        <p>A strategic look at how Flutter's Impeller engine and Dart's unified logic have redefined cross-platform development. We explore why the "native vs cross-platform" debate is finally being settled in favor of high-performance rendering.</p>
-        <a href="article-flutter.html" class="btn">Read the Full Post</a>
+        <span class="tag-pill tag-react">Web Architecture</span>
+        <h2>Mastering React in 2026</h2>
+        <p>A deep dive into the evolution of React. From the shift toward Server Components to the introduction of the React Forget compiler, we explore how to build future-proof web applications by respecting the library's core paradigms.</p>
+        <a href="learning-react.html" class="btn" style="background-color: var(--react-purple); border-color: var(--react-purple);">Read Full Article</a>
       </div>
       
       <div class="featured-visual">
         <div class="visual-placeholder">
-          
+          &lt; RSC /&gt;
         </div>
       </div>
     </section>
@@ -133,27 +127,27 @@
       
       <div class="card article-card">
         <div>
-          <span class="tag-pill">Backend Architecture</span>
+          <span class="tag-pill tag-mobile">Mobile Strategy</span>
+          <h3>Why Flutter is Winning in 2026</h3>
+          <p>How the Impeller engine and Dart’s unified logic have settled the cross-platform debate for high-performance mobile engineering.</p>
+        </div>
+        <a href="article-flutter.html" class="read-more-link" style="color: var(--flutter-blue);">Read Entry &rarr;</a>
+      </div>
+
+      <div class="card article-card">
+        <div>
+          <span class="tag-pill tag-backend">Backend Architecture</span>
           <h3>The Logic of School Systems</h3>
-          <p>Effective student management goes beyond simple CRUD operations. I discuss implementing robust OOP patterns in Java to handle complex academic relationships.</p>
+          <p>Implementing robust OOP patterns in Java to manage complex academic data relationships beyond standard CRUD operations.</p>
         </div>
-        <a href="#" class="read-more-link">Read Entry &rarr;</a>
+        <a href="#" class="read-more-link" style="color: var(--java-gold);">Read Entry &rarr;</a>
       </div>
 
       <div class="card article-card">
         <div>
-          <span class="tag-pill">Game Engineering</span>
-          <h3>Game Loops & State</h3>
-          <p>Breaking down the architecture of a deterministic game engine. How state management in a Java-based Snakes and Ladders board game mirrors enterprise logic.</p>
-        </div>
-        <a href="#" class="read-more-link">Read Entry &rarr;</a>
-      </div>
-
-      <div class="card article-card">
-        <div>
-          <span class="tag-pill">Strategy</span>
+          <span class="tag-pill">Professional Strategy</span>
           <h3>The Accenture Influence</h3>
-          <p>Consulting is about more than just code. Insights into how enterprise rigor and client-first documentation have shaped my freelance development workflow.</p>
+          <p>Applying enterprise rigor and client-first documentation from global consulting to agile software development workflows.</p>
         </div>
         <a href="#" class="read-more-link">Read Entry &rarr;</a>
       </div>
@@ -161,7 +155,7 @@
     </div>
 
     <footer style="text-align: center; padding: 80px 0 40px; color: #9ca3af; font-size: 0.85rem;">
-      <p>&copy; 2026 Michael Davids • Built for Web, iOS, and Android.</p>
+      <p>&copy; 2026 Michael Davids • All rights reserved.</p>
     </footer>
   </div>
 
