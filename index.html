@@ -1,16 +1,208 @@
-<div class="card">
-  <h3>mute-ui Library v1.0.0</h3>
-  <p>An open-source React UI library featuring high-performance, polymorphic components. Built with a focus on type-safety, accessibility, and modern design systems.</p>
-  
-  <div style="margin-bottom: 15px;">
-    <span style="font-size: 0.75rem; background: #f3f4f6; padding: 4px 8px; border-radius: 4px; margin-right: 5px; color: #374151; font-weight: 600;">React</span>
-    <span style="font-size: 0.75rem; background: #f3f4f6; padding: 4px 8px; border-radius: 4px; margin-right: 5px; color: #374151; font-weight: 600;">TypeScript</span>
-    <span style="font-size: 0.75rem; background: #f3f4f6; padding: 4px 8px; border-radius: 4px; margin-right: 5px; color: #374151; font-weight: 600;">Tailwind CSS</span>
-    <span style="font-size: 0.75rem; background: #f3f4f6; padding: 4px 8px; border-radius: 4px; color: #374151; font-weight: 600;">Framer Motion</span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Michael Davids | Full-Stack & Mobile Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .tech-pill {
+      display: inline-block;
+      font-size: 0.75rem;
+      background: #f3f4f6;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin: 0 4px 8px 0;
+      color: #374151;
+      font-weight: 600;
+      border: 1px solid #e5e7eb;
+    }
+    .project-links {
+      display: flex; 
+      gap: 10px; 
+      flex-wrap: wrap; 
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand"><strong>MD</strong></div>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#articles">Articles</a>
+        <a href="#contact">Contact</a>
+        <a href="docs/cv.docx" class="nav-btn" target="_blank">CV</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header class="header">
+      <h1>Michael Davids</h1>
+      <p>Full-Stack Developer | Java • JavaScript • Flutter Specialist</p>
+      <p style="font-size: 1.1rem; color: #6b7280;">Engineering scalable digital solutions for Web, Android, and iOS</p>
+    </header>
+
+    <hr>
+
+    <section id="about" class="section">
+      <h2>Professional Profile</h2>
+      <p class="center">A dedicated Software Developer and Oracle Certified Associate with extensive experience in bridging complex backend architecture (Java/Spring Boot) with high-performance mobile and web frontends (Flutter/React). I focus on delivering production-ready, accessible, and maintainable software tailored to business objectives.</p>
+    </section>
+
+    <section id="skills" class="section">
+      <h2>Technical Expertise</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Languages</h3>
+          <ul>
+            <li>Java (Oracle SE 8), Dart</li>
+            <li>JavaScript (ES6+), TypeScript</li>
+            <li>Python, SQL</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Frameworks</h3>
+          <ul>
+            <li>Flutter (iOS & Android)</li>
+            <li>React.js, Node.js, Express</li>
+            <li>Spring Boot, Tailwind CSS</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Cloud & Infrastructure</h3>
+          <ul>
+            <li>AWS (Certified), Git/GitHub</li>
+            <li>PostgreSQL, MongoDB, Firebase</li>
+            <li>Docker, Selenium, CI/CD</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>Featured Projects</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>mute-ui Library v1.0.0</h3>
+          <p>An open-source React UI library featuring high-performance, polymorphic components. Engineered for strict type-safety and seamless scalability.</p>
+          <div class="tech-stack">
+            <span class="tech-pill">React</span>
+            <span class="tech-pill">TypeScript</span>
+            <span class="tech-pill">Tailwind CSS</span>
+            <span class="tech-pill">Framer Motion</span>
+          </div>
+          <div class="project-links">
+            <a class="btn" href="https://github.com/MichaelCDavids/mute-ui" target="_blank">Repository</a>
+            <a class="btn" href="https://mute-ui-34653851-ee993.web.app" target="_blank">Live Demo</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Konvi Mobile App</h3>
+          <p>On-demand marketplace developed using Flutter and Dart, integrated with a Node.js backend for high-concurrency transactions.</p>
+          <div class="tech-stack">
+            <span class="tech-pill">Flutter</span>
+            <span class="tech-pill">Dart</span>
+            <span class="tech-pill">Node.js</span>
+            <span class="tech-pill">MongoDB</span>
+          </div>
+          <div class="project-links">
+            <a class="btn" href="https://www.konvi.co" target="_blank">Case Study</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>AwethenticSA</h3>
+          <p>Full-stack eCommerce engine utilizing Java Spring Boot backends and Dart-powered frontends for premium retail experiences.</p>
+          <div class="tech-stack">
+            <span class="tech-pill">Java</span>
+            <span class="tech-pill">Spring Boot</span>
+            <span class="tech-pill">Flutter</span>
+            <span class="tech-pill">PostgreSQL</span>
+          </div>
+          <div class="project-links">
+            <a class="btn disabled" href="#">Internal Project</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Java School System</h3>
+          <p>Management system leveraging object-oriented design to handle complex academic data, student records, and reporting.</p>
+          <div class="tech-stack">
+            <span class="tech-pill">Java</span>
+            <span class="tech-pill">JDBC</span>
+            <span class="tech-pill">MySQL</span>
+          </div>
+          <div class="project-links">
+            <a class="btn" href="https://github.com/MichaelCDavids/java-school-system" target="_blank">View Repo</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>League Simulator</h3>
+          <p>Data-driven simulation engine using PostgreSQL and JDBi to model complex sports logic and statistical forecasting.</p>
+          <div class="tech-stack">
+            <span class="tech-pill">Java</span>
+            <span class="tech-pill">PostgreSQL</span>
+            <span class="tech-pill">JDBi</span>
+          </div>
+          <div class="project-links">
+            <a class="btn" href="https://github.com/MichaelCDavids/league-simulator" target="_blank">See Code</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Snakes and Ladders</h3>
+          <p>Logic-based implementation of game state management, showcasing clean code principles and Java application architecture.</p>
+          <div class="tech-stack">
+            <span class="tech-pill">Java SE 8</span>
+            <span class="tech-pill">OOP Architecture</span>
+          </div>
+          <div class="project-links">
+            <a class="btn" href="https://github.com/MichaelCDavids/snakes-and-ladders" target="_blank">View Repo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="articles" class="section">
+      <h2>Technical Insights</h2>
+      <div class="card" style="border-left: 4px solid #33C3F0; text-align: left;">
+        <div style="padding: 10px 20px;">
+          <span style="color: #33C3F0; font-weight: bold; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">Featured Article</span>
+          <h3 style="margin: 10px 0;">Why Flutter is Winning in 2026</h3>
+          <p>An analysis of cross-platform performance and why Flutter remains the industry standard for rapid, high-fidelity mobile deployment.</p>
+          <a href="article-flutter.html" class="btn">Read Article</a>
+          <a href="articles.html" style="margin-left: 20px; text-decoration: none; color: #6b7280; font-weight: 600;">View Archive &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Professional Inquiries</h2>
+      <div class="center">
+        <p>I am available for discussions regarding architecture, full-stack development, and technical consulting.</p>
+        <div class="socials-flex">
+          <a href="mailto:michaelcdavids@gmail.com?subject=Project Inquiry - Michael Davids" class="btn">Email Inquiry</a>
+          <a href="https://wa.me/27731529691?text=Hello%20Michael,%20I%20have%20reviewed%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" class="btn" style="background-color: #25D366; color: white; border-color: #25D366;">WhatsApp</a>
+          <a href="https://github.com/MichaelCDavids" target="_blank" class="btn">GitHub</a>
+          <a href="https://linkedin.com/in/michaelcdavids" target="_blank" class="btn">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+    <footer style="text-align: center; padding: 40px 0; color: #9ca3af; font-size: 0.9rem;">
+      <p>&copy; 2026 Michael Davids. All rights reserved.</p>
+    </footer>
   </div>
 
-  <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-    <a class="btn" href="https://github.com/MichaelCDavids/mute-ui" target="_blank">Repository</a>
-    <a class="btn" href="https://mute-ui-34653851-ee993.web.app" target="_blank">Live Demo</a>
-  </div>
-</div>
+</body>
+</html>
