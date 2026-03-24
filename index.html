@@ -2,29 +2,63 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Michael Davids | Full-Stack & Mobile Developer</title>
+  <title>Michael Davids | Full-Stack Developer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <style>
+    /* --- Dark Theme Overrides --- */
+    :root {
+      --bg-dark: #0f172a;
+      --card-bg: #1e293b;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent-blue: #33C3F0;
+      --accent-purple: #6366f1;
+    }
+
+    body { background-color: var(--bg-dark); color: var(--text-main); }
+    
+    .nav { background: rgba(15, 23, 42, 0.9); border-bottom: 1px solid #1e293b; }
+    .nav a { color: var(--text-muted); }
+    .nav a:hover, .nav a.active { color: var(--text-main); }
+
+    .header h1 { color: #f8fafc; font-size: 3rem; margin-bottom: 10px; }
+    .header p { color: var(--text-muted); font-size: 1.2rem; }
+
+    .section h2 { border-bottom: 2px solid #1e293b; padding-bottom: 10px; color: #f8fafc; }
+    
+    .card { 
+      background: var(--card-bg); 
+      border: 1px solid #1e293b; 
+      color: var(--text-main); 
+      transition: border-color 0.3s ease;
+    }
+    .card:hover { border-color: #334155; }
+    .card h3 { color: #f8fafc; }
+    .card p { color: var(--text-muted); }
+
+    /* Tech Pills */
     .tech-pill {
       display: inline-block;
-      font-size: 0.75rem;
-      background: #f3f4f6;
+      font-size: 0.7rem;
+      background: #0f172a;
       padding: 4px 10px;
       border-radius: 4px;
       margin: 0 4px 8px 0;
-      color: #374151;
-      font-weight: 600;
-      border: 1px solid #e5e7eb;
+      color: var(--accent-blue);
+      font-weight: 700;
+      border: 1px solid #334155;
     }
-    .project-links {
-      display: flex; 
-      gap: 10px; 
-      flex-wrap: wrap; 
-      margin-top: 15px;
-    }
+
+    /* Buttons */
+    .btn { background: var(--accent-blue); border-color: var(--accent-blue); color: #0f172a; font-weight: 700; }
+    .btn:hover { background: #56d3f3; border-color: #56d3f3; }
+
+    hr { border-top: 1px solid #1e293b; }
+
+    footer { color: #475569; }
   </style>
 </head>
 <body>
@@ -34,9 +68,8 @@
       <div class="brand"><strong>MD</strong></div>
       <div class="links">
         <a href="#about">About</a>
-        <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
-        <a href="#articles">Articles</a>
+        <a href="articles.html">Articles</a>
         <a href="#contact">Contact</a>
         <a href="docs/cv.docx" class="nav-btn" target="_blank">CV</a>
       </div>
@@ -44,130 +77,55 @@
   </nav>
 
   <div class="container">
-    <header class="header">
+    <header class="header" style="padding: 100px 0 60px; text-align: center;">
       <h1>Michael Davids</h1>
-      <p>Full-Stack Developer | Java • JavaScript • Flutter Specialist</p>
-      <p style="font-size: 1.1rem; color: #6b7280;">Engineering scalable digital solutions for Web, Android, and iOS</p>
+      <p>Full-Stack Developer</p>
     </header>
-
-    <hr>
 
     <section id="about" class="section">
       <h2>Professional Profile</h2>
-      <p class="center">A dedicated Software Developer and Oracle Certified Associate with extensive experience in bridging complex backend architecture (Java/Spring Boot) with high-performance mobile and web frontends (Flutter/React). I focus on delivering production-ready, accessible, and maintainable software tailored to business objectives.</p>
-    </section>
-
-    <section id="skills" class="section">
-      <h2>Technical Expertise</h2>
-      <div class="grid-3">
-        <div class="card">
-          <h3>Languages</h3>
-          <ul>
-            <li>Java (Oracle SE 8), Dart</li>
-            <li>JavaScript (ES6+), TypeScript</li>
-            <li>Python, SQL</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Frameworks</h3>
-          <ul>
-            <li>Flutter (iOS & Android)</li>
-            <li>React.js, Node.js, Express</li>
-            <li>Spring Boot, Tailwind CSS</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Cloud & Infrastructure</h3>
-          <ul>
-            <li>AWS (Certified), Git/GitHub</li>
-            <li>PostgreSQL, MongoDB, Firebase</li>
-            <li>Docker, Selenium, CI/CD</li>
-          </ul>
-        </div>
-      </div>
+      <p>A dedicated Software Developer and Oracle Certified Associate focused on bridging complex backend architecture with high-performance mobile and web frontends. I specialize in delivering production-ready, accessible, and maintainable software tailored to business objectives.</p>
     </section>
 
     <section id="projects" class="section">
       <h2>Featured Projects</h2>
       <div class="grid-3">
         <div class="card">
-          <h3>mute-ui Library v1.0.0</h3>
-          <p>An open-source React UI library featuring high-performance, polymorphic components. Engineered for strict type-safety and seamless scalability.</p>
-          <div class="tech-stack">
+          <h3>mute-ui v1.0.0</h3>
+          <p>Open-source React UI library featuring high-performance, polymorphic components.</p>
+          <div>
             <span class="tech-pill">React</span>
             <span class="tech-pill">TypeScript</span>
-            <span class="tech-pill">Tailwind CSS</span>
-            <span class="tech-pill">Framer Motion</span>
+            <span class="tech-pill">Tailwind</span>
           </div>
-          <div class="project-links">
-            <a class="btn" href="https://github.com/MichaelCDavids/mute-ui" target="_blank">Repository</a>
+          <div style="margin-top: 15px;">
             <a class="btn" href="https://mute-ui-34653851-ee993.web.app" target="_blank">Live Demo</a>
           </div>
         </div>
 
         <div class="card">
-          <h3>Konvi Mobile App</h3>
-          <p>On-demand marketplace developed using Flutter and Dart, integrated with a Node.js backend for high-concurrency transactions.</p>
-          <div class="tech-stack">
+          <h3>Konvi Mobile</h3>
+          <p>On-demand marketplace for social discovery and event management.</p>
+          <div>
             <span class="tech-pill">Flutter</span>
             <span class="tech-pill">Dart</span>
-            <span class="tech-pill">Node.js</span>
-            <span class="tech-pill">MongoDB</span>
+            <span class="tech-pill">Firebase</span>
           </div>
-          <div class="project-links">
+          <div style="margin-top: 15px;">
             <a class="btn" href="https://www.konvi.co" target="_blank">Case Study</a>
           </div>
         </div>
 
         <div class="card">
           <h3>AwethenticSA</h3>
-          <p>Full-stack eCommerce engine utilizing Java Spring Boot backends and Dart-powered frontends for premium retail experiences.</p>
-          <div class="tech-stack">
+          <p>Full-stack eCommerce engine built for premium retail experiences.</p>
+          <div>
             <span class="tech-pill">Java</span>
             <span class="tech-pill">Spring Boot</span>
-            <span class="tech-pill">Flutter</span>
             <span class="tech-pill">PostgreSQL</span>
           </div>
-          <div class="project-links">
-            <a class="btn disabled" href="#">Internal Project</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Java School System</h3>
-          <p>Management system leveraging object-oriented design to handle complex academic data, student records, and reporting.</p>
-          <div class="tech-stack">
-            <span class="tech-pill">Java</span>
-            <span class="tech-pill">JDBC</span>
-            <span class="tech-pill">MySQL</span>
-          </div>
-          <div class="project-links">
-            <a class="btn" href="https://github.com/MichaelCDavids/java-school-system" target="_blank">View Repo</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>League Simulator</h3>
-          <p>Data-driven simulation engine using PostgreSQL and JDBi to model complex sports logic and statistical forecasting.</p>
-          <div class="tech-stack">
-            <span class="tech-pill">Java</span>
-            <span class="tech-pill">PostgreSQL</span>
-            <span class="tech-pill">JDBi</span>
-          </div>
-          <div class="project-links">
-            <a class="btn" href="https://github.com/MichaelCDavids/league-simulator" target="_blank">See Code</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Snakes and Ladders</h3>
-          <p>Logic-based implementation of game state management, showcasing clean code principles and Java application architecture.</p>
-          <div class="tech-stack">
-            <span class="tech-pill">Java SE 8</span>
-            <span class="tech-pill">OOP Architecture</span>
-          </div>
-          <div class="project-links">
-            <a class="btn" href="https://github.com/MichaelCDavids/snakes-and-ladders" target="_blank">View Repo</a>
+          <div style="margin-top: 15px;">
+            <span style="color: #475569; font-size: 0.8rem; font-weight: 700;">PRIVATE REPO</span>
           </div>
         </div>
       </div>
@@ -175,32 +133,26 @@
 
     <section id="articles" class="section">
       <h2>Technical Insights</h2>
-      <div class="card" style="border-left: 4px solid #33C3F0; text-align: left;">
-        <div style="padding: 10px 20px;">
-          <span style="color: #33C3F0; font-weight: bold; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">Featured Article</span>
-          <h3 style="margin: 10px 0;">Why Flutter is Winning in 2026</h3>
-          <p>An analysis of cross-platform performance and why Flutter remains the industry standard for rapid, high-fidelity mobile deployment.</p>
-          <a href="article-flutter.html" class="btn">Read Article</a>
-          <a href="articles.html" style="margin-left: 20px; text-decoration: none; color: #6b7280; font-weight: 600;">View Archive &rarr;</a>
+      <div class="card" style="border-left: 4px solid var(--accent-purple); display: flex; justify-content: space-between; align-items: center; padding: 30px;">
+        <div>
+          <h3 style="margin-top: 0;">Mastering React in 2026</h3>
+          <p style="margin-bottom: 0;">Exploring Server Components and the new era of web architecture.</p>
         </div>
+        <a href="articles.html" class="btn" style="background: var(--accent-purple); border-color: var(--accent-purple); color: white;">Read More</a>
       </div>
     </section>
 
-    <section id="contact" class="section">
-      <h2>Professional Inquiries</h2>
-      <div class="center">
-        <p>I am available for discussions regarding architecture, full-stack development, and technical consulting.</p>
-        <div class="socials-flex">
-          <a href="mailto:michaelcdavids@gmail.com?subject=Project Inquiry - Michael Davids" class="btn">Email Inquiry</a>
-          <a href="https://wa.me/27731529691?text=Hello%20Michael,%20I%20have%20reviewed%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" class="btn" style="background-color: #25D366; color: white; border-color: #25D366;">WhatsApp</a>
-          <a href="https://github.com/MichaelCDavids" target="_blank" class="btn">GitHub</a>
-          <a href="https://linkedin.com/in/michaelcdavids" target="_blank" class="btn">LinkedIn</a>
-        </div>
+    <section id="contact" class="section" style="text-align: center; padding: 60px 0;">
+      <h2>Let's Build Something</h2>
+      <p>Available for full-stack, mobile, and technical consulting roles.</p>
+      <div style="margin-top: 30px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+        <a href="mailto:michaelcdavids@gmail.com" class="btn">Email</a>
+        <a href="https://linkedin.com/in/michaelcdavids" class="btn" style="background: transparent; border: 1px solid #334155; color: white;">LinkedIn</a>
       </div>
     </section>
 
-    <footer style="text-align: center; padding: 40px 0; color: #9ca3af; font-size: 0.9rem;">
-      <p>&copy; 2026 Michael Davids. All rights reserved.</p>
+    <footer style="text-align: center; padding: 40px 0;">
+      <p>&copy; 2026 Michael Davids • Cape Town, South Africa</p>
     </footer>
   </div>
 
