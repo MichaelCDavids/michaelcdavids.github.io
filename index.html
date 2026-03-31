@@ -56,8 +56,8 @@
     .skill-card li { margin-bottom: 12px; display: flex; align-items: center; }
     .skill-card li::before { content: "→"; color: var(--accent-blue); margin-right: 10px; font-weight: bold; }
 
-    .grid-projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 32px; }
-    .project-card { 
+    .grid-projects, .grid-articles { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 32px; }
+    .project-card, .article-card { 
       background: var(--card-bg); 
       border: 1px solid var(--border); 
       border-radius: 16px; 
@@ -66,9 +66,9 @@
       flex-direction: column;
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-    .project-card:hover { transform: translateY(-8px); border-color: var(--accent-blue); box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.5); }
-    .project-card h3 { margin: 15px 0; font-size: 1.4rem; }
-    .project-card p { color: var(--text-muted); font-size: 0.95rem; flex-grow: 1; margin-bottom: 25px; }
+    .project-card:hover, .article-card:hover { transform: translateY(-8px); border-color: var(--accent-blue); box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.5); }
+    .project-card h3, .article-card h3 { margin: 15px 0; font-size: 1.4rem; }
+    .project-card p, .article-card p { color: var(--text-muted); font-size: 0.95rem; flex-grow: 1; margin-bottom: 25px; }
 
     .tech-stack { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
     .tech-tag { font-size: 0.6rem; background: #0f172a; color: var(--accent-blue); padding: 5px 10px; border-radius: 4px; border: 1px solid var(--border); font-weight: 700; text-transform: uppercase; }
@@ -114,6 +114,7 @@
       <div class="links">
         <a href="#expertise">Expertise</a>
         <a href="#projects">Portfolio</a>
+        <a href="#articles">Articles</a>
         <a href="#contact">Contact</a>
         <a href="docs/cv.docx" target="_blank" style="color: var(--accent-blue); border: 1px solid var(--accent-blue); padding: 6px 16px; border-radius: 4px;">Download CV</a>
       </div>
@@ -267,6 +268,37 @@
       </div>
     </section>
 
+    <section id="articles" class="section">
+        <div class="section-header">
+          <h2>Technical Articles</h2>
+          <p class="section-subtitle">Insights into software architecture and development practices.</p>
+        </div>
+        <div class="grid-articles">
+          <div class="article-card">
+            <div class="tech-stack">
+                <span class="tech-tag">Architecture</span>
+                <span class="tech-tag">UX</span>
+            </div>
+            <h3>Mastering the Storefront</h3>
+            <p>Exploring the intersection of performance and usability in high-concurrency e-commerce environments.</p>
+            <div class="btn-group">
+                <a href="articles.html" class="btn btn-secondary">Read Full Story</a>
+            </div>
+          </div>
+          <div class="article-card">
+            <div class="tech-stack">
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Design Systems</span>
+            </div>
+            <h3>Polymorphism in React</h3>
+            <p>A deep dive into building truly flexible component libraries that maintain strict type-safety.</p>
+            <div class="btn-group">
+                <a href="articles.html" class="btn btn-secondary">Read Full Story</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
     <section id="contact" class="section" style="text-align: center;">
       <h2>Let's Discuss Your Next Build</h2>
       <p style="margin-bottom: 40px; color: var(--text-muted);">Open for high-impact Software Engineering roles and technical collaborations.</p>
@@ -280,7 +312,7 @@
       <div class="footer-socials">
         <a href="https://github.com/MichaelCDavids" target="_blank">GitHub</a>
         <a href="https://linkedin.com/in/michaelcdavids" target="_blank">LinkedIn</a>
-        <a href="articles.html">Articles</a>
+        <a href="#articles">Articles</a>
       </div>
       <p style="font-size: 0.75rem; color: #475569; letter-spacing: 1px;">&copy; 2026 Michael Davids • Cape Town, South Africa</p>
     </footer>
