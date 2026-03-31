@@ -22,9 +22,38 @@
     body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; font-family: 'Raleway', sans-serif; margin: 0; }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
     
-    .nav { background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; padding: 18px 0; }
-    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
-    .nav a { color: var(--text-muted); font-weight: 600; text-decoration: none; margin-left: 24px; font-size: 0.85rem; transition: color 0.2s; text-transform: uppercase; letter-spacing: 1px; }
+    /* Updated Responsive Nav */
+    .nav { 
+      background: rgba(15, 23, 42, 0.95); 
+      backdrop-filter: blur(10px); 
+      border-bottom: 1px solid var(--border); 
+      position: sticky; 
+      top: 0; 
+      z-index: 1000; 
+      padding: 15px 0; 
+    }
+    .nav-inner { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      flex-wrap: wrap; /* Allows wrapping on mobile */
+    }
+    .links {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .nav a { 
+      color: var(--text-muted); 
+      font-weight: 600; 
+      text-decoration: none; 
+      margin: 5px 0 5px 24px; 
+      font-size: 0.85rem; 
+      transition: color 0.2s; 
+      text-transform: uppercase; 
+      letter-spacing: 1px; 
+    }
     .nav a:hover { color: var(--accent-blue); }
 
     .hero { padding: 120px 0 80px; text-align: center; }
@@ -101,8 +130,10 @@
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.5rem; }
       .grid-projects { grid-template-columns: 1fr; }
-      .nav-inner { flex-direction: column; gap: 15px; }
-      .nav a { margin: 0 10px; }
+      .nav-inner { justify-content: center; text-align: center; }
+      .brand { width: 100%; margin-bottom: 10px; }
+      .links { width: 100%; justify-content: center; }
+      .nav a { margin: 5px 12px; }
     }
   </style>
 </head>
@@ -116,7 +147,7 @@
         <a href="#projects">Portfolio</a>
         <a href="#articles">Articles</a>
         <a href="#contact">Contact</a>
-        <a href="docs/cv.docx" target="_blank" style="color: var(--accent-blue); border: 1px solid var(--accent-blue); padding: 6px 16px; border-radius: 4px;">Download CV</a>
+        <a href="docs/cv.docx" target="_blank" style="color: var(--accent-blue); border: 1px solid var(--accent-blue); padding: 6px 16px; border-radius: 4px; margin-left: 20px;">CV</a>
       </div>
     </div>
   </nav>
@@ -174,30 +205,16 @@
         <div class="project-card">
           <div>
             <div class="tech-stack">
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">Finance</span>
-              <span class="tech-tag">Real-time Data</span>
+              <span class="tech-tag">Java Spring Boot</span>
+              <span class="tech-tag">Flutter</span>
+              <span class="tech-tag">PostgreSQL</span>
             </div>
-            <h3>Trade Signals Terminal</h3>
-            <p>A specialized dashboard for tracking real-time market indicators and trade signals, optimized for data accuracy and low-latency updates.</p>
+            <h3>AwethenticSA E-Commerce</h3>
+            <p>A comprehensive e-commerce ecosystem featuring a modular microservices backend and a high-fidelity cross-platform frontend. Engineered for enterprise-grade scalability.</p>
           </div>
           <div class="btn-group">
-            <a href="https://legendary-goggles-297529-77b0d.web.app/" class="btn" target="_blank">Launch Terminal</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div>
-            <div class="tech-stack">
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">E-Commerce</span>
-              <span class="tech-tag">Context API</span>
-            </div>
-            <h3>Enterprise Storefront</h3>
-            <p>A high-fidelity React-based e-commerce frontend demonstrating optimized component architecture, seamless user journeys, and robust state handling.</p>
-          </div>
-          <div class="btn-group">
-            <a href="https://react-store-michael-9816-c55bd.web.app/" class="btn" target="_blank">Live Storefront</a>
+            <a href="https://github.com/MichaelCDavids" class="btn" target="_blank">View Project</a>
+            <a href="https://github.com/MichaelCDavids" class="btn btn-secondary" target="_blank">Source</a>
           </div>
         </div>
 
@@ -214,6 +231,21 @@
           <div class="btn-group">
             <a href="https://dvt-store-assessment.web.app" class="btn" target="_blank">Live Demo</a>
             <a href="https://github.com/MichaelCDavids" class="btn btn-secondary" target="_blank">Source</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <div class="tech-stack">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Finance</span>
+              <span class="tech-tag">Real-time Data</span>
+            </div>
+            <h3>Trade Signals Terminal</h3>
+            <p>A specialized dashboard for tracking real-time market indicators and trade signals, optimized for data accuracy and low-latency updates.</p>
+          </div>
+          <div class="btn-group">
+            <a href="https://legendary-goggles-297529-77b0d.web.app/" class="btn" target="_blank">Launch Terminal</a>
           </div>
         </div>
 
@@ -245,24 +277,6 @@
           </div>
           <div class="btn-group">
             <a href="https://mute-ui-34653851-ee993.web.app" class="btn" target="_blank">Documentation</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div>
-            <div class="tech-stack">
-              <span class="tech-tag">Java Spring Boot</span>
-              <span class="tech-tag">Flutter / Dart</span>
-              <span class="tech-tag">PostgreSQL</span>
-            </div>
-            <h3>AwethenticSA E-Commerce Engine</h3>
-            <p>A custom-built enterprise engine featuring a Java Spring Boot microservices backend and a high-fidelity Dart/Flutter frontend. Architected for modular scalability.</p>
-          </div>
-          <div class="btn-group">
-            <a href="https://github.com/MichaelCDavids" class="btn btn-secondary" target="_blank">View Repository</a>
-          </div>
-          <div style="font-size: 0.65rem; color: var(--accent-gold); margin-top: 15px; font-weight: 700; text-transform: uppercase; border-top: 1px solid var(--border); padding-top: 10px;">
-            Proprietary Architecture • Demo Upon Request
           </div>
         </div>
       </div>
