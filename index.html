@@ -15,42 +15,38 @@
       --text-muted: #94a3b8;
       --accent-blue: #38bdf8;
       --border: #334155;
-      --accent-gold: #fbbf24;
     }
 
     body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; font-family: 'Raleway', sans-serif; margin: 0; scroll-behavior: smooth; }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
     
-    /* Responsive Navigation */
+    /* Responsive & Neat Navbar */
     .nav { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; padding: 15px 0; }
     .nav-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
     .nav a { color: var(--text-muted); font-weight: 600; text-decoration: none; margin-left: 24px; font-size: 0.85rem; transition: color 0.2s; text-transform: uppercase; letter-spacing: 1px; }
     .nav a:hover { color: var(--accent-blue); }
 
-    .hero { padding: 120px 0 80px; text-align: center; }
-    .hero h1 { font-size: 3.8rem; margin: 0 0 15px; color: #f8fafc; letter-spacing: -1px; }
-    .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 750px; margin: 0 auto 30px; line-height: 1.8; }
+    .hero { padding: 100px 0 60px; text-align: center; }
+    .hero h1 { font-size: 3.5rem; margin-bottom: 15px; color: #f8fafc; letter-spacing: -1px; }
+    .hero p { font-size: 1.1rem; color: var(--text-muted); max-width: 800px; margin: 0 auto 30px; }
 
-    .cert-badge { display: inline-block; padding: 6px 14px; background: rgba(56, 189, 248, 0.1); border: 1px solid var(--accent-blue); border-radius: 4px; font-size: 0.7rem; font-weight: 700; color: var(--accent-blue); margin: 5px; text-transform: uppercase; }
+    .cert-badge { display: inline-block; padding: 5px 12px; background: rgba(56, 189, 248, 0.1); border: 1px solid var(--accent-blue); border-radius: 4px; font-size: 0.7rem; font-weight: 700; color: var(--accent-blue); margin: 5px; text-transform: uppercase; }
 
-    .section { padding: 100px 0; border-top: 1px solid var(--border); }
-    .section-header { margin-bottom: 50px; }
-    .section h2 { font-size: 2rem; margin-bottom: 10px; color: #f8fafc; }
-
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; }
-    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 40px; display: flex; flex-direction: column; transition: all 0.3s ease; }
-    .card:hover { transform: translateY(-8px); border-color: var(--accent-blue); }
+    .section { padding: 80px 0; border-top: 1px solid var(--border); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; }
+    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 35px; display: flex; flex-direction: column; transition: 0.3s ease; }
+    .card:hover { transform: translateY(-8px); border-color: var(--accent-blue); box-shadow: 0 20px 40px -20px rgba(0,0,0,0.5); }
     
-    .tech-tag { font-size: 0.6rem; background: #0f172a; color: var(--accent-blue); padding: 5px 10px; border-radius: 4px; border: 1px solid var(--border); font-weight: 700; text-transform: uppercase; margin-right: 5px; }
+    .tech-tag { font-size: 0.6rem; background: #0f172a; color: var(--accent-blue); padding: 4px 8px; border-radius: 4px; border: 1px solid var(--border); font-weight: 700; text-transform: uppercase; margin-right: 6px; }
 
-    .btn { background: var(--accent-blue); color: #0f172a; padding: 12px 24px; text-decoration: none; font-weight: 700; border-radius: 6px; text-align: center; text-transform: uppercase; font-size: 0.85rem; margin-top: auto; display: inline-block; transition: 0.2s; }
+    .btn { background: var(--accent-blue); color: #0f172a; padding: 12px 20px; text-decoration: none; font-weight: 700; border-radius: 6px; text-align: center; text-transform: uppercase; font-size: 0.8rem; margin-top: auto; display: inline-block; transition: 0.2s; }
     .btn:hover { background: #7dd3fc; }
-    .btn-secondary { background: transparent; border: 1px solid var(--border); color: var(--text-main); }
+    .btn-secondary { background: transparent; border: 1px solid var(--border); color: var(--text-main); margin-top: 10px; }
     .btn-secondary:hover { border-color: var(--accent-blue); color: var(--accent-blue); }
 
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.5rem; }
-      .nav-inner { justify-content: center; text-align: center; }
+      .nav-inner { justify-content: center; }
       .nav a { margin: 8px 12px; }
     }
   </style>
@@ -72,7 +68,7 @@
   <div class="container">
     <header class="hero">
       <h1>Michael Davids</h1>
-      <p>Full-Stack Software Engineer & Founder specializing in scalable cloud architecture, high-performance mobile ecosystems, and type-safe financial tools.</p>
+      <p>Full-Stack Software Engineer & Founder. Building scalable cloud architecture, high-performance mobile ecosystems, and type-safe financial tools.</p>
       <div>
         <span class="cert-badge">Oracle Certified Associate | Java SE 8</span>
         <span class="cert-badge">AWS Certified Cloud Practitioner</span>
@@ -80,66 +76,88 @@
     </header>
 
     <section id="projects" class="section">
-      <div class="section-header">
-        <h2>Featured Deployments</h2>
-      </div>
+      <h2 style="margin-bottom: 40px;">Featured Deployments</h2>
       <div class="grid">
+        <div class="card">
+          <div style="margin-bottom: 15px;">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">XAU/USD</span>
+          </div>
+          <h3>Trade Signals Terminal</h3>
+          <p>A specialized dashboard for tracking real-time market indicators and trade signals. Optimized for precision data analysis.</p>
+          <a href="https://legendary-goggles-297529-77b0d.web.app/" class="btn">Launch Terminal</a>
+        </div>
+
         <div class="card">
           <div style="margin-bottom: 15px;">
             <span class="tech-tag">Java Spring Boot</span>
             <span class="tech-tag">Flutter</span>
           </div>
           <h3>AwethenticSA E-Commerce</h3>
-          <p>An enterprise-grade e-commerce engine featuring a modular microservices backend and high-fidelity cross-platform frontend.</p>
-          <a href="https://github.com/MichaelCDavids" class="btn">View Engine</a>
+          <p>Enterprise e-commerce engine featuring a modular microservices backend and cross-platform frontend architecture.</p>
+          <a href="https://github.com/MichaelCDavids" class="btn btn-secondary">View Repository</a>
         </div>
 
         <div class="card">
           <div style="margin-bottom: 15px;">
             <span class="tech-tag">React</span>
-            <span class="tech-tag">Unit Testing</span>
+            <span class="tech-tag">Clean Arch</span>
           </div>
           <h3>DVT Store Challenge</h3>
-          <p>A senior storefront assessment demonstrating optimized state management and clean architecture within a production-ready React environment.</p>
-          <div class="btn-group" style="display: flex; gap: 10px; margin-top: auto;">
-            <a href="https://dvt-store-assessment.web.app" class="btn" style="flex: 1;">Live Demo</a>
-            <a href="https://github.com/MichaelCDavids" class="btn btn-secondary" style="flex: 1;">Source</a>
+          <p>Senior-level storefront assessment demonstrating scalable state management and performant UI implementation.</p>
+          <div style="display: flex; gap: 10px; margin-top: auto;">
+            <a href="https://react-store-michael-9816-c55bd.web.app/" class="btn" style="flex: 1;">Demo</a>
+            <a href="https://github.com/MichaelCDavids" class="btn btn-secondary" style="flex: 1; margin-top: 0;">Code</a>
           </div>
+        </div>
+
+        <div class="card">
+          <div style="margin-bottom: 15px;">
+            <span class="tech-tag">Flutter Web</span>
+            <span class="tech-tag">Node.js</span>
+          </div>
+          <h3>Konvi Ecosystem</h3>
+          <p>On-demand marketplace for social discovery. Featured web deployment synced with high-concurrency backend.</p>
+          <div style="display: flex; gap: 10px; margin-top: auto;">
+            <a href="https://konviapp-81382577-1f10d.web.app/" class="btn" style="flex: 1;">Launch</a>
+            <a href="https://konvibackend.onrender.com/" class="btn btn-secondary" style="flex: 1; margin-top: 0;">Docs</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div style="margin-bottom: 15px;">
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">NPM</span>
+          </div>
+          <h3>@michaelcdavids/mute-ui</h3>
+          <p>Open-source polymorphic React library built for strict type-safety and seamless design system integration.</p>
+          <a href="https://mute-ui-34653851-ee993.web.app" class="btn btn-secondary">Documentation</a>
         </div>
       </div>
     </section>
 
     <section id="articles" class="section">
-      <div class="section-header">
-        <h2>Latest Technical Writing</h2>
-      </div>
+      <h2 style="margin-bottom: 40px;">Technical Writing</h2>
       <div class="grid">
         <div class="card">
           <h3>The Accenture Influence</h3>
-          <p>Understanding corporate architectural standards and their role in engineering growth.</p>
+          <p>Insights into enterprise standards and global consulting engineering workflows.</p>
           <a href="accenture-influence.html" class="btn btn-secondary">Read Article</a>
         </div>
         <div class="card">
           <h3>Learning React</h3>
-          <p>A deep dive into functional components and state for full-stack developers.</p>
+          <p>Mastering functional components and complex state logic as a full-stack engineer.</p>
           <a href="learning-react.html" class="btn btn-secondary">Read Article</a>
         </div>
       </div>
-      <div style="text-align: center; margin-top: 50px;">
-        <a href="articles.html" class="btn" style="min-width: 250px;">View All Articles</a>
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="articles.html" class="btn" style="min-width: 220px;">View All 4 Articles</a>
       </div>
     </section>
-
-    <section id="contact" class="section" style="text-align: center;">
-      <h2>Let's Connect</h2>
-      <p style="color: var(--text-muted); margin-bottom: 40px;">Available for high-impact engineering roles and collaborations.</p>
-      <a href="mailto:michaelcdavids@gmail.com" class="btn">Send Email</a>
-    </section>
-
-    <footer style="padding: 50px 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.8rem; color: var(--text-muted);">
-      <p>&copy; 2026 Michael Davids • Cape Town, South Africa</p>
-    </footer>
   </div>
 
+  <footer style="padding: 60px 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.8rem; color: var(--text-muted);">
+    <p>&copy; 2026 Michael Davids • Cape Town, South Africa</p>
+  </footer>
 </body>
 </html>
