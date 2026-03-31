@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Articles | Michael Davids</title>
+  <title>Technical Articles | Michael Davids</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <style>
+    /* Reusing root variables for consistency */
     :root {
       --bg-dark: #0f172a;
       --card-bg: #1e293b;
@@ -16,74 +17,63 @@
       --accent-blue: #38bdf8;
       --border: #334155;
     }
-
-    body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; font-family: 'Raleway', sans-serif; margin: 0; }
-    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Raleway', sans-serif; margin: 0; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 60px 24px; }
     
-    .nav { background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; padding: 18px 0; }
+    .nav { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 15px 0; position: sticky; top: 0; z-index: 1000; }
     .nav-inner { display: flex; justify-content: space-between; align-items: center; }
-    .nav a { color: var(--text-muted); font-weight: 600; text-decoration: none; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+    .nav a { color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; margin-left: 24px; }
     
-    header { padding: 80px 0 40px; }
-    h1 { font-size: 2.5rem; color: #f8fafc; margin-bottom: 10px; }
-    .subtitle { color: var(--text-muted); font-size: 1.1rem; }
-
-    .article-list { display: grid; gap: 30px; margin-bottom: 80px; }
-    .article-card { 
-      background: var(--card-bg); 
-      border: 1px solid var(--border); 
-      border-radius: 12px; 
-      padding: 30px; 
-      text-decoration: none; 
-      transition: all 0.3s ease;
-      display: block;
-    }
-    .article-card:hover { border-color: var(--accent-blue); transform: translateY(-4px); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 32px; margin-top: 40px; }
+    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 40px; transition: 0.3s; display: flex; flex-direction: column; }
+    .card:hover { border-color: var(--accent-blue); transform: translateY(-5px); }
     
-    .article-tag { font-size: 0.7rem; color: var(--accent-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; display: block; }
-    .article-card h2 { margin: 10px 0; color: #f8fafc; font-size: 1.5rem; transition: color 0.2s; }
-    .article-card:hover h2 { color: var(--accent-blue); }
-    .article-card p { color: var(--text-muted); margin-bottom: 0; font-size: 1rem; }
-    .article-date { font-size: 0.8rem; color: #475569; margin-top: 20px; display: block; }
-
-    footer { text-align: center; padding: 60px 0; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.8rem; }
+    .btn { background: var(--accent-blue); color: #0f172a; padding: 12px; text-decoration: none; border-radius: 6px; font-weight: 700; text-align: center; text-transform: uppercase; font-size: 0.8rem; margin-top: auto; }
+    .tech-tag { font-size: 0.6rem; color: var(--accent-blue); background: #0f172a; padding: 4px 8px; border-radius: 4px; border: 1px solid var(--border); font-weight: 700; margin-bottom: 15px; display: inline-block; }
   </style>
 </head>
 <body>
 
   <nav class="nav">
     <div class="container nav-inner">
-      <a href="index.html" style="color: var(--accent-blue); font-weight: 700;">← Back to Portfolio</a>
-      <a href="index.html#contact">Inquiries</a>
+      <a href="index.html" style="color: white; text-decoration: none; letter-spacing: 2px;"><strong>MD / ARTICLES</strong></a>
+      <a href="index.html" style="border: 1px solid var(--border); padding: 6px 16px; border-radius: 4px;">Back Home</a>
     </div>
   </nav>
 
   <div class="container">
-    <header>
-      <h1>Engineering Insights</h1>
-      <p class="subtitle">Thoughts on software architecture, performance, and the realities of modern development.</p>
-    </header>
+    <h1 style="font-size: 2.5rem; margin-bottom: 10px;">Technical Writing</h1>
+    <p style="color: var(--text-muted);">Thoughts on architecture, mobile ecosystems, and full-stack development.</p>
 
-    <main class="article-list">
-      
-      <a href="coding-challenge.html" class="article-card">
-        <span class="article-tag">Case Study • React</span>
-        <h2>Engineering Under Pressure: The DVT Storefront Challenge</h2>
-        <p>How I navigated hardware limitations and life pressures to deliver a senior-level technical assessment using AI-augmented workflows and clean architecture.</p>
-        <span class="article-date">March 2026</span>
-      </a>
-
-      <div class="article-card" style="opacity: 0.6; cursor: default;">
-        <span class="article-tag">Coming Soon • Cloud Architecture</span>
-        <h2>Scaling Microservices with AWS and Java Spring Boot</h2>
-        <p>A deep dive into the backend infrastructure powering modern e-commerce engines like AwethenticSA.</p>
+    <div class="grid">
+      <div class="card">
+        <div><span class="tech-tag">Career & Architecture</span></div>
+        <h3>The Accenture Influence</h3>
+        <p>A look at enterprise-level engineering standards and global consulting workflows.</p>
+        <a href="accenture-influence.html" class="btn">Read Article</a>
       </div>
 
-    </main>
+      <div class="card">
+        <div><span class="tech-tag">Flutter</span></div>
+        <h3>Mobile Efficiency with Flutter</h3>
+        <p>Why Flutter remains the premier choice for high-performance mobile deployments.</p>
+        <a href="article-flutter.html" class="btn">Read Article</a>
+      </div>
 
-    <footer>
-      <p>&copy; 2026 Michael Davids • Software Engineering Thought Leadership</p>
-    </footer>
+      <div class="card">
+        <div><span class="tech-tag">Technical Assessment</span></div>
+        <h3>DVT Coding Challenge</h3>
+        <p>A technical breakdown of the storefront assessment and scalable UI patterns.</p>
+        <a href="coding-challenge.html" class="btn">Read Article</a>
+      </div>
+
+      <div class="card">
+        <div><span class="tech-tag">Frontend</span></div>
+        <h3>Learning React</h3>
+        <p>Mastering modern React patterns, from the virtual DOM to complex state hooks.</p>
+        <a href="learning-react.html" class="btn">Read Article</a>
+      </div>
+    </div>
   </div>
 
 </body>
