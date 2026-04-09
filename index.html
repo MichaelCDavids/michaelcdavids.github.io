@@ -2,162 +2,278 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Michael Davids | Full-Stack Software Engineer</title>
+  <title>Michael Davids | Full-Stack Architect</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <style>
     :root {
-      --bg-dark: #0f172a;
-      --card-bg: #1e293b;
-      --text-main: #f1f5f9;
-      --text-muted: #94a3b8;
-      --accent-blue: #38bdf8;
-      --border: #334155;
+      --bg: #030712;
+      --surface: #111827;
+      --surface-hover: #1f2937;
+      --accent: #6366f1; /* React Indigo */
+      --accent-secondary: #0ea5e9; /* Flutter Sky */
+      --text-main: #94a3b8;
+      --text-bold: #f8fafc;
+      --border: #1f2937;
+      --glow: rgba(99, 102, 241, 0.15);
     }
 
-    body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; font-family: 'Raleway', sans-serif; margin: 0; scroll-behavior: smooth; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-    
-    /* Responsive & Neat Navbar */
-    .nav { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; padding: 15px 0; }
-    .nav-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-    .nav a { color: var(--text-muted); font-weight: 600; text-decoration: none; margin-left: 24px; font-size: 0.85rem; transition: color 0.2s; text-transform: uppercase; letter-spacing: 1px; }
-    .nav a:hover { color: var(--accent-blue); }
-
-    .hero { padding: 100px 0 60px; text-align: center; }
-    .hero h1 { font-size: 3.5rem; margin-bottom: 15px; color: #f8fafc; letter-spacing: -1px; }
-    .hero p { font-size: 1.1rem; color: var(--text-muted); max-width: 800px; margin: 0 auto 30px; }
-
-    .cert-badge { display: inline-block; padding: 5px 12px; background: rgba(56, 189, 248, 0.1); border: 1px solid var(--accent-blue); border-radius: 4px; font-size: 0.7rem; font-weight: 700; color: var(--accent-blue); margin: 5px; text-transform: uppercase; }
-
-    .section { padding: 80px 0; border-top: 1px solid var(--border); }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; }
-    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 35px; display: flex; flex-direction: column; transition: 0.3s ease; }
-    .card:hover { transform: translateY(-8px); border-color: var(--accent-blue); box-shadow: 0 20px 40px -20px rgba(0,0,0,0.5); }
-    
-    .tech-tag { font-size: 0.6rem; background: #0f172a; color: var(--accent-blue); padding: 4px 8px; border-radius: 4px; border: 1px solid var(--border); font-weight: 700; text-transform: uppercase; margin-right: 6px; }
-
-    .btn { background: var(--accent-blue); color: #0f172a; padding: 12px 20px; text-decoration: none; font-weight: 700; border-radius: 6px; text-align: center; text-transform: uppercase; font-size: 0.8rem; margin-top: auto; display: inline-block; transition: 0.2s; }
-    .btn:hover { background: #7dd3fc; }
-    .btn-secondary { background: transparent; border: 1px solid var(--border); color: var(--text-main); margin-top: 10px; }
-    .btn-secondary:hover { border-color: var(--accent-blue); color: var(--accent-blue); }
-
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2.5rem; }
-      .nav-inner { justify-content: center; }
-      .nav a { margin: 8px 12px; }
+    body { 
+      background-color: var(--bg); 
+      color: var(--text-main); 
+      font-family: 'Inter', sans-serif; 
+      margin: 0; 
+      scroll-behavior: smooth; 
+      -webkit-font-smoothing: antialiased;
     }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* Glass Navbar */
+    .nav { 
+      background: rgba(3, 7, 18, 0.8); 
+      backdrop-filter: blur(12px); 
+      border-bottom: 1px solid var(--border); 
+      position: sticky; 
+      top: 0; 
+      z-index: 1000; 
+      padding: 20px 0; 
+    }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+    .brand { font-family: 'Fira Code', monospace; font-weight: 700; color: var(--text-bold); font-size: 1.2rem; }
+    .nav a { 
+      color: var(--text-main); 
+      font-weight: 500; 
+      text-decoration: none; 
+      margin-left: 30px; 
+      font-size: 0.9rem; 
+      transition: all 0.2s; 
+    }
+    .nav a:hover { color: var(--accent); text-shadow: 0 0 8px var(--glow); }
+
+    /* Hero Section with Radial Glow */
+    .hero { 
+      padding: 140px 0 100px; 
+      text-align: center; 
+      background: radial-gradient(circle at center, var(--glow) 0%, transparent 70%);
+    }
+    .hero h1 { 
+      font-size: 4.5rem; 
+      font-weight: 800; 
+      margin-bottom: 20px; 
+      color: var(--text-bold); 
+      letter-spacing: -0.05em; 
+      background: linear-gradient(to right, #fff, var(--text-main));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p { 
+      font-size: 1.25rem; 
+      max-width: 700px; 
+      margin: 0 auto 40px; 
+      line-height: 1.6;
+    }
+
+    .cert-badge { 
+      display: inline-block; 
+      padding: 6px 14px; 
+      background: rgba(99, 102, 241, 0.1); 
+      border: 1px solid var(--accent); 
+      border-radius: 20px; 
+      font-size: 0.75rem; 
+      font-weight: 600; 
+      color: var(--accent); 
+      margin: 8px; 
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Bento Grid Layout */
+    .section-title { font-size: 2rem; color: var(--text-bold); margin-bottom: 48px; font-weight: 700; }
+    .grid { 
+      display: grid; 
+      grid-template-columns: repeat(12, 1fr); 
+      gap: 24px; 
+    }
+
+    .card { 
+      background: var(--surface); 
+      border: 1px solid var(--border); 
+      border-radius: 20px; 
+      padding: 32px; 
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+      display: flex; 
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover { 
+      border-color: var(--accent); 
+      transform: translateY(-8px); 
+      box-shadow: 0 20px 40px -20px rgba(0,0,0,0.7);
+    }
+    
+    /* Bento Sizing */
+    .card.large { grid-column: span 7; }
+    .card.medium { grid-column: span 5; }
+    .card.small { grid-column: span 4; }
+
+    @media (max-width: 900px) {
+      .card.large, .card.medium, .card.small { grid-column: span 12; }
+      .hero h1 { font-size: 3rem; }
+    }
+
+    .tech-tag { 
+      font-family: 'Fira Code', monospace; 
+      font-size: 0.7rem; 
+      color: var(--accent-secondary); 
+      background: rgba(14, 165, 233, 0.1); 
+      padding: 4px 10px; 
+      border-radius: 6px; 
+      margin-right: 8px;
+    }
+
+    .card h3 { color: var(--text-bold); margin: 20px 0 12px; font-size: 1.5rem; }
+    .card p { font-size: 0.95rem; margin-bottom: 24px; flex-grow: 1; }
+
+    /* Action Buttons */
+    .btn-group { display: flex; gap: 12px; }
+    .btn { 
+      background: var(--accent); 
+      color: white; 
+      padding: 12px 24px; 
+      text-decoration: none; 
+      font-weight: 600; 
+      border-radius: 8px; 
+      font-size: 0.85rem; 
+      transition: 0.2s; 
+    }
+    .btn:hover { background: var(--accent-secondary); box-shadow: 0 0 20px var(--glow); }
+    .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text-main); }
+    .btn-outline:hover { border-color: var(--text-bold); color: var(--text-bold); }
+
+    /* Article Cards */
+    .article-card {
+      background: linear-gradient(145deg, #111827, #030712);
+      padding: 40px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      text-align: left;
+    }
+    .article-card h4 { color: var(--text-bold); font-size: 1.25rem; margin-bottom: 10px; }
+
   </style>
 </head>
 <body>
 
   <nav class="nav">
     <div class="container nav-inner">
-      <div class="brand"><strong style="color: #f8fafc; font-size: 1.2rem; letter-spacing: 2px;">MD</strong></div>
+      <div class="brand">MD</div>
       <div class="links">
         <a href="#expertise">Expertise</a>
         <a href="#projects">Portfolio</a>
         <a href="articles.html">Articles</a>
         <a href="#contact">Contact</a>
+        <a href="docs/cv.docx">CV</a>
       </div>
     </div>
   </nav>
 
   <div class="container">
     <header class="hero">
-      <h1>Michael Davids</h1>
-      <p>Full-Stack Software Engineer & Founder. Building scalable cloud architecture, high-performance mobile ecosystems, and type-safe financial tools.</p>
-      <div>
-        <span class="cert-badge">Oracle Certified Associate | Java SE 8</span>
-        <span class="cert-badge">AWS Certified Cloud Practitioner</span>
+      <div style="margin-bottom: 20px;">
+        <span class="cert-badge">Oracle Certified | Java SE</span>
+        <span class="cert-badge">AWS Cloud Practitioner</span>
       </div>
+      <h1>Software Developer</h1>
+      <p>Full-Stack Software Developer specializing in high-performance Flutter ecosystems, type-safe React environments, and scalable cloud infrastructure.</p>
     </header>
 
-    <section id="projects" class="section">
-      <h2 style="margin-bottom: 40px;">Featured Deployments</h2>
+    <section id="projects" style="padding: 100px 0;">
+      <h2 class="section-title">Featured Systems</h2>
       <div class="grid">
-        <div class="card">
-          <div style="margin-bottom: 15px;">
-            <span class="tech-tag">React</span>
-            <span class="tech-tag">XAU/USD</span>
-          </div>
-          <h3>Trade Signals Terminal</h3>
-          <p>A specialized dashboard for tracking real-time market indicators and trade signals. Optimized for precision data analysis.</p>
-          <a href="https://legendary-goggles-297529-77b0d.web.app/" class="btn">Launch Terminal</a>
-        </div>
-
-        <div class="card">
-          <div style="margin-bottom: 15px;">
-            <span class="tech-tag">Java Spring Boot</span>
+        
+        <div class="card large">
+          <div>
             <span class="tech-tag">Flutter</span>
+            <span class="tech-tag">Riverpod</span>
+            <span class="tech-tag">Android</span>
+            <span class="tech-tag">iOS</span>
+            <span class="tech-tag">Web</span>
           </div>
-          <h3>AwethenticSA E-Commerce</h3>
-          <p>Enterprise e-commerce engine featuring a modular microservices backend and cross-platform frontend architecture.</p>
-          <a href="https://github.com/MichaelCDavids" class="btn btn-secondary">View Repository</a>
-        </div>
-
-        <div class="card">
-          <div style="margin-bottom: 15px;">
-            <span class="tech-tag">React</span>
-            <span class="tech-tag">Clean Arch</span>
-          </div>
-          <h3>DVT Store Challenge</h3>
-          <p>Senior-level storefront assessment demonstrating scalable state management and performant UI implementation.</p>
-          <div style="display: flex; gap: 10px; margin-top: auto;">
-            <a href="https://react-store-michael-9816-c55bd.web.app/" class="btn" style="flex: 1;">Demo</a>
-            <a href="https://github.com/MichaelCDavids" class="btn btn-secondary" style="flex: 1; margin-top: 0;">Code</a>
+          <h3>Konvi Marketplace</h3>
+          <p>A high-concurrency marketplace for social discovery. Architected using Flutter Web and an optimized Node.js backend to handle seamless real-time interactions.</p>
+          <div class="btn-group">
+            <a href="https://konviapp-81382577-1f10d.web.app/" class="btn">Launch Instance</a>
+            <a href="https://konvibackend.onrender.com/" class="btn btn-outline">Documentation</a>
           </div>
         </div>
 
-        <div class="card">
-          <div style="margin-bottom: 15px;">
-            <span class="tech-tag">Flutter Web</span>
-            <span class="tech-tag">Node.js</span>
-          </div>
-          <h3>Konvi Ecosystem</h3>
-          <p>On-demand marketplace for social discovery. Featured web deployment synced with high-concurrency backend.</p>
-          <div style="display: flex; gap: 10px; margin-top: auto;">
-            <a href="https://konviapp-81382577-1f10d.web.app/" class="btn" style="flex: 1;">Launch</a>
-            <a href="https://konvibackend.onrender.com/" class="btn btn-secondary" style="flex: 1; margin-top: 0;">Docs</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div style="margin-bottom: 15px;">
+        <div class="card medium">
+          <div>
             <span class="tech-tag">TypeScript</span>
             <span class="tech-tag">NPM</span>
           </div>
           <h3>@michaelcdavids/mute-ui</h3>
-          <p>Open-source polymorphic React library built for strict type-safety and seamless design system integration.</p>
-          <a href="https://mute-ui-34653851-ee993.web.app" class="btn btn-secondary">Documentation</a>
+          <p>Polymorphic React library designed for enterprise design systems. Focused on zero-runtime overhead and strict type-safety.</p>
+          <a href="https://mute-ui-34653851-ee993.web.app" class="btn">V1.0.0 Documentation</a>
         </div>
+
+        <div class="card small">
+          <div><span class="tech-tag">Java SE 8</span></div>
+          <h3>AwethenticSA</h3>
+          <p>Modular microservices engine with a Spring Boot foundation and Flutter storefront.</p>
+          <a href="#" class="btn btn-outline">Repository</a>
+        </div>
+
+        <div class="card small">
+          <div><span class="tech-tag">Trading</span><span class="tech-tag">React</span></div>
+          <h3>Trade Signals</h3>
+          <p>Real-time terminal for gold market indicators and precision technical analysis.</p>
+          <a href="https://legendary-goggles-297529-77b0d.web.app/" class="btn">View App</a>
+        </div>
+
+        <div class="card small">
+          <div><span class="tech-tag">Clean Arch</span></div>
+          <h3>React Storefront</h3>
+          <p>Senior-level architecture assessment featuring scalable state and hydration-aware UI.</p>
+          <a href="https://react-store-michael-9816-c55bd.web.app/" class="btn">Demo</a>
+        </div>
+
       </div>
     </section>
 
-    <section id="articles" class="section">
-      <h2 style="margin-bottom: 40px;">Technical Writing</h2>
+    <section id="articles" style="padding-bottom: 120px;">
+      <h2 class="section-title">Technical Strategy</h2>
       <div class="grid">
-        <div class="card">
-          <h3>The Accenture Influence</h3>
-          <p>Insights into enterprise standards and global consulting engineering workflows.</p>
-          <a href="accenture-influence.html" class="btn btn-secondary">Read Article</a>
+        <div class="card medium article-card" style="grid-column: span 6;">
+          <span style="color: var(--accent); font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">Governance</span>
+          <h4>The Accenture Influence</h4>
+          <p>Bridging the gap between global enterprise rigor and modern agile engineering workflows.</p>
+          <a href="accenture-influence.html" style="color: var(--text-bold); text-decoration: none; font-weight: 600; font-size: 0.9rem;">Read Protocol →</a>
         </div>
-        <div class="card">
-          <h3>Learning React</h3>
-          <p>Mastering functional components and complex state logic as a full-stack engineer.</p>
-          <a href="learning-react.html" class="btn btn-secondary">Read Article</a>
+        
+        <div class="card medium article-card" style="grid-column: span 6;">
+          <span style="color: var(--accent-secondary); font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">Development</span>
+          <h4>Learning React 2026</h4>
+          <p>A deep dive into Server Components, Server Actions, and the era of the React Compiler.</p>
+          <a href="learning-react.html" style="color: var(--text-bold); text-decoration: none; font-weight: 600; font-size: 0.9rem;">Read Analysis →</a>
         </div>
-      </div>
-      <div style="text-align: center; margin-top: 40px;">
-        <a href="articles.html" class="btn" style="min-width: 220px;">View All 4 Articles</a>
       </div>
     </section>
   </div>
 
-  <footer style="padding: 60px 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.8rem; color: var(--text-muted);">
-    <p>&copy; 2026 Michael Davids • Cape Town, South Africa</p>
+  <footer style="padding: 80px 0; border-top: 1px solid var(--border); text-align: center; background: #010409;">
+    <div class="container">
+      <p style="color: var(--text-bold); font-weight: 600; margin-bottom: 10px;">Michael Davids</p>
+      <p style="font-size: 0.85rem;">Software Developer • Cape Town, South Africa</p>
+      <div style="margin-top: 20px;">
+        <a href="#contact" class="btn" style="background: transparent; border: 1px solid var(--accent); color: var(--accent);">Get In Touch</a>
+      </div>
+    </div>
   </footer>
+
 </body>
 </html>

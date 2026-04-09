@@ -2,93 +2,130 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Why Flutter is Winning in 2026 | Michael Davids</title>
+  <title>Why Flutter in 2026 | Michael Davids</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <style>
-    .article-content { max-width: 700px; margin: 0 auto; line-height: 1.8; color: #374151; }
-    .article-content h2 { text-align: left; margin-top: 40px; text-transform: none; letter-spacing: normal; }
-    .pro-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
-    .quirk-box { background: #fff7ed; border-left: 4px solid #f97316; padding: 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
-    .tag-hero { display: inline-block; padding: 5px 15px; background: #33C3F0; color: white; border-radius: 20px; font-weight: bold; font-size: 0.8rem; margin-bottom: 20px; }
+    :root {
+      --flutter-blue: #027DFD;
+      --flutter-sky: #40D1FB;
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --text-main: #94a3b8;
+      --text-bold: #f8fafc;
+      --border: #334155;
+      --code-bg: #010409;
+    }
+
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text-main); margin: 0; }
+    .container { max-width: 900px; padding: 0 24px; margin: 0 auto; }
+    
+    .article-content { line-height: 1.9; font-size: 1.1rem; }
+    .article-content h2 { font-size: 2.2rem; margin-top: 60px; color: var(--text-bold); letter-spacing: -0.02em; }
+    .article-content h3 { font-size: 1.5rem; margin-top: 40px; color: var(--text-bold); }
+
+    /* The Flutter Grid */
+    .pro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 40px 0; }
+    @media (max-width: 768px) { .pro-grid { grid-template-columns: 1fr; } }
+
+    .card { padding: 30px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); position: relative; }
+    .card.accent::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--flutter-blue), var(--flutter-sky)); border-radius: 12px 12px 0 0; }
+
+    /* Code Block Styling */
+    .code-wrap { background: var(--code-bg); border-radius: 12px; padding: 24px; margin: 25px 0; border: 1px solid var(--border); }
+    pre { margin: 0; font-family: 'Fira Code', monospace; font-size: 0.95rem; color: #e2e8f0; overflow-x: auto; }
+    .k { color: #c678dd; } /* keyword */
+    .f { color: #61afef; } /* function/class */
+    .s { color: #98c379; } /* string */
+    .c { color: #5c6370; font-style: italic; } /* comment */
+
+    .tag-hero { display: inline-block; padding: 6px 18px; background: var(--flutter-blue); color: #fff; border-radius: 20px; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 24px; }
+    
+    .btn-cta { display: inline-block; background: linear-gradient(135deg, var(--flutter-blue), var(--flutter-sky)); color: white; padding: 18px 36px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: all 0.3s ease; margin-top: 20px; }
+    .btn-cta:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(2, 125, 253, 0.3); }
+
+    strong { color: var(--text-bold); }
+    .inline-code { background: #334155; color: #f8fafc; padding: 2px 6px; border-radius: 4px; font-family: 'Fira Code', monospace; font-size: 0.9em; }
   </style>
 </head>
 <body>
 
   <nav class="nav">
-    <div class="container nav-inner">
+    <div class="container nav-inner" style="display: flex; justify-content: space-between; padding: 20px 0;">
       <div class="brand"><strong>MD</strong></div>
       <div class="links">
-        <a href="index.html">Home</a>
-        <a href="articles.html">Articles</a>
-        <a href="index.html#contact">Contact</a>
+        <a href="index.html" style="color: var(--text-main); margin-left: 20px; text-decoration: none;">Home</a>
+        <a href="articles.html" style="color: var(--text-main); margin-left: 20px; text-decoration: none;">Articles</a>
       </div>
     </div>
   </nav>
 
   <div class="container">
-    <header class="header">
-      <div class="tag-hero">MOBILE STRATEGY</div>
-      <h1>Why Flutter is Winning in 2026</h1>
-      <p>The strategic shift from RPA to high-performance UI engineering.</p>
+    <header style="padding: 100px 0 60px; text-align: left;">
+      <div class="tag-hero">Mobile Strategy</div>
+      <h1 style="font-size: 3.8rem; color: var(--text-bold); margin: 10px 0; line-height: 1.1;">Why Flutter is Winning in 2026</h1>
+      <p style="font-size: 1.5rem; color: var(--flutter-sky); font-weight: 500;">The strategic shift from RPA to high-performance UI engineering.</p>
     </header>
 
     <article class="article-content">
-      <p>In 2026, the gap between "web apps" and "native apps" has practically vanished. For developers and businesses alike, the choice of framework is no longer just about syntax; it’s about the rendering engine. My pivot from RPA (Robotic Process Automation) to the Flutter ecosystem was driven by one goal: delivering seamless, high-fidelity experiences without the overhead of multiple codebases.</p>
+      <p>In 2026, the performance bottleneck is no longer hardware; it is the efficiency of the software bridge. For developers and businesses alike, Flutter has emerged as the definitive choice because it bypasses the "System Component" middleman entirely. By controlling every pixel via the **Impeller rendering engine**, Flutter delivers a level of fluidity that traditional hybrid frameworks can't match.</p>
 
-      
-
-      <h2>The Top 5 Pros of Flutter in 2026</h2>
-      
-      <div class="pro-box">
-        <strong>1. Rendering Dominance:</strong> Unlike frameworks that rely on platform-native components, Flutter uses the Impeller engine to paint every pixel. This ensures 120Hz performance that looks identical on a budget Android and a flagship iPhone.
+      <h2>The Pillars of Flutter Dominance</h2>
+      <div class="pro-grid">
+        <div class="card accent">
+          <h3>Impeller Rendering</h3>
+          <p>By using a custom-built Vulkan/Metal-ready engine, Flutter eliminates "Jank" by pre-compiling shaders. This ensures 120Hz performance on flagship devices.</p>
+        </div>
+        <div class="card accent">
+          <h3>Unified Business Logic</h3>
+          <p>We aren't just sharing UI; we are sharing core logic. Dart’s robust type system ensures that validation and state work identically on Web, iOS, and Android.</p>
+        </div>
       </div>
 
-      <div class="pro-box">
-        <strong>2. Unified Logic:</strong> We aren't just sharing UI; we are sharing business logic. Using Dart’s robust type system, I can deploy the same validation and state management across Web, iOS, and Android simultaneously.
+      <h2>State Management: The Riverpod Advantage</h2>
+      <p>In the professional Flutter world, managing state is about **predictability**. While many beginners start with <span class="inline-code">setState</span>, enterprise-grade applications require a decoupled approach. <strong>Riverpod</strong> is the 2026 industry standard for compile-safe, testable state.</p>
+
+      <h3>How it works (Simply Explained)</h3>
+      <p>Think of Riverpod as a "cloud" of data that sits above your app. Instead of passing data down through every widget (like a game of telephone), any widget can simply "tune in" to the specific provider it needs.</p>
+
+      <div class="code-wrap">
+<pre><code><span class="c">// 1. Define a Provider (The data source)</span>
+<span class="k">final</span> userProvider = <span class="f">StateProvider</span>&lt;String&gt;((ref) => <span class="s">"Guest"</span>);
+
+<span class="c">// 2. The Widget "listens" to the source</span>
+<span class="k">class</span> <span class="f">ProfileHeader</span> <span class="k">extends</span> <span class="f">ConsumerWidget</span> {
+  <span class="k">@override</span>
+  <span class="f">Widget</span> <span class="f">build</span>(BuildContext context, WidgetRef ref) {
+    <span class="c">// Automatically rebuilds ONLY when the name changes</span>
+    <span class="k">final</span> name = ref.<span class="f">watch</span>(userProvider);
+    
+    <span class="k">return</span> <span class="f">Text</span>(<span class="s">"Welcome, $name"</span>);
+  }
+}</code></pre>
       </div>
 
-      <div class="pro-box">
-        <strong>3. Hot Reload 2.0:</strong> The developer experience remains unmatched. The ability to see code changes in sub-second timeframes allows for rapid prototyping that traditional native development simply can't touch.
+      <p>The beauty of this implementation is <strong>Efficiency</strong>. By using <span class="inline-code">ref.watch</span>, only the specific text widget updates when the name changes, leaving the rest of the expensive UI untouched. This is how we maintain 60-120 FPS in complex dashboard environments.</p>
+
+      <h2>The Strategic Pivot</h2>
+      <p>My transition from **RPA (Robotic Process Automation)** to Flutter was a calculated move. While RPA optimizes "behind the scenes" processes, Flutter optimizes the **Human Interface**. In a world that demands instant gratification, a high-performance UI is the most valuable asset a company can own.</p>
+
+      <div class="card" style="border-left: 4px solid var(--flutter-sky); background: rgba(64, 209, 251, 0.05);">
+        <strong>Cool Insight:</strong> Flutter in 2026 isn't just for phones. With the maturity of Flutter Web (WASM) and Desktop, we are building "Ambient Computing" experiences where the same app follows the user from their watch to their workstation seamlessly.
       </div>
 
-      <div class="pro-box">
-        <strong>4. Ecosystem Maturity:</strong> By 2026, the plugin registry (pub.dev) has matured to a point where hardware integration—biometrics, AR, and sensors—is as simple as adding a single line to a YAML file.
-      </div>
-
-      <div class="pro-box">
-        <strong>5. Adaptive Design:</strong> Flutter’s layout system makes building for foldable phones, tablets, and desktops a first-class citizen rather than an afterthought.
-      </div>
-
-      <h2>Framework Quirks</h2>
-      <p>Every powerful tool has its personality. Here are a few "quirks" to keep in mind when choosing the Flutter path:</p>
-
-      <div class="quirk-box">
-        <strong>Initial Bundle Size:</strong> Because Flutter carries its own rendering engine, the initial app download is slightly larger than a bare-bones native app. It’s a small price for total design control.
-      </div>
-
-      <div class="quirk-box">
-        <strong>The "Dart" Learning Curve:</strong> While Dart is incredibly intuitive for Java or JavaScript developers, it does require a mental shift toward reactive programming and "everything is a widget."
-      </div>
-
-      <section style="margin-top: 50px; border-top: 1px solid #eee; padding-top: 30px;">
-        <h3>Final Thoughts</h3>
-        <p>Flutter isn't just a framework; it's a competitive advantage. For my clients, it means faster time-to-market and a premium feel that builds trust. Whether you're a startup in Cape Town or an enterprise player, Flutter is the most efficient way to scale your digital presence today.</p>
-        
-        <a href="index.html#contact" class="btn">Discuss Your App Project</a>
+      <section style="margin-top: 80px; text-align: center; border-top: 1px solid var(--border); padding-top: 60px; padding-bottom: 100px;">
+        <h2 style="color: var(--text-bold);">Scale Your Vision</h2>
+        <p style="max-width: 600px; margin: 0 auto 40px;">Whether you are looking to build a fintech disruptor or a modern e-commerce engine, I provide the architectural rigor to make it happen.</p>
+        <a href="index.html#contact" class="btn-cta">Start Your Flutter Project</a>
       </section>
     </article>
 
-    <footer style="text-align: center; padding: 60px 0; color: #9ca3af; font-size: 0.8rem;">
+    <footer style="padding: 40px 0; border-top: 1px solid var(--border); text-align: center; color: #64748b; font-size: 0.9rem;">
       <p>&copy; 2026 Michael Davids • Cape Town, South Africa</p>
     </footer>
   </div>
 
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> 38ae450 (feat: add technical articles and career case studies)

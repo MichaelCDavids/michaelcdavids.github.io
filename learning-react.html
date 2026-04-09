@@ -4,83 +4,167 @@
   <meta charset="utf-8">
   <title>Mastering React in 2026 | Michael Davids</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <style>
-    /* React-Specific Brand Colors */
+    /* Dark Theme Logic */
     :root {
-      --react-brand: #6366f1; /* Modern Indigo/Purple */
-      --react-bg: #f5f3ff;
+      --brand: #818cf8;       /* Lighter Indigo for dark contrast */
+      --brand-dark: #6366f1;
+      --bg: #0f172a;          /* Deep Slate/Navy */
+      --surface: #1e293b;     /* Lighter Slate for cards */
+      --text-main: #94a3b8;   /* Muted Blue-Grey */
+      --text-bold: #f8fafc;   /* Near White */
+      --border: #334155;
+      --code-bg: #010409;     /* Near Black for code */
     }
-    .article-content { max-width: 700px; margin: 0 auto; line-height: 1.8; color: #374151; }
-    .article-content h2 { text-align: left; margin-top: 40px; text-transform: none; letter-spacing: normal; color: #1f2937; }
-    .pro-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px; margin: 25px 0; border-radius: 0 8px 8px 0; }
-    .quirk-box { background: #fff7ed; border-left: 4px solid #f97316; padding: 20px; margin: 25px 0; border-radius: 0 8px 8px 0; }
-    .tag-hero { display: inline-block; padding: 6px 18px; background: var(--react-brand); color: white; border-radius: 20px; font-weight: bold; font-size: 0.8rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
-    .btn-react { background-color: var(--react-brand); color: white; border: 1px solid var(--react-brand); }
-    .btn-react:hover { background-color: #4f46e5; border-color: #4f46e5; color: white; }
-    code { background: #f3f4f6; padding: 2px 5px; border-radius: 4px; font-family: monospace; font-size: 0.9rem; }
+
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text-main); margin: 0; }
+    .container { max-width: 900px; padding: 0 24px; margin: 0 auto; }
+    
+    .article-content { line-height: 1.8; font-size: 1.1rem; }
+    .article-content h2 { font-size: 2rem; margin-top: 60px; color: var(--text-bold); letter-spacing: -0.02em; }
+    .article-content h3 { font-size: 1.4rem; margin-top: 40px; color: var(--text-bold); }
+
+    /* Feature Grid & Cards */
+    .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 40px 0; }
+    @media (max-width: 768px) { .feature-grid { grid-template-columns: 1fr; } }
+
+    .card { padding: 30px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); transition: transform 0.2s; }
+    .card:hover { transform: translateY(-5px); border-color: var(--brand); }
+    .card.pro { border-top: 4px solid #22c55e; }
+    .card.warning { border-top: 4px solid #f59e0b; }
+
+    /* Syntax Highlighted Code Blocks */
+    .code-wrap { background: var(--code-bg); border-radius: 12px; padding: 24px; margin: 25px 0; border: 1px solid var(--border); }
+    .code-header { color: #64748b; font-size: 0.8rem; margin-bottom: 15px; border-bottom: 1px solid var(--border); padding-bottom: 10px; display: flex; justify-content: space-between; }
+    pre { margin: 0; font-family: 'Fira Code', monospace; font-size: 0.95rem; color: #e2e8f0; overflow-x: auto; }
+    
+    .k { color: #c678dd; } /* keyword - Purple */
+    .f { color: #61afef; } /* function - Blue */
+    .s { color: #98c379; } /* string - Green */
+    .c { color: #5c6370; font-style: italic; } /* comment - Grey */
+
+    /* Data Presentation */
+    table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 40px 0; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); background: var(--surface); }
+    th { background: #1e293b; padding: 16px; text-align: left; font-weight: 700; color: var(--text-bold); }
+    td { padding: 16px; border-top: 1px solid var(--border); color: var(--text-main); }
+
+    .btn-cta { display: inline-block; background: var(--brand); color: #0f172a; padding: 16px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: all 0.2s; margin-top: 20px; }
+    .btn-cta:hover { background: var(--text-bold); }
+
+    .inline-code { background: #334155; color: #f8fafc; padding: 2px 6px; border-radius: 4px; font-family: 'Fira Code', monospace; font-size: 0.9em; }
   </style>
 </head>
 <body>
 
-  <nav class="nav">
-    <div class="container nav-inner">
-      <div class="brand"><strong>MD</strong></div>
-      <div class="links">
-        <a href="index.html">Home</a>
-        <a href="articles.html">Articles</a>
-        <a href="index.html#contact">Contact</a>
-      </div>
-    </div>
-  </nav>
-
   <div class="container">
-    <header class="header">
-      <div class="tag-hero">Web Architecture</div>
-      <h1>Mastering React in 2026</h1>
-      <p>Modern patterns, server components, and respecting the library's power.</p>
+    <header style="padding: 80px 0 40px; text-align: center;">
+      <span style="text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: var(--brand); font-size: 0.8rem;">Architecture & Performance</span>
+      <h1 style="font-size: 3.5rem; color: var(--text-bold); margin: 20px 0;">Mastering React in 2026</h1>
+      <p style="font-size: 1.4rem; color: var(--text-main); max-width: 700px; margin: 0 auto;">Strategies for the Server-First Era of Web Engineering.</p>
     </header>
 
     <article class="article-content">
-      <p>React in 2026 has transitioned from a simple UI library into a comprehensive architectural foundation. While the introduction of Server Components and the "Action" paradigm initially felt like a departure, they have consolidated React as the most powerful tool for enterprise-grade web engineering. Success today isn't about knowing the syntax—it's about respecting the lifecycle.</p>
+      <p>By 2026, React has moved past its "Single Page Application" (SPA) roots. We are now in the era of <strong>Unified Architecture</strong>. The library no longer just manages the DOM; it orchestrates the entire lifecycle of data from the database to the screen.</p>
 
-      <h2>The Pillars of Modern React</h2>
-      
-      <div class="pro-box">
-        <strong>1. React Server Components (RSC):</strong> We've moved beyond the "client-side-only" era. By executing data fetching on the server and streaming serialized components, we achieve near-instant TTI (Time to Interactive) and eliminate the heavy JavaScript bundles of the past.
+      <div class="feature-grid">
+        <div class="card pro">
+          <h3>The Server Paradigm</h3>
+          <p>Execution starts on the server. We use <strong>React Server Components (RSC)</strong> to reduce client-side weight by up to 80% while keeping data logic secure and fast.</p>
+        </div>
+        <div class="card pro">
+          <h3>The Compiler Era</h3>
+          <p>The <strong>React Compiler</strong> handles memoization automatically, ensuring your app stays performant as it scales without manually managing <span class="inline-code">useMemo</span> dependencies.</p>
+        </div>
       </div>
 
-      <div class="pro-box">
-        <strong>2. The Compiler (React Forget):</strong> The manual optimization era of <code>useMemo</code> and <code>useCallback</code> is largely behind us. React’s modern compiler automatically optimizes re-renders, allowing us to focus on intent rather than implementation details.
+      <h2>Advanced Concepts: Bridging the Gap</h2>
+      <p>Success in modern React is defined by how well you manage the <strong>Network Boundary</strong>. This is the invisible line where your server code hands off data to the browser.</p>
+
+      <h3>1. Unified Mutations with Server Actions</h3>
+      <p>Server Actions allow you to treat server-side functions as standard event handlers. This removes the need for manual API route orchestration and state-heavy fetchers.</p>
+
+      <div class="code-wrap">
+        <div class="code-header"><span>app/actions.ts</span><span>TypeScript</span></div>
+        <pre><code><span class="k">export async function</span> <span class="f">updateProfile</span>(data: FormData) {
+  <span class="s">'use server'</span>; <span class="c">// Enforces server-side execution</span>
+  
+  <span class="k">const</span> userId = <span class="k">await</span> <span class="f">getAuthSession</span>();
+  <span class="k">await</span> db.users.<span class="f">update</span>({ id: userId, name: data.<span class="f">get</span>(<span class="s">'name'</span>) });
+
+  <span class="f">revalidatePath</span>(<span class="s">'/settings'</span>); <span class="c">// Refresh the cache</span>
+}</code></pre>
       </div>
 
-      <div class="pro-box">
-        <strong>3. Server Actions & Unified DX:</strong> Frameworks like Next.js have bridged the gap between frontend and backend. Mutating data is now a first-class citizen of the React component, reducing the need for complex API orchestration layers.
+      <h3>2. Streaming & Progressive Hydration</h3>
+      <p>Using <span class="inline-code">&lt;Suspense&gt;</span>, we can stream the critical UI instantly while the heavy data loads in the background. This ensures the user sees <em>something</em> valuable in under 200ms.</p>
+
+      <div class="code-wrap">
+        <div class="code-header"><span>components/Dashboard.tsx</span><span>React</span></div>
+        <pre><code><span class="k">import</span> { Suspense } <span class="k">from</span> <span class="s">'react'</span>;
+
+<span class="k">export default function</span> <span class="f">Dashboard</span>() {
+  <span class="k">return</span> (
+    &lt;section&gt;
+      &lt;h1&gt;Dashboard&lt;/h1&gt;
+      &lt;Suspense fallback={&lt;Skeleton /&gt;}&gt;
+        &lt;LiveStockTicker /&gt; <span class="c">{/* Streams in as data arrives */}</span>
+      &lt;/Suspense&gt;
+    &lt;/section&gt;
+  );
+}</code></pre>
       </div>
 
-      <h2>Navigating the "Awkward" Parts</h2>
-      <p>Mastering React requires a healthy respect for its capabilities. It isn't "scary," but it demands a shift in how we think about state and execution:</p>
+      <h2>The 2026 State Matrix</h2>
+      <p>Choosing the right tool for state is the difference between a maintainable app and a technical debt nightmare.</p>
 
-      <div class="quirk-box">
-        <strong>Distinguishing Server vs. Client:</strong> The biggest hurdle for developers today is the mental model of where code lives. "Use Client" isn't a failure—it's a choice. Learning when to offload logic to the server is the difference between a website and a platform.
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>The Tool</th>
+            <th>Best Use Case</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Global UI</strong></td>
+            <td>Zustand</td>
+            <td>Auth, Theme, Modals.</td>
+          </tr>
+          <tr>
+            <td><strong>Server Data</strong></td>
+            <td>RSC / Query</td>
+            <td>DB Records, API responses.</td>
+          </tr>
+          <tr>
+            <td><strong>Shared Logic</strong></td>
+            <td>Signals</td>
+            <td>High-freq data (Stock/Chat).</td>
+          </tr>
+          <tr>
+            <td><strong>Ephemeral</strong></td>
+            <td>URL Params</td>
+            <td>Search, Filters, Pagination.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="card warning">
+        <strong>Strategic Insight:</strong> The most efficient code is the code that never runs in the browser. Before adding a client-side hook, ask: "Can this logic be performed on the server or represented in the URL?"
       </div>
 
-      <div class="quirk-box">
-        <strong>State Management Maturity:</strong> With the rise of fine-grained reactivity (Signals) and built-in hooks, the "everything in Redux" approach is dead. The challenge is now selecting the leanest tool for the job—whether that's URL state, local state, or lightweight stores like Zustand.
-      </div>
-
-      <section style="margin-top: 50px; border-top: 1px solid #eee; padding-top: 30px;">
-        <h3>Final Thoughts</h3>
-        <p>Don't be intimidated by the speed of change. React in 2026 is built to scale. By staying focused on the best patterns—unidirectional data flow, declarative UI, and server-side optimization—you are building a future-proof skill set. Respect the tool, and it will build anything you can imagine.</p>
-        
-        <a href="index.html#contact" class="btn btn-react">Discuss a React Project</a>
+      <section style="margin-top: 80px; text-align: center; border-top: 1px solid var(--border); padding-top: 60px;">
+        <h2 style="color: var(--text-bold);">Ready to Build?</h2>
+        <p style="max-width: 600px; margin: 20px auto 40px;">The patterns of 2026 prioritize lean bundles and instant interactions. Let's build a future-proof React architecture together.</p>
+        <a href="index.html#contact" class="btn-cta">Discuss a React Project</a>
       </section>
     </article>
 
-    <footer style="text-align: center; padding: 60px 0; color: #9ca3af; font-size: 0.8rem;">
-      <p>&copy; 2026 Michael Davids • All rights reserved.</p>
+    <footer style="margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--border); text-align: center; color: #64748b; font-size: 0.9rem;">
+      <p>&copy; 2026 Michael Davids. All rights reserved.</p>
     </footer>
   </div>
 

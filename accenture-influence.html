@@ -4,59 +4,125 @@
   <meta charset="utf-8">
   <title>The Accenture Influence | Michael Davids</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <style>
-    .article-content { max-width: 700px; margin: 0 auto; line-height: 1.8; color: #374151; }
-    .article-content h2 { text-align: left; margin-top: 40px; color: #111827; }
-    .insight-box { background: #f9fafb; border-left: 4px solid #a855f7; padding: 25px; margin: 30px 0; border-radius: 0 8px 8px 0; }
-    .tag-hero { display: inline-block; padding: 6px 18px; background: #a855f7; color: white; border-radius: 20px; font-weight: bold; font-size: 0.8rem; margin-bottom: 20px; text-transform: uppercase; }
+    :root {
+      --brand: #a855f7;       /* Accenture Purple Inspiration */
+      --brand-hover: #c084fc;
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --text-main: #94a3b8;
+      --text-bold: #f8fafc;
+      --border: #334155;
+      --accent-glow: rgba(168, 85, 247, 0.15);
+    }
+
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text-main); margin: 0; }
+    .container { max-width: 900px; padding: 0 24px; margin: 0 auto; }
+    
+    .article-content { line-height: 1.9; font-size: 1.1rem; }
+    .article-content h2 { font-size: 2.2rem; margin-top: 60px; color: var(--text-bold); letter-spacing: -0.02em; }
+    .article-content h3 { font-size: 1.5rem; margin-top: 40px; color: var(--text-bold); }
+
+    /* The High-Performance Grid */
+    .performance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 40px 0; }
+    @media (max-width: 768px) { .performance-grid { grid-template-columns: 1fr; } }
+
+    .stat-card { padding: 30px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); position: relative; overflow: hidden; }
+    .stat-card::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--brand); }
+    
+    .insight-box { 
+      background: var(--accent-glow); 
+      border: 1px solid var(--brand); 
+      padding: 30px; 
+      margin: 40px 0; 
+      border-radius: 12px; 
+      color: var(--text-bold);
+      position: relative;
+    }
+
+    .tag-hero { display: inline-block; padding: 6px 18px; background: var(--brand); color: #fff; border-radius: 20px; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 24px; }
+    
+    .ingenuity-section { border-left: 2px solid var(--border); padding-left: 30px; margin: 50px 0; font-style: italic; }
+
+    .btn-cta { display: inline-block; background: var(--brand); color: white; padding: 18px 36px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); margin-top: 20px; box-shadow: 0 4px 14px 0 rgba(168, 85, 247, 0.39); }
+    .btn-cta:hover { background: var(--brand-hover); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(168, 85, 247, 0.45); }
+
+    strong { color: var(--text-bold); }
   </style>
 </head>
 <body>
+
   <nav class="nav">
-    <div class="container nav-inner">
+    <div class="container nav-inner" style="display: flex; justify-content: space-between; padding: 20px 0;">
       <div class="brand"><strong>MD</strong></div>
       <div class="links">
-        <a href="index.html">Home</a>
-        <a href="articles.html">Articles</a>
-        <a href="index.html#contact">Contact</a>
+        <a href="index.html" style="color: var(--text-main); margin-left: 20px; text-decoration: none;">Home</a>
+        <a href="articles.html" style="color: var(--text-main); margin-left: 20px; text-decoration: none;">Articles</a>
       </div>
     </div>
   </nav>
 
   <div class="container">
-    <header class="header">
+    <header style="padding: 100px 0 60px; text-align: left;">
       <div class="tag-hero">Professional Strategy</div>
-      <h1>The Accenture Influence</h1>
-      <p>Bridging enterprise rigor with modern agile engineering.</p>
+      <h1 style="font-size: 3.8rem; color: var(--text-bold); margin: 10px 0; line-height: 1.1;">The Accenture Influence</h1>
+      <p style="font-size: 1.5rem; color: var(--brand); font-weight: 500;">Bridging enterprise rigor with modern agile engineering.</p>
     </header>
 
     <article class="article-content">
-      <p>Working at a global powerhouse like Accenture provides a developer with a specific type of "technical armor." You learn that software isn't just code; it's a series of governed processes, documentation, and stakeholder expectations. However, for a developer hungry for the rapid pace of frameworks like <strong>Flutter</strong> or <strong>React</strong>, the enterprise world can often feel like a gilded cage.</p>
+      <p>In the world of technology, global powerhouses like Accenture don't just build software; they build **ecosystems of reliability**. Entering this environment provides a developer with more than just technical proficiency—it provides "technical armor." You learn that high-performance delivery is not a lucky outcome of a talented individual, but the result of a disciplined, repeatable process.</p>
 
-      <h2>The "Enterprise Edge"</h2>
-      <p>The learning opportunities at a firm of that scale are unparalleled in terms of advanced technical capabilities and infrastructure. I walked away with a deep understanding of:</p>
-      <ul>
-        <li><strong>Systems at Scale:</strong> How to maintain integrity in environments with millions of moving parts.</li>
-        <li><strong>Documentation Rigor:</strong> The realization that code is only as good as the person who can maintain it after you're gone.</li>
-        <li><strong>Professional Communication:</strong> Translating complex technical debt into business value for high-level stakeholders.</li>
-      </ul>
+      <h2>The High-Performance Delivery Model</h2>
+      <p>High performance in an enterprise context is measured by the delta between <strong>Innovation</strong> and <strong>Stability</strong>. My experience focused on the intersection of rapid deployment and zero-fault tolerance. This was achieved through three core pillars:</p>
 
-      <div class="insight-box">
-        <strong>The Modern Gap:</strong> While the training is world-class, large enterprises often struggle to pivot to the "bleeding edge." For newer graduates and devs looking for the excitement of reactive UI and rapid deployment, the reliance on legacy stacks can feel limiting.
+      <div class="performance-grid">
+        <div class="stat-card">
+          <h3>Methodological Precision</h3>
+          <p>Utilizing proprietary frameworks to ensure that every line of code serves a business requirement, minimizing waste and maximizing ROI.</p>
+        </div>
+        <div class="stat-card">
+          <h3>Architectural Scalability</h3>
+          <p>Designing systems that don't just work for today’s 10,000 users, but are structurally sound for tomorrow’s 10 million.</p>
+        </div>
       </div>
 
-      <h2>Pivoting to Agility</h2>
-      <p>My decision to specialize in modern frameworks was born from a desire to combine that <strong>Accenture-level discipline</strong> with the <strong>speed of a startup</strong>. I’ve taken the best parts of enterprise governance—security, scalability, and testing—and applied them to the flexible ecosystems of React and Flutter.</p>
+      <h2>The Promise of Human Ingenuity</h2>
+      <p>At the heart of my professional philosophy is the former Accenture mantra: <strong>"Delivering on the promise of technology and human ingenuity."</strong> Technology alone is a commodity; it is the human element—the creative problem-solving and ethical implementation—that transforms a tool into a solution.</p>
       
-      <p>Today, I offer my clients the best of both worlds: the reliability of a corporate-trained engineer and the innovative mindset of a full-stack specialist.</p>
+      <div class="ingenuity-section">
+        "Human ingenuity is the ability to look at a legacy constraint and see a pathway to modernization. It is the refusal to accept 'that's how it's always been done' as a valid technical justification."
+      </div>
 
-      <section style="margin-top: 50px; border-top: 1px solid #eee; padding-top: 30px;">
-        <a href="index.html#contact" class="btn" style="background-color: #a855f7; border-color: #a855f7;">Consult on Your Project</a>
+      <p>In my current work with <strong>Flutter</strong> and <strong>React</strong>, I apply this ingenuity by taking the heavy governance of the enterprise world and stripping away the bureaucracy, leaving only the high-quality results. I believe that a developer's greatest value is their ability to leverage their experience to foresee "bottlenecks" before they manifest as downtime.</p>
+
+      <h2>The Enterprise-Agile Hybrid</h2>
+      <p>Many developers choose a side: either the slow-moving stability of the corporate world or the fast-breaking chaos of the startup. My mission is to occupy the <strong>center</strong>.</p>
+
+      <div class="insight-box">
+        <h3>The Hybrid Advantage</h3>
+        <ul>
+          <li><strong>Rigor:</strong> Documentation and testing protocols that ensure long-term maintainability.</li>
+          <li><strong>Agility:</strong> Utilizing React Server Components and Flutter’s reactive UI to pivot within days, not months.</li>
+          <li><strong>Accountability:</strong> Professional stakeholder communication that translates "technical debt" into "strategic opportunities."</li>
+        </ul>
+      </div>
+
+      <p>I don't just provide code; I provide a partnership based on the understanding that your digital platform is a high-stakes asset. By combining corporate-grade discipline with a specialist's speed, I ensure that every project is a testament to what is possible when technology meets true ingenuity.</p>
+
+      <section style="margin-top: 80px; text-align: center; border-top: 1px solid var(--border); padding-top: 60px; padding-bottom: 100px;">
+        <h2 style="color: var(--text-bold); margin-bottom: 20px;">Transform Your Infrastructure</h2>
+        <p style="max-width: 600px; margin: 0 auto 40px;">Leverage enterprise-level experience to scale your modern web or mobile application.</p>
+        <a href="index.html#contact" class="btn-cta">Consult on Your Project</a>
       </section>
     </article>
+
+    <footer style="padding: 40px 0; border-top: 1px solid var(--border); text-align: center; color: #64748b; font-size: 0.9rem;">
+      <p>&copy; 2026 Michael Davids. Full-Stack Engineer & Strategy Consultant.</p>
+    </footer>
   </div>
+
 </body>
 </html>

@@ -2,90 +2,121 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Engineering Under Pressure: The DVT Challenge | Michael Davids</title>
+  <title>Engineering Under Pressure | Michael Davids</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <style>
     :root {
-      --bg-dark: #0f172a;
-      --card-bg: #1e293b;
-      --text-main: #f1f5f9;
-      --text-muted: #94a3b8;
-      --accent-blue: #38bdf8;
-      --accent-gold: #fbbf24;
-      --border: #334155;
+      --bg: #030712;
+      --surface: #111827;
+      --accent-warm: #f59e0b; /* Amber for "Under Pressure" */
+      --accent-cool: #38bdf8;
+      --text-main: #94a3b8;
+      --text-bold: #f8fafc;
+      --border: #1f2937;
     }
-    body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Raleway', sans-serif; line-height: 1.8; margin: 0; }
-    .container { max-width: 850px; margin: 0 auto; padding: 40px 24px; }
-    .nav { background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; padding: 15px 0; }
-    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
-    .nav a { color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
-    
-    header { padding: 80px 0 40px; border-bottom: 1px solid var(--border); margin-bottom: 50px; }
-    h1 { font-size: 3rem; color: #f8fafc; line-height: 1.2; margin-bottom: 20px; letter-spacing: -1px; }
-    .meta { color: var(--accent-blue); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 10px; }
-    
-    h2 { color: #f8fafc; margin-top: 50px; font-size: 1.8rem; }
-    p { margin-bottom: 25px; font-size: 1.15rem; color: var(--text-muted); }
-    
-    .sidebar-box { background: #111827; border-left: 4px solid var(--accent-blue); padding: 30px; border-radius: 0 12px 12px 0; margin: 40px 0; border-top: 1px solid var(--border); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .sidebar-box h3 { color: var(--accent-blue); margin-top: 0; font-size: 1.2rem; text-transform: uppercase; }
-    
-    .highlight-gold { color: var(--accent-gold); font-weight: 600; }
-    blockquote { font-style: italic; border-left: 2px solid var(--border); padding-left: 20px; margin: 40px 0; color: #cbd5e1; }
 
-    footer { text-align: center; padding: 80px 0 40px; border-top: 1px solid var(--border); margin-top: 80px; color: var(--text-muted); font-size: 0.85rem; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text-main); margin: 0; line-height: 1.9; }
+    .container { max-width: 900px; padding: 0 24px; margin: 0 auto; }
+    
+    .article-content { font-size: 1.1rem; }
+    .article-content h2 { font-size: 2.2rem; margin-top: 60px; color: var(--text-bold); letter-spacing: -0.02em; }
+    .article-content h3 { font-size: 1.4rem; margin-top: 40px; color: var(--text-bold); }
+
+    /* The "Constraint" Bento */
+    .constraint-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 40px 0; }
+    @media (max-width: 768px) { .constraint-grid { grid-template-columns: 1fr; } }
+
+    .stat-card { padding: 30px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); position: relative; }
+    .stat-card.warm { border-top: 4px solid var(--accent-warm); }
+    .stat-card.cool { border-top: 4px solid var(--accent-cool); }
+    
+    .stat-card h4 { color: var(--text-bold); margin: 0 0 10px 0; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+
+    /* The AI Symphony Box */
+    .ai-box { 
+      background: linear-gradient(145deg, #1e1b4b, #030712);
+      border: 1px solid #4338ca;
+      padding: 40px;
+      margin: 50px 0;
+      border-radius: 20px;
+      position: relative;
+    }
+    .ai-box::after { content: "AI-AUGMENTED"; position: absolute; top: -12px; right: 30px; background: #4338ca; color: white; padding: 2px 12px; font-size: 0.7rem; font-weight: 800; border-radius: 4px; }
+
+    .quote-block { font-family: 'Fira Code', monospace; font-size: 1rem; color: var(--accent-cool); border-left: 2px solid var(--accent-cool); padding-left: 30px; margin: 40px 0; }
+
+    .tag-hero { display: inline-block; padding: 6px 18px; background: rgba(245, 158, 11, 0.1); border: 1px solid var(--accent-warm); color: var(--accent-warm); border-radius: 20px; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 24px; }
+    
+    .btn-back { color: var(--text-main); text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; margin-bottom: 40px; transition: color 0.2s; }
+    .btn-back:hover { color: var(--accent-cool); }
+
+    strong { color: var(--text-bold); }
+    .highlight { color: var(--accent-warm); }
   </style>
 </head>
 <body>
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a href="index.html" style="color: var(--accent-blue);">← Portfolio</a>
-      <div style="display: flex; gap: 20px;">
-        <a href="https://github.com/MichaelCDavids" target="_blank">GitHub</a>
-        <a href="index.html#contact">Contact</a>
-      </div>
-    </div>
-  </nav>
 
-  <article class="container">
-    <header>
-      <span class="meta">Technical Case Study</span>
-      <h1>Architecting the DVT Storefront: Engineering Under High-Stakes Constraints</h1>
-      <p>A narrative on balancing advanced React patterns with hardware limitations, personal pressures, and the emergence of AI-augmented development.</p>
+  <div class="container" style="padding-top: 60px;">
+    <a href="index.html" class="btn-back">← Return to Architecture</a>
+    
+    <header style="padding: 40px 0 60px;">
+      <div class="tag-hero">Case Study: DVT Storefront</div>
+      <h1 style="font-size: 4rem; color: var(--text-bold); margin: 10px 0; line-height: 1.1; letter-spacing: -0.04em;">Engineering <br>Under Pressure</h1>
+      <p style="font-size: 1.4rem; color: var(--text-main); font-weight: 400; max-width: 700px;">A narrative on balancing advanced React patterns with hardware limitations and the emergence of AI-augmented development.</p>
     </header>
 
-    <section>
-      <h2>Preparation: The Invisible Foundation</h2>
-      <p>Success in a senior-level technical assessment begins long before the first line of <code>npm init</code>. For this challenge, preparation meant a rigorous audit of my engineering environment. In professional software development, your hardware is your primary tool; ensuring that my local environment, CI/CD hooks, and automated testing suites were fully operational was the first hurdle.</p>
-      
-      <blockquote>
-        "The goal was simple: Zero friction. Every second spent debugging a faulty local server or a configuration error is a second lost on architectural innovation."
-      </blockquote>
+    <article class="article-content">
+      <p>In senior-level engineering, the environment is rarely perfect. True proficiency isn't just about writing clean code in a state-of-the-art lab; it's about <strong>delivering production-grade systems</strong> when the hardware is failing, the timeline is compressed, and the stakes are personal.</p>
 
-      <h2>The Hardware Battle</h2>
-      <p>Engineering isn't always done in a vacuum of perfect conditions. During this challenge, I faced significant <span class="highlight-gold">hardware constraints</span>. Developing a high-performance React application while managing limited system resources required a "lean" mindset. I had to optimize my development workflow—minimizing background processes and utilizing cloud-based staging environments—to ensure that the performance metrics I saw locally would translate to the end-user experience.</p>
-
-      <div class="sidebar-box">
-        <h3>The AI Edge: A Collaborative Sprint</h3>
-        <p>One of the most rewarding aspects of this build was the integration of AI as a pair-programmer. Using AI to rapidly iterate on boilerplate code allowed me to focus my cognitive energy on <strong>higher-order architectural decisions</strong>, such as custom hook optimization and strict TypeScript interface design. It wasn't just about speed; it was about having a real-time sounding board for complex logic, turning the challenge into a collaborative engineering symphony.</p>
+      <div class="quote-block">
+        "The DVT Storefront challenge was a test of architectural resilience. It was the realization that your environment is a variable, but your output must remain a constant."
       </div>
 
-      <h2>Navigating Life and Deadlines</h2>
-      <p>True seniority is measured by the ability to deliver <span class="highlight-gold">production-grade code</span> while navigating real-world pressures. Balancing the high stakes of this challenge with immediate life responsibilities required intense focus and a disciplined approach to time-blocking. It reinforced a core professional truth: Software engineering is as much about <strong>mental resilience</strong> as it is about syntax.</p>
+      <h2>1. The Lean Engine Mindset</h2>
+      <p>During this build, I was met with significant <span class="highlight">hardware constraints</span>. Developing a high-performance React application while managing limited system resources required a "lean" engineering mindset. I had to treat my RAM as a precious resource, optimizing my development workflow and utilizing cloud-based staging to ensure the end-user experience didn't suffer from my local limitations.</p>
 
-      <h2>The Technical Rewarding Bits</h2>
-      <p>Despite the external pressures, the technical victories were profound. Implementing a robust <strong>Context API state management system</strong> that handled complex cart persistence without the overhead of external libraries was incredibly satisfying. Seeing the application maintain its 60fps responsiveness across mobile and desktop—even when built under hardware stress—validated the architectural choices made in the early hours of the sprint.</p>
+      <div class="constraint-grid">
+        <div class="stat-card warm">
+          <h4>Thermal Constraint</h4>
+          <p>Compiling large TypeScript bundles on restricted hardware meant every hot-reload had to count. Zero waste in logic.</p>
+        </div>
+        <div class="stat-card cool">
+          <h4>Architectural Win</h4>
+          <p>Achieved 60fps responsiveness by moving heavy logic into custom hooks and minimizing re-renders.</p>
+        </div>
+      </div>
+
+      <div class="ai-box">
+        <h3>The AI-Augmented Symphony</h3>
+        <p>One of the most profound shifts in this build was the integration of AI as a <strong>Pair-Architect</strong>. By offloading boilerplate and repetitive syntax to AI, I was able to dedicate my cognitive load to high-order decisions: <strong>Context API state management</strong>, data persistence, and the integrity of the component hierarchy.</p>
+        <p style="margin-bottom: 0;">It wasn't just about speed; it was about <strong>precision under fire</strong>.</p>
+      </div>
+
+      <h2>2. Resilience as a Metric</h2>
+      <p>Software engineering is often viewed through the lens of syntax, but seniority is measured in **mental resilience**. Balancing a high-stakes professional assessment with immediate life responsibilities requires a disciplined approach to time-blocking and focus.</p>
+      
+      <p>I chose to implement a robust <strong>Context API</strong> system for cart persistence, avoiding the weight of external libraries. This decision—made under pressure—ensured the app remained fast, modular, and maintainable, regardless of the stress on the development machine.</p>
 
       <h2>Final Reflection</h2>
-      <p>The DVT Storefront was more than a code submission. It was a testament to the fact that when you combine thorough preparation, advanced tools like AI, and a resilient mindset, you can produce enterprise-quality results regardless of the constraints. It proved that engineering excellence is a choice made under pressure.</p>
-    </section>
+      <p>The DVT Storefront was more than a technical submission; it was a proof of concept for the **2026 Developer Workflow**. By combining thorough preparation, AI collaboration, and a refusal to let external constraints dictate the quality of the final product, I delivered a system that stands as a testament to engineering excellence under pressure.</p>
 
-    <footer>
-      <p>&copy; 2026 Michael Davids • Cape Town, South Africa</p>
+      <section style="margin-top: 80px; text-align: center; border-top: 1px solid var(--border); padding-top: 60px; padding-bottom: 100px;">
+        <h2 style="color: var(--text-bold); margin-bottom: 20px;">Review the Infrastructure</h2>
+        <p style="max-width: 600px; margin: 0 auto 40px;">Experience the result of engineering under pressure. Explore the codebase and the live deployment.</p>
+        <div style="display: flex; gap: 15px; justify-content: center;">
+            <a href="https://github.com/MichaelCDavids" class="btn-back" style="border: 1px solid var(--border); padding: 12px 24px; border-radius: 8px;">View Source</a>
+            <a href="https://react-store-michael-9816-c55bd.web.app/" class="btn-back" style="background: var(--accent-cool); color: #030712; padding: 12px 24px; border-radius: 8px; font-weight: 700;">Launch Demo</a>
+        </div>
+      </section>
+    </article>
+
+    <footer style="padding: 40px 0; border-top: 1px solid var(--border); text-align: center; color: #64748b; font-size: 0.9rem;">
+      <p>&copy; 2026 Michael Davids • Engineering & Strategy Consultant</p>
     </footer>
-  </article>
+  </div>
+
 </body>
 </html>
