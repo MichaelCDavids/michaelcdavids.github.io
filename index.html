@@ -2,278 +2,195 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Michael Davids | Full-Stack Architect</title>
+  <title>Michael Davids | Senior Full Stack Developer & Consultant</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
   <style>
     :root {
       --bg: #030712;
       --surface: #111827;
       --surface-hover: #1f2937;
-      --accent: #6366f1; /* React Indigo */
-      --accent-secondary: #0ea5e9; /* Flutter Sky */
+      --accent: #6366f1; 
+      --accent-secondary: #0ea5e9; 
       --text-main: #94a3b8;
       --text-bold: #f8fafc;
       --border: #1f2937;
       --glow: rgba(99, 102, 241, 0.15);
     }
 
-    body { 
-      background-color: var(--bg); 
-      color: var(--text-main); 
-      font-family: 'Inter', sans-serif; 
-      margin: 0; 
-      scroll-behavior: smooth; 
-      -webkit-font-smoothing: antialiased;
-    }
-
+    body { background-color: var(--bg); color: var(--text-main); font-family: 'Inter', sans-serif; margin: 0; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-    /* Glass Navbar */
-    .nav { 
-      background: rgba(3, 7, 18, 0.8); 
-      backdrop-filter: blur(12px); 
-      border-bottom: 1px solid var(--border); 
-      position: sticky; 
-      top: 0; 
-      z-index: 1000; 
-      padding: 20px 0; 
-    }
+    .nav { background: rgba(3, 7, 18, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; padding: 20px 0; }
     .nav-inner { display: flex; justify-content: space-between; align-items: center; }
     .brand { font-family: 'Fira Code', monospace; font-weight: 700; color: var(--text-bold); font-size: 1.2rem; }
-    .nav a { 
-      color: var(--text-main); 
-      font-weight: 500; 
-      text-decoration: none; 
-      margin-left: 30px; 
-      font-size: 0.9rem; 
-      transition: all 0.2s; 
-    }
+    .nav a { color: var(--text-main); font-weight: 500; text-decoration: none; margin-left: 30px; font-size: 0.9rem; transition: 0.2s; }
     .nav a:hover { color: var(--accent); text-shadow: 0 0 8px var(--glow); }
 
-    /* Hero Section with Radial Glow */
-    .hero { 
-      padding: 140px 0 100px; 
-      text-align: center; 
-      background: radial-gradient(circle at center, var(--glow) 0%, transparent 70%);
-    }
-    .hero h1 { 
-      font-size: 4.5rem; 
-      font-weight: 800; 
-      margin-bottom: 20px; 
-      color: var(--text-bold); 
-      letter-spacing: -0.05em; 
-      background: linear-gradient(to right, #fff, var(--text-main));
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .hero p { 
-      font-size: 1.25rem; 
-      max-width: 700px; 
-      margin: 0 auto 40px; 
-      line-height: 1.6;
-    }
+    .hero { padding: 120px 0 80px; text-align: center; background: radial-gradient(circle at center, var(--glow) 0%, transparent 70%); }
+    .hero h1 { font-size: 3.8rem; font-weight: 800; margin-bottom: 20px; color: var(--text-bold); letter-spacing: -0.05em; background: linear-gradient(to right, #fff, var(--text-main)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: 1.25rem; max-width: 850px; margin: 0 auto 40px; line-height: 1.6; }
 
-    .cert-badge { 
-      display: inline-block; 
-      padding: 6px 14px; 
-      background: rgba(99, 102, 241, 0.1); 
-      border: 1px solid var(--accent); 
-      border-radius: 20px; 
-      font-size: 0.75rem; 
-      font-weight: 600; 
-      color: var(--accent); 
-      margin: 8px; 
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
+    .cert-badge { display: inline-block; padding: 6px 14px; background: rgba(99, 102, 241, 0.1); border: 1px solid var(--accent); border-radius: 20px; font-size: 0.7rem; font-weight: 600; color: var(--accent); margin: 4px; text-transform: uppercase; }
 
-    /* Bento Grid Layout */
-    .section-title { font-size: 2rem; color: var(--text-bold); margin-bottom: 48px; font-weight: 700; }
-    .grid { 
-      display: grid; 
-      grid-template-columns: repeat(12, 1fr); 
-      gap: 24px; 
-    }
+    .section-title { font-size: 1.8rem; color: var(--text-bold); margin-bottom: 40px; font-weight: 700; }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
 
-    .card { 
-      background: var(--surface); 
-      border: 1px solid var(--border); 
-      border-radius: 20px; 
-      padding: 32px; 
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
-      display: flex; 
-      flex-direction: column;
-      position: relative;
-      overflow: hidden;
-    }
-    .card:hover { 
-      border-color: var(--accent); 
-      transform: translateY(-8px); 
-      box-shadow: 0 20px 40px -20px rgba(0,0,0,0.7);
-    }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 32px; transition: all 0.3s ease; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+    .card:hover { border-color: var(--accent); transform: translateY(-8px); box-shadow: 0 20px 40px -20px rgba(0,0,0,0.7); }
     
-    /* Bento Sizing */
     .card.large { grid-column: span 7; }
     .card.medium { grid-column: span 5; }
     .card.small { grid-column: span 4; }
+    .card.featured { grid-column: span 12; background: linear-gradient(145deg, #0f172a, #030712); border-color: var(--accent); }
 
-    @media (max-width: 900px) {
-      .card.large, .card.medium, .card.small { grid-column: span 12; }
-      .hero h1 { font-size: 3rem; }
-    }
+    @media (max-width: 900px) { .card.large, .card.medium, .card.small, .card.featured { grid-column: span 12; } }
 
-    .tech-tag { 
-      font-family: 'Fira Code', monospace; 
-      font-size: 0.7rem; 
-      color: var(--accent-secondary); 
-      background: rgba(14, 165, 233, 0.1); 
-      padding: 4px 10px; 
-      border-radius: 6px; 
-      margin-right: 8px;
-    }
+    .tech-tag { font-family: 'Fira Code', monospace; font-size: 0.7rem; color: var(--accent-secondary); background: rgba(14, 165, 233, 0.1); padding: 4px 10px; border-radius: 6px; margin-right: 8px; margin-bottom: 8px; display: inline-block; }
 
-    .card h3 { color: var(--text-bold); margin: 20px 0 12px; font-size: 1.5rem; }
-    .card p { font-size: 0.95rem; margin-bottom: 24px; flex-grow: 1; }
+    .card h3 { color: var(--text-bold); margin: 20px 0 12px; font-size: 1.4rem; }
+    .card p { font-size: 0.95rem; margin-bottom: 24px; flex-grow: 1; line-height: 1.5; }
 
-    /* Action Buttons */
-    .btn-group { display: flex; gap: 12px; }
-    .btn { 
-      background: var(--accent); 
-      color: white; 
-      padding: 12px 24px; 
-      text-decoration: none; 
-      font-weight: 600; 
-      border-radius: 8px; 
-      font-size: 0.85rem; 
-      transition: 0.2s; 
-    }
+    .btn-group { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { background: var(--accent); color: white; padding: 12px 24px; text-decoration: none; font-weight: 600; border-radius: 8px; font-size: 0.85rem; transition: 0.2s; text-align: center; border: none; cursor: pointer; }
     .btn:hover { background: var(--accent-secondary); box-shadow: 0 0 20px var(--glow); }
     .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text-main); }
     .btn-outline:hover { border-color: var(--text-bold); color: var(--text-bold); }
 
-    /* Article Cards */
-    .article-card {
-      background: linear-gradient(145deg, #111827, #030712);
-      padding: 40px;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      text-align: left;
-    }
-    .article-card h4 { color: var(--text-bold); font-size: 1.25rem; margin-bottom: 10px; }
-
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 30px; }
+    .contact-btn { background: #1e293b; padding: 15px; border-radius: 12px; border: 1px solid var(--border); color: var(--text-bold); text-decoration: none; text-align: center; font-size: 0.9rem; transition: 0.2s; }
+    .contact-btn:hover { border-color: var(--accent); background: #334155; }
   </style>
 </head>
 <body>
 
   <nav class="nav">
     <div class="container nav-inner">
-      <div class="brand">MD</div>
+      <div class="brand">MICHAEL DAVIDS</div>
       <div class="links">
-        <a href="#expertise">Expertise</a>
         <a href="#projects">Portfolio</a>
-        <a href="articles.html">Articles</a>
+        <a href="#history">Experience</a>
         <a href="#contact">Contact</a>
-        <a href="docs/cv.docx">CV</a>
+        <a href="docs/Michael_Davids_CV_April_2026.docx">CV</a>
       </div>
     </div>
   </nav>
 
   <div class="container">
     <header class="hero">
-      <div style="margin-bottom: 20px;">
-        <span class="cert-badge">Oracle Certified | Java SE</span>
-        <span class="cert-badge">AWS Cloud Practitioner</span>
+      <div style="margin-bottom: 25px;">
+        <span class="cert-badge">AWS Certified</span>
+        <span class="cert-badge">Oracle Java SE</span>
+        <span class="cert-badge">Blue Prism RPA</span>
       </div>
-      <h1>Full-Stack Software Developer</h1>
-      <p>specializing in high-performance Flutter ecosystems, type-safe React environments, and scalable cloud infrastructure.</p>
+      <h1>Senior Full Stack Developer</h1>
+      <p>Bridging the gap between enterprise rigor and modern engineering. Over 5 years of experience building scalable UI systems, high-performance technical assets, and automated business workflows via <strong>AwethenticSA</strong>.</p>
     </header>
 
-    <section id="projects" style="padding: 100px 0;">
-      <h2 class="section-title">Featured Systems</h2>
+    <section id="projects" style="padding-bottom: 60px;">
+      <h2 class="section-title">Technical Assets</h2>
       <div class="grid">
         
+        <div class="card featured">
+          <div>
+            <span class="tech-tag">Trading</span>
+            <span class="tech-tag">FinTech</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">TanStack Query</span>
+          </div>
+          <h3>GX Trades (Orez Engine)</h3>
+          <p>Real-time terminal for gold market indicators and technical analysis. Built on the Orez engine to implement Candle Range Theory (CRT) for precision technical signals in XAUUSD and BTCUSD markets.</p>
+          <div class="btn-group">
+            <a href="https://legendary-goggles-297529-77b0d.web.app/" class="btn">Launch Terminal</a>
+            <a href="#" class="btn btn-outline">Technical Brief</a>
+          </div>
+        </div>
+
         <div class="card large">
           <div>
-            <span class="tech-tag">Flutter</span>
-            <span class="tech-tag">Riverpod</span>
-            <span class="tech-tag">Android</span>
-            <span class="tech-tag">iOS</span>
-            <span class="tech-tag">Web</span>
+            <span class="tech-tag">React 18</span>
+            <span class="tech-tag">Zustand</span>
+            <span class="tech-tag">TypeScript</span>
           </div>
-          <h3>Konvi Marketplace</h3>
-          <p>A high-concurrency marketplace for social discovery. Architected using Flutter Web and an optimized Node.js backend to handle seamless real-time interactions.</p>
+          <h3>@michaelcdavids/mute-ui v2.0</h3>
+          <p>The next evolution of my polymorphic UI library. Optimized for the React Compiler era, featuring zero-runtime overhead and enhanced hydration strategies.</p>
           <div class="btn-group">
-            <a href="https://konviapp-81382577-1f10d.web.app/" class="btn">Launch Instance</a>
-            <a href="https://konvibackend.onrender.com/" class="btn btn-outline">Documentation</a>
+            <a href="https://mute-ui-mcd-59132529-662c4.web.app/" class="btn">Component Lab</a>
+            <a href="https://mute-ui-34653851-ee993.web.app" class="btn btn-outline">v1 Documentation</a>
           </div>
         </div>
 
         <div class="card medium">
           <div>
-            <span class="tech-tag">TypeScript</span>
-            <span class="tech-tag">NPM</span>
+            <span class="tech-tag">Flutter</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">Riverpod</span>
           </div>
-          <h3>@michaelcdavids/mute-ui</h3>
-          <p>Polymorphic React library designed for enterprise design systems. Focused on zero-runtime overhead and strict type-safety.</p>
-          <a href="https://mute-ui-34653851-ee993.web.app" class="btn">V1.0.0 Documentation</a>
+          <h3>Konvi Marketplace</h3>
+          <p>Cross-platform social discovery engine integration. Managed the high-concurrency marketplace architecture and real-time backend functionality.</p>
+          <div class="btn-group">
+            <a href="https://konviapp-81382577-1f10d.web.app/" class="btn">Launch Instance</a>
+            <a href="https://konvibackend.onrender.com/" class="btn btn-outline">API Docs</a>
+          </div>
         </div>
 
         <div class="card small">
-          <div><span class="tech-tag">Java SE 8</span></div>
+          <div><span class="tech-tag">Blue Prism</span><span class="tech-tag">SAP</span></div>
+          <h3>Enterprise RPA</h3>
+          <p>Led RPA implementation for enterprise workflow optimization, integrating complex SAP data pipelines and AWS infrastructure at Accenture.</p>
+          <a href="#" class="btn btn-outline">Case Study</a>
+        </div>
+
+        <div class="card small">
+          <div><span class="tech-tag">React 18</span><span class="tech-tag">Zustand</span></div>
+          <h3>React Storefront</h3>
+          <p>Architecture assessment featuring scalable state and hydration-aware UI for modern retail environments.</p>
+          <a href="https://react-store-michael-9816-c55bd.web.app/" class="btn btn-outline">Peek Demo</a>
+        </div>
+
+        <div class="card small">
+          <div><span class="tech-tag">AWS</span><span class="tech-tag">E-commerce</span></div>
           <h3>AwethenticSA</h3>
-          <p>Modular microservices engine with a Spring Boot foundation and Flutter storefront.</p>
+          <p>Leading e-commerce strategy with localized payment gateways like Ozow and 1Voucher for the SA market.</p>
           <a href="#" class="btn btn-outline">Repository</a>
         </div>
 
-        <div class="card small">
-          <div><span class="tech-tag">Trading</span><span class="tech-tag">React</span></div>
-          <h3>Trade Signals</h3>
-          <p>Real-time terminal for gold market indicators and precision technical analysis.</p>
-          <a href="https://legendary-goggles-297529-77b0d.web.app/" class="btn">View App</a>
-        </div>
-
-        <div class="card small">
-          <div><span class="tech-tag">Clean Arch</span></div>
-          <h3>React Storefront</h3>
-          <p>Senior-level architecture assessment featuring scalable state and hydration-aware UI.</p>
-          <a href="https://react-store-michael-9816-c55bd.web.app/" class="btn">Demo</a>
-        </div>
-
       </div>
     </section>
 
-    <section id="articles" style="padding-bottom: 120px;">
+    <section id="history" style="padding: 60px 0;">
       <h2 class="section-title">Technical Strategy</h2>
       <div class="grid">
-        <div class="card medium article-card" style="grid-column: span 6;">
-          <span style="color: var(--accent); font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">Governance</span>
-          <h4>The Accenture Influence</h4>
+        <div class="card medium" style="grid-column: span 6; background: #0f172a;">
+          <span style="color: var(--accent); font-weight: 700; font-size: 0.8rem;">GOVERNANCE</span>
+          <h3>The Accenture Influence</h3>
           <p>Bridging the gap between global enterprise rigor and modern agile engineering workflows.</p>
-          <a href="accenture-influence.html" style="color: var(--text-bold); text-decoration: none; font-weight: 600; font-size: 0.9rem;">Read Protocol →</a>
+          <a href="#" style="color: var(--text-bold); text-decoration: none; font-weight: 600; font-size: 0.9rem;">Read Analysis →</a>
         </div>
         
-        <div class="card medium article-card" style="grid-column: span 6;">
-          <span style="color: var(--accent-secondary); font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">Development</span>
-          <h4>Learning React 2026</h4>
-          <p>A deep dive into Server Components, Server Actions, and the era of the React Compiler.</p>
-          <a href="learning-react.html" style="color: var(--text-bold); text-decoration: none; font-weight: 600; font-size: 0.9rem;">Read Analysis →</a>
+        <div class="card medium" style="grid-column: span 6; background: #0f172a;">
+          <span style="color: var(--accent-secondary); font-weight: 700; font-size: 0.8rem;">DEVELOPMENT</span>
+          <h3>Consulting for Scale</h3>
+          <p>How AwethenticSA leverages custom architecture to solve business bottlenecks for modern startups.</p>
+          <a href="#" style="color: var(--text-bold); text-decoration: none; font-weight: 600; font-size: 0.9rem;">Read Strategy →</a>
         </div>
       </div>
+    </section>
+
+    <section id="contact" style="padding: 60px 0 120px;">
+      <h2 class="section-title">Professional Inquiries</h2>
+      <div class="contact-grid">
+        <a href="mailto:michaelcdavids@gmail.com" class="contact-btn">michaelcdavids@gmail.com</a>
+        <a href="tel:+27731529691" class="contact-btn">073 152 9691</a>
+        <a href="https://github.com/MichaelCDavids" class="contact-btn">GitHub Profile</a>
+        <a href="https://michaelcdavids.github.io" class="contact-btn">Portfolio Home</a>
+      </div>
+      <p style="margin-top: 40px; font-size: 0.85rem; text-align: center;">Cape Town, South Africa</p>
     </section>
   </div>
 
-  <footer style="padding: 80px 0; border-top: 1px solid var(--border); text-align: center; background: #010409;">
-    <div class="container">
-      <p style="color: var(--text-bold); font-weight: 600; margin-bottom: 10px;">Michael Davids</p>
-      <p style="font-size: 0.85rem;">Software Developer • Cape Town, South Africa</p>
-      <div style="margin-top: 20px;">
-        <a href="#contact" class="btn" style="background: transparent; border: 1px solid var(--accent); color: var(--accent);">Get In Touch</a>
-      </div>
-    </div>
+  <footer style="padding: 60px 0; border-top: 1px solid var(--border); text-align: center; background: #010409;">
+    <p style="font-size: 0.8rem; opacity: 0.6;">© 2026 Michael Davids | Senior Full Stack Developer</p>
   </footer>
 
 </body>
