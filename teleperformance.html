@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>The Teleperformance Journey | Michael Davids</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand: #a855f7;       /* Accenture / Teleperformance Purple Accent */
+      --brand-hover: #c084fc;
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --text-main: #94a3b8;
+      --text-bold: #f8fafc;
+      --border: #334155;
+      --accent-glow: rgba(168, 85, 247, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      margin: 0;
+      padding: 0;
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .container {
+      max-width: 900px;
+      padding: 0 24px;
+      margin: 0 auto;
+    }
+
+    /* Navigation */
+    .nav {
+      border-bottom: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    .nav-inner a {
+      color: var(--text-main);
+      margin-left: 20px;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav-inner a:hover {
+      color: var(--text-bold);
+    }
+
+    /* Header */
+    header {
+      padding: 80px 0 40px;
+      text-align: left;
+    }
+
+    .tag-hero {
+      display: inline-block;
+      padding: 6px 18px;
+      background: var(--brand);
+      color: #fff;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      color: var(--text-bold);
+      margin: 10px 0;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      font-size: 1.4rem;
+      color: var(--brand);
+      font-weight: 500;
+      margin-top: 10px;
+    }
+
+    /* Article Body */
+    .article-content h2 {
+      font-size: 2rem;
+      margin-top: 50px;
+      color: var(--text-bold);
+      letter-spacing: -0.02em;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+
+    .article-content h3 {
+      font-size: 1.3rem;
+      margin-top: 30px;
+      color: var(--text-bold);
+    }
+
+    .article-content p {
+      margin-bottom: 20px;
+    }
+
+    /* Cards and Grids */
+    .performance-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 30px 0;
+    }
+
+    @media (max-width: 768px) {
+      .performance-grid {
+        grid-template-columns: 1fr;
+      }
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    .stat-card {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--brand);
+    }
+
+    .insight-box {
+      background: var(--accent-glow);
+      border: 1px solid var(--brand);
+      padding: 30px;
+      margin: 40px 0;
+      border-radius: 12px;
+      color: var(--text-bold);
+    }
+
+    .insight-box ul {
+      margin: 15px 0 0;
+      padding-left: 20px;
+    }
+
+    .insight-box li {
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+
+    .insight-box li strong {
+      color: var(--text-bold);
+    }
+
+    .quote-section {
+      border-left: 3px solid var(--brand);
+      padding-left: 24px;
+      margin: 40px 0;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--text-bold);
+      background: rgba(30, 41, 59, 0.5);
+      padding-top: 16px;
+      padding-bottom: 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    /* Buttons */
+    .btn-cta {
+      display: inline-block;
+      background: var(--brand);
+      color: white;
+      padding: 18px 36px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      margin-top: 20px;
+      box-shadow: 0 4px 14px 0 rgba(168, 85, 247, 0.39);
+    }
+
+    .btn-cta:hover {
+      background: var(--brand-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(168, 85, 247, 0.45);
+    }
+
+    strong {
+      color: var(--text-bold);
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: #64748b;
+      font-size: 0.9rem;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand"><strong>MD</strong></div>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="articles.html">Articles</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header>
+      <div class="tag-hero">Operational Excellence</div>
+      <h1>The Teleperformance Journey</h1>
+      <p class="subtitle">Precision, resilience, and compliance within the Aviva campaign.</p>
+    </header>
+
+    <article class="article-content">
+      <p>Every software developer’s journey is defined not just by the code they write, but by the environments that shape their discipline. While building software requires technical vision and architectural scaling, true professional reliability is forged in operations—where precision, compliance, and focus are unyielding requirements.</p>
+
+      <p>My experience at <strong>Teleperformance</strong> working on the <strong>Aviva</strong> campaign stands as a cornerstone of this operational maturity. It served as a daily exercise in high-stakes accountability, exact timekeeping, and team cohesion that directly informs my work as a full-stack engineer today.</p>
+
+      <h2>1. Precision Timekeeping and Focused Execution</h2>
+      <p>In a global BPO environment supporting financial services and insurance like Aviva, timekeeping is far more than an administrative metric—it is the foundation of service reliability and operational respect. Managing shift windows, queue efficiency, and break schedules requires surgical accuracy.</p>
+
+      <div class="performance-grid">
+        <div class="stat-card">
+          <h3>Uncompromising Accuracy</h3>
+          <p>Tracking schedules and shift logs precisely ensures continuous coverage and zero disruption for client workflows.</p>
+        </div>
+        <div class="stat-card">
+          <h3>Sustained Deep Focus</h3>
+          <p>Maintaining peak concentration across high-volume tasks ensures every policy query or data entry point is executed with zero margin for error.</p>
+        </div>
+      </div>
+
+      <div class="quote-section">
+        "Utmost care is not an abstract ideal—it is the habit of approaching every routine task with full intentionality, knowing that behind every record is a customer relying on your accuracy."
+      </div>
+
+      <h2>2. Compliance, Safety, and Security First</h2>
+      <p>Handling sensitive customer and financial records under the Aviva campaign required strict adherence to regulatory standards, data privacy laws, and security protocols. This experience built a natural <strong>security-first mindset</strong> that extends into modern system engineering.</p>
+
+      <div class="insight-box">
+        <h3>Operational Compliance Pillars</h3>
+        <ul>
+          <li><strong>Data Safeguarding:</strong> Strictly adhering to privacy guidelines and security protocols to prevent data breaches and safeguard identity.</li>
+          <li><strong>SOP Adherence:</strong> Executing standard operating procedures meticulously without shortcuts to maintain audit compliance.</li>
+          <li><strong>Proactive Risk Mitigation:</strong> Identifying workflow bottlenecks or security vulnerabilities early and following structured escalation paths.</li>
+        </ul>
+      </div>
+
+      <h2>3. Resilience Beyond the Desk: The Daily Commute</h2>
+      <p>The Teleperformance journey was defined as much by what happened outside the office as inside it. Navigating long bus commutes across Cape Town became a daily ritual in mental endurance and preparation.</p>
+
+      <p>Those transit hours provided time to reflect, plan, and build the grit necessary to bring high energy and focus to every shift. Arriving on time, regardless of transit complexities, reinforced a core principle: reliability is non-negotiable.</p>
+
+      <h2>4. The Unique Power of Team Culture</h2>
+      <p>What makes the TP journey truly memorable is the incredible sense of shared camaraderie. Operating in a fast-paced environment creates bonds forged through mutual support, high volume, and shared milestones.</p>
+
+      <p>Standing alongside a team, tackling complex customer scenarios together, and keeping morale high taught me that whether you are delivering customer solutions on a global campaign or building enterprise application architectures, <strong>success is always a collective effort</strong>.</p>
+
+      <section style="margin-top: 80px; text-align: center; border-top: 1px solid var(--border); padding-top: 60px; padding-bottom: 60px;">
+        <h2 style="color: var(--text-bold); margin-bottom: 20px; border-bottom: none;">Combining Rigor with Modern Engineering</h2>
+        <p style="max-width: 600px; margin: 0 auto 30px;">Applying operational discipline and enterprise precision to build scalable web and mobile systems.</p>
+        <a href="index.html#contact" class="btn-cta">Consult on Your Project</a>
+      </section>
+    </article>
+
+    <footer>
+      <p>&copy; 2026 Michael Davids. Full-Stack Engineer & Strategy Consultant.</p>
+    </footer>
+  </div>
+
+</body>
+</html>
