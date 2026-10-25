@@ -2,12 +2,105 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Michael Davids | Full-Stack Software Developer & Technical Consultant</title>
+  <title>Full-Stack Software Developer & Technical Consultant | Michael Davids </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Calmer, more spacious modern typography -->
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <!-- External stylesheet link -->
   <link rel="stylesheet" href="css/main.css">
+
+  <style>
+    /* Technical Assets Carousel Styles */
+    .carousel-wrapper {
+      position: relative;
+      margin-top: 24px;
+    }
+
+    .carousel-container {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: 12px 4px 24px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+    }
+
+    .carousel-container::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Edge */
+    }
+
+    .carousel-card {
+      flex: 0 0 calc(50% - 12px);
+      min-width: 340px;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .carousel-card {
+        flex: 0 0 88%;
+        min-width: 280px;
+      }
+    }
+
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 16px;
+    }
+
+    .carousel-indicators {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(148, 163, 184, 0.3);
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .dot.active {
+      background: #38bdf8;
+      transform: scale(1.2);
+    }
+
+    .carousel-nav-btn {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #ffffff;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .carousel-nav-btn:hover {
+      background: #38bdf8;
+      color: #090d16;
+      border-color: #38bdf8;
+    }
+
+    .carousel-nav-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+  </style>
 </head>
 <body>
 
@@ -31,78 +124,119 @@
         <span class="cert-badge">Oracle Java SE</span>
         <span class="cert-badge">Blue Prism RPA</span>
       </div>
-      <h1>Full-Stack Software Developer & Technical Consultant</h1>
+      <h1>Full-Stack Software Developer</h1>
       <p>Over 6 years of experience engineering scalable web applications, robust mobile products, and automated business integrations via <strong>AwethenticSA</strong>.</p>
     </header>
 
+    <!-- Technical Assets Carousel Section -->
     <section id="projects" style="padding-bottom: 60px;">
-      <h2 class="section-title fade-up">Technical Assets & Production Systems</h2>
-      <div class="grid">
+      <div class="d-flex justify-content-between align-items-center fade-up">
+        <h2 class="section-title mb-0">Technical Assets & Production Systems</h2>
+      </div>
 
-        <div class="card large fade-up">
-          <div>
-            <span class="tech-tag">React 18</span>
-            <span class="tech-tag">Zustand</span>
-            <span class="tech-tag">TypeScript</span>
+      <div class="carousel-wrapper fade-up">
+        <div class="carousel-container" id="assets-carousel">
+
+          <!-- Card 1: @michaelcdavids/mute-ui -->
+          <div class="card carousel-card">
+            <div>
+              <div style="margin-bottom: 12px;">
+                <span class="tech-tag">React 18</span>
+                <span class="tech-tag">Zustand</span>
+                <span class="tech-tag">TypeScript</span>
+              </div>
+              <h3>@michaelcdavids/mute-ui v2.0</h3>
+              <p>An enterprise-grade, polymorphic UI component library optimized for high performance and strict layout decoupling. Crafted for minimal runtime overhead and seamless client-side hydration patterns.</p>
+            </div>
+            <div class="btn-group" style="margin-top: 20px;">
+              <a href="https://mute-ui-mcd-59132529-662c4.web.app/" class="btn" target="_blank" rel="noopener noreferrer">Component Lab</a>
+              <a href="https://mute-ui-34653851-ee993.web.app" class="btn btn-outline" target="_blank" rel="noopener noreferrer">v1 Docs</a>
+            </div>
           </div>
-          <h3>@michaelcdavids/mute-ui v2.0</h3>
-          <p>An enterprise-grade, polymorphic UI component library optimized for high performance and strict layout decoupling. Crafted for minimal runtime overhead and seamless client-side hydration patterns.</p>
-          <div class="btn-group">
-            <a href="https://mute-ui-mcd-59132529-662c4.web.app/" class="btn">Component Lab</a>
-            <a href="https://mute-ui-34653851-ee993.web.app" class="btn btn-outline">v1 Documentation</a>
+
+          <!-- Card 2: MoveMakers Engine -->
+          <div class="card carousel-card">
+            <div>
+              <div style="margin-bottom: 12px;">
+                <span class="tech-tag">Express.js</span>
+                <span class="tech-tag">PoseNet / TensorFlow</span>
+                <span class="tech-tag">Render Postgres</span>
+              </div>
+              <h3>MoveMakers Engine</h3>
+              <p>Real-time computer vision gesture-detection platform featuring sequential hold-to-confirm pose verification, camera HUD diagnostics, and automated Render PostgreSQL scoreboard sync.</p>
+            </div>
+            <div class="btn-group" style="margin-top: 20px;">
+              <a href="https://movemakers.onrender.com" class="btn" target="_blank" rel="noopener noreferrer">Launch Platform</a>
+              <a href="codex-to-production.html" class="btn btn-outline">Read Case Study</a>
+            </div>
           </div>
+
+          <!-- Card 3: Konvi App -->
+          <div class="card carousel-card">
+            <div>
+              <div style="margin-bottom: 12px;">
+                <span class="tech-tag">Flutter</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">Riverpod</span>
+              </div>
+              <h3>Konvi App</h3>
+              <p>Cross-platform social discovery engine and marketplace layout. Spearheaded high-concurrency architecture updates, state handling strategies, and responsive application flows.</p>
+            </div>
+            <div class="btn-group" style="margin-top: 20px;">
+              <a href="https://konviapp-81382577-1f10d.web.app/" class="btn" target="_blank" rel="noopener noreferrer">Launch Instance</a>
+              <a href="https://konvibackend.onrender.com/" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Run API</a>
+            </div>
+          </div>
+
+          <!-- Card 4: Enterprise Automation -->
+          <div class="card carousel-card">
+            <div>
+              <div style="margin-bottom: 12px;">
+                <span class="tech-tag">Blue Prism</span>
+                <span class="tech-tag">SAP Integration</span>
+              </div>
+              <h3>Enterprise Intelligent Automation</h3>
+              <p>Engineered comprehensive RPA pipelines to optimize large-scale client business logic, safely synchronizing enterprise datasets into secure cloud architecture.</p>
+            </div>
+            <a href="accenture-influence.html" class="btn btn-outline" style="margin-top: 20px;">Read Case Study</a>
+          </div>
+
+          <!-- Card 5: Modular Storefront -->
+          <div class="card carousel-card">
+            <div>
+              <div style="margin-bottom: 12px;">
+                <span class="tech-tag">React 18</span>
+                <span class="tech-tag">Zustand</span>
+              </div>
+              <h3>Modular Storefront Architecture</h3>
+              <p>Architectural layout evaluation focusing on atomic state design, deep data layers, and clean UI responsiveness across modern target hardware.</p>
+            </div>
+            <a href="https://react-store-michael-9816-c55bd.web.app/" class="btn btn-outline" target="_blank" rel="noopener noreferrer" style="margin-top: 20px;">Peek Demo</a>
+          </div>
+
+          <!-- Card 6: AwethenticSA Solutions -->
+          <div class="card carousel-card">
+            <div>
+              <div style="margin-bottom: 12px;">
+                <span class="tech-tag">AWS Cloud</span>
+                <span class="tech-tag">System Integrations</span>
+              </div>
+              <h3>AwethenticSA Solutions</h3>
+              <p>Building high-availability technical strategies, robust data pipelines, and tailored local platform integrations for evolving products.</p>
+            </div>
+            <a href="https://github.com/MichaelCDavids/awethentic-lite" class="btn btn-outline" target="_blank" rel="noopener noreferrer" style="margin-top: 20px;">Repository</a>
+          </div>
+
         </div>
 
-        <div class="card medium fade-up">
-          <div>
-            <span class="tech-tag">Flutter</span>
-            <span class="tech-tag">Node.js</span>
-            <span class="tech-tag">Riverpod</span>
-          </div>
-          <h3>Konvi App</h3>
-          <p>Cross-platform social discovery engine and marketplace layout. Spearheaded high-concurrency architecture updates, state handling strategies, and responsive application flows.</p>
-          <div class="btn-group">
-            <a href="https://konviapp-81382577-1f10d.web.app/" class="btn">Launch Instance</a>
-            <a href="https://konvibackend.onrender.com/" class="btn btn-outline">Run API & Docs</a>
+        <!-- Carousel Navigation Controls & Indicators -->
+        <div class="carousel-controls">
+          <div class="carousel-indicators" id="carousel-dots"></div>
+          <div style="display: flex; gap: 12px;">
+            <button class="carousel-nav-btn" id="prev-btn" aria-label="Previous Slide">←</button>
+            <button class="carousel-nav-btn" id="next-btn" aria-label="Next Slide">→</button>
           </div>
         </div>
-
-        <!-- MoveMakers Production System Entry -->
-        <div class="card medium fade-up">
-          <div>
-            <span class="tech-tag">Express.js</span>
-            <span class="tech-tag">PoseNet / TensorFlow</span>
-            <span class="tech-tag">Render Postgres</span>
-          </div>
-          <h3>MoveMakers Engine</h3>
-          <p>Real-time computer vision gesture-detection platform featuring sequential hold-to-confirm pose verification, camera HUD diagnostics, and automated Render PostgreSQL scoreboard sync.</p>
-          <div class="btn-group">
-            <a href="https://movemakers.onrender.com" class="btn" target="_blank" rel="noopener noreferrer">Launch Platform</a>
-            <a href="codex-to-production.html" class="btn btn-outline">Read Case Study</a>
-          </div>
-        </div>
-
-        <div class="card small fade-up">
-          <div><span class="tech-tag">Blue Prism</span><span class="tech-tag">SAP Integration</span></div>
-          <h3>Enterprise Intelligent Automation</h3>
-          <p>Engineered comprehensive RPA pipelines to optimize large-scale client business logic, safely synchronizing enterprise datasets into secure cloud architecture.</p>
-          <a href="accenture-influence.html" class="btn btn-outline" style="margin-top: auto;">Case Study</a>
-        </div>
-
-        <div class="card small fade-up">
-          <div><span class="tech-tag">React 18</span><span class="tech-tag">Zustand</span></div>
-          <h3>Modular Storefront Architecture</h3>
-          <p>Architectural layout evaluation focusing on atomic state design, deep data layers, and clean UI responsiveness across modern target hardware.</p>
-          <a href="https://react-store-michael-9816-c55bd.web.app/" class="btn btn-outline" style="margin-top: auto;">Peek Demo</a>
-        </div>
-
-        <div class="card small fade-up">
-          <div><span class="tech-tag">AWS Cloud</span><span class="tech-tag">System Integrations</span></div>
-          <h3>AwethenticSA Solutions</h3>
-          <p>Building high-availability technical strategies, robust data pipelines, and tailored local platform integrations for evolving products.</p>
-          <a href="https://github.com/MichaelCDavids/awethentic-lite" class="btn btn-outline" style="margin-top: auto;">Repository</a>
-        </div>
-
       </div>
     </section>
 
@@ -145,9 +279,10 @@
     <p style="font-size: 0.8rem; color: #64748b;">© 2026 Michael Davids | Full-Stack Software Developer & Technical Consultant</p>
   </footer>
 
-  <!-- Safe, Performant Intersection Observer for Scroll Animations -->
+  <!-- Safe, Performant Observer & Carousel Controller Script -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
+      // Intersection Observer for Entrance Animations
       const observerOptions = {
         root: null,
         rootMargin: '0px 0px -50px 0px',
@@ -166,6 +301,50 @@
       document.querySelectorAll('.fade-up').forEach(el => {
         observer.observe(el);
       });
+
+      // Carousel Functionality
+      const carousel = document.getElementById('assets-carousel');
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+      const dotsContainer = document.getElementById('carousel-dots');
+      const cards = carousel.querySelectorAll('.carousel-card');
+
+      // Create Navigation Dots
+      cards.forEach((_, idx) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (idx === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+          cards[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        });
+        dotsContainer.appendChild(dot);
+      });
+
+      const dots = dotsContainer.querySelectorAll('.dot');
+
+      function updateCarouselState() {
+        const scrollLeft = carousel.scrollLeft;
+        const cardWidth = cards[0].offsetWidth + 24; // Width + Gap
+        const activeIdx = Math.round(scrollLeft / cardWidth);
+
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === activeIdx);
+        });
+
+        prevBtn.disabled = scrollLeft <= 10;
+        nextBtn.disabled = scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10;
+      }
+
+      prevBtn.addEventListener('click', () => {
+        carousel.scrollBy({ left: -(cards[0].offsetWidth + 24), behavior: 'smooth' });
+      });
+
+      nextBtn.addEventListener('click', () => {
+        carousel.scrollBy({ left: cards[0].offsetWidth + 24, behavior: 'smooth' });
+      });
+
+      carousel.addEventListener('scroll', updateCarouselState);
+      updateCarouselState();
     });
   </script>
 
