@@ -4,69 +4,16 @@
   <meta charset="utf-8">
   <title>Michael Davids | Full-Stack Software Developer & Technical Consultant</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #030712;
-      --surface: #111827;
-      --surface-hover: #1f2937;
-      --accent: #6366f1; 
-      --accent-secondary: #0ea5e9; 
-      --text-main: #94a3b8;
-      --text-bold: #f8fafc;
-      --border: #1f2937;
-      --glow: rgba(99, 102, 241, 0.15);
-    }
-
-    body { background-color: var(--bg); color: var(--text-main); font-family: 'Inter', sans-serif; margin: 0; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-
-    .nav { background: rgba(3, 7, 18, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; padding: 20px 0; }
-    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
-    .brand { font-family: 'Fira Code', monospace; font-weight: 700; color: var(--text-bold); font-size: 1.2rem; }
-    .nav a { color: var(--text-main); font-weight: 500; text-decoration: none; margin-left: 30px; font-size: 0.9rem; transition: 0.2s; }
-    .nav a:hover { color: var(--accent); text-shadow: 0 0 8px var(--glow); }
-
-    .hero { padding: 120px 0 80px; text-align: center; background: radial-gradient(circle at center, var(--glow) 0%, transparent 70%); }
-    .hero h1 { font-size: 3.8rem; font-weight: 800; margin-bottom: 20px; color: var(--text-bold); letter-spacing: -0.05em; background: linear-gradient(to right, #fff, var(--text-main)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .hero p { font-size: 1.25rem; max-width: 850px; margin: 0 auto 40px; line-height: 1.6; }
-
-    .cert-badge { display: inline-block; padding: 6px 14px; background: rgba(99, 102, 241, 0.1); border: 1px solid var(--accent); border-radius: 20px; font-size: 0.7rem; font-weight: 600; color: var(--accent); margin: 4px; text-transform: uppercase; }
-
-    .section-title { font-size: 1.8rem; color: var(--text-bold); margin-bottom: 40px; font-weight: 700; }
-    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
-
-    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 32px; transition: all 0.3s ease; display: flex; flex-direction: column; position: relative; overflow: hidden; }
-    .card:hover { border-color: var(--accent); transform: translateY(-8px); box-shadow: 0 20px 40px -20px rgba(0,0,0,0.7); }
-    
-    .card.large { grid-column: span 7; }
-    .card.medium { grid-column: span 5; }
-    .card.small { grid-column: span 4; }
-    .card.featured { grid-column: span 12; background: linear-gradient(145deg, #0f172a, #030712); border-color: var(--accent); }
-
-    @media (max-width: 900px) { .card.large, .card.medium, .card.small, .card.featured { grid-column: span 12; } }
-
-    .tech-tag { font-family: 'Fira Code', monospace; font-size: 0.7rem; color: var(--accent-secondary); background: rgba(14, 165, 233, 0.1); padding: 4px 10px; border-radius: 6px; margin-right: 8px; margin-bottom: 8px; display: inline-block; }
-
-    .card h3 { color: var(--text-bold); margin: 20px 0 12px; font-size: 1.4rem; }
-    .card p { font-size: 0.95rem; margin-bottom: 24px; flex-grow: 1; line-height: 1.5; }
-
-    .btn-group { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn { background: var(--accent); color: white; padding: 12px 24px; text-decoration: none; font-weight: 600; border-radius: 8px; font-size: 0.85rem; transition: 0.2s; text-align: center; border: none; cursor: pointer; }
-    .btn:hover { background: var(--accent-secondary); box-shadow: 0 0 20px var(--glow); }
-    .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text-main); }
-    .btn-outline:hover { border-color: var(--text-bold); color: var(--text-bold); }
-
-    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 30px; }
-    .contact-btn { background: #1e293b; padding: 15px; border-radius: 12px; border: 1px solid var(--border); color: var(--text-bold); text-decoration: none; text-align: center; font-size: 0.9rem; transition: 0.2s; }
-    .contact-btn:hover { border-color: var(--accent); background: #334155; }
-  </style>
+  <!-- Calmer, more spacious modern typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- External stylesheet link -->
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
   <nav class="nav">
     <div class="container nav-inner">
-      <div class="brand">MICHAEL DAVIDS</div>
+      <div class="brand"></div>
       <div class="links">
         <a href="#projects">Portfolio</a>
         <a href="articles.html">Articles</a>
@@ -78,7 +25,7 @@
   </nav>
 
   <div class="container">
-    <header class="hero">
+    <header class="hero fade-up">
       <div style="margin-bottom: 25px;">
         <span class="cert-badge">AWS Certified</span>
         <span class="cert-badge">Oracle Java SE</span>
@@ -89,25 +36,10 @@
     </header>
 
     <section id="projects" style="padding-bottom: 60px;">
-      <h2 class="section-title">Technical Assets & Production Systems</h2>
+      <h2 class="section-title fade-up">Technical Assets & Production Systems</h2>
       <div class="grid">
-        
-        <!-- <div class="card featured">
-          <div>
-            <span class="tech-tag">FinTech</span>
-            <span class="tech-tag">Trading Systems</span>
-            <span class="tech-tag">React</span>
-            <span class="tech-tag">TanStack Query</span>
-          </div>
-          <h3>GX Trades (Orez Engine)</h3>
-          <p>A real-time analytics terminal designed for financial market indicators. Powered by the Orez engine to run complex technical analysis, mapping specific trade behaviors and supply/demand indicators for modern commodity pairs.</p>
-          <div class="btn-group">
-            <a href="https://legendary-goggles-297529-77b0d.web.app/" class="btn">Launch Terminal</a>
-            <a href="#" class="btn btn-outline">Technical Brief</a>
-          </div>
-        </div> -->
 
-        <div class="card large">
+        <div class="card large fade-up">
           <div>
             <span class="tech-tag">React 18</span>
             <span class="tech-tag">Zustand</span>
@@ -121,7 +53,7 @@
           </div>
         </div>
 
-        <div class="card medium">
+        <div class="card medium fade-up">
           <div>
             <span class="tech-tag">Flutter</span>
             <span class="tech-tag">Node.js</span>
@@ -135,72 +67,92 @@
           </div>
         </div>
 
-        <div class="card small">
+        <div class="card small fade-up">
           <div><span class="tech-tag">Blue Prism</span><span class="tech-tag">SAP Integration</span></div>
           <h3>Enterprise Intelligent Automation</h3>
           <p>Engineered comprehensive RPA pipelines to optimize large-scale client business logic, safely synchronizing enterprise datasets into secure cloud architecture.</p>
-          <a href="accenture-influence.html" class="btn btn-outline">Case Study</a>
+          <a href="accenture-influence.html" class="btn btn-outline" style="margin-top: auto;">Case Study</a>
         </div>
 
-        <div class="card small">
+        <div class="card small fade-up">
           <div><span class="tech-tag">React 18</span><span class="tech-tag">Zustand</span></div>
           <h3>Modular Storefront Architecture</h3>
           <p>Architectural layout evaluation focusing on atomic state design, deep data layers, and clean UI responsiveness across modern target hardware.</p>
-          <a href="https://react-store-michael-9816-c55bd.web.app/" class="btn btn-outline">Peek Demo</a>
+          <a href="https://react-store-michael-9816-c55bd.web.app/" class="btn btn-outline" style="margin-top: auto;">Peek Demo</a>
         </div>
 
-        <div class="card small">
+        <div class="card small fade-up">
           <div><span class="tech-tag">AWS Cloud</span><span class="tech-tag">System Integrations</span></div>
           <h3>AwethenticSA Solutions</h3>
           <p>Building high-availability technical strategies, robust data pipelines, and tailored local platform integrations for evolving products.</p>
-          <a href="https://github.com/MichaelCDavids/awethentic-lite" class="btn btn-outline">Repository</a>
+          <a href="https://github.com/MichaelCDavids/awethentic-lite" class="btn btn-outline" style="margin-top: auto;">Repository</a>
         </div>
 
       </div>
     </section>
 
     <section id="history" style="padding: 60px 0;">
-      <h2 class="section-title">Technical Strategy & Leadership</h2>
+      <h2 class="section-title fade-up">Technical Strategy & Leadership</h2>
       <div class="grid">
-        <div class="card medium" style="grid-column: span 6; background: #0f172a;">
-          <span style="color: var(--accent); font-weight: 700; font-size: 0.8rem;">GOVERNANCE</span>
+        <div class="card medium fade-up" style="grid-column: span 6; background: #0b101c;">
+          <span style="color: #818cf8; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase;">Governance</span>
           <h3>The Enterprise Engineering Mindset</h3>
           <p>Marrying corporate platform compliance with lightning-fast, high-quality development methodologies.</p>
-          <a href="accenture-influence.html" style="color: var(--text-bold); text-decoration: none; font-weight: 600; font-size: 0.9rem;">Read Analysis →</a>
+          <a href="accenture-influence.html" style="color: var(--text-bold); text-decoration: none; font-weight: 500; font-size: 0.9rem; margin-top: auto;">Read Analysis →</a>
         </div>
         
-        <div class="card medium" style="grid-column: span 6; background: #0f172a;">
-          <span style="color: var(--accent-secondary); font-weight: 700; font-size: 0.8rem;">DEVELOPMENT</span>
+        <div class="card medium fade-up" style="grid-column: span 6; background: #0b101c;">
+          <span style="color: #38bdf8; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase;">Development</span>
           <h3>Consulting for Architecture Scale</h3>
           <p>How AwethenticSA decouples application bottlenecks to achieve reliable performance and modular growth.</p>
-          <a href="article-flutter.html" style="color: var(--text-bold); text-decoration: none; font-weight: 600; font-size: 0.9rem;">Read Strategy →</a>
+          <a href="article-flutter.html" style="color: var(--text-bold); text-decoration: none; font-weight: 500; font-size: 0.9rem; margin-top: auto;">Read Strategy →</a>
         </div>
       </div>
     </section>
 
-    <section id="contact" style="padding: 60px 0 120px;">
+    <section id="contact" style="padding: 60px 0 120px;" class="fade-up">
       <h2 class="section-title">Professional Inquiries</h2>
-     <div class="contact-grid">
-        <!-- Pre-populated Email Template -->
+      <div class="contact-grid">
         <a href="mailto:michaelcdavids@gmail.com?subject=Professional%20Inquiry%20-%20Software%20Development&body=Hi%20Michael%2C%0A%0AI%20viewed%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20potential%20project/opportunity.%20Let%27s%20connect.%0A%0ABest%20regards%2C" class="contact-btn">
           Email Inquiry
         </a>
-
-        <!-- Pre-populated WhatsApp Template -->
         <a href="https://wa.me/27731529691?text=Hi%20Michael%2C%20I%20just%20viewed%20your%20portfolio%20and%20would%20like%20to%20connect%20regarding%20a%20development%20project." target="_blank" rel="noopener noreferrer" class="contact-btn">
           Message on WhatsApp
         </a>
-
         <a href="https://github.com/MichaelCDavids" class="contact-btn" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
         <a href="articles.html" class="contact-btn">Technical Articles</a>
       </div>
-      <p style="margin-top: 40px; font-size: 0.85rem; text-align: center;">Cape Town, South Africa</p>
+      <p style="margin-top: 40px; font-size: 0.85rem; text-align: center; color: #64748b;">Cape Town, South Africa</p>
     </section>
   </div>
 
-  <footer style="padding: 60px 0; border-top: 1px solid var(--border); text-align: center; background: #010409;">
-    <p style="font-size: 0.8rem; opacity: 0.6;">© 2026 Michael Davids | Full-Stack Software Developer & Technical Consultant</p>
+  <footer style="padding: 50px 0; border-top: 1px solid var(--border); text-align: center; background: #05080e;">
+    <p style="font-size: 0.8rem; color: #64748b;">© 2026 Michael Davids | Full-Stack Software Developer & Technical Consultant</p>
   </footer>
+
+  <!-- Safe, Performant Intersection Observer for Scroll Animations -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.15
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.fade-up').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
 
 </body>
 </html>

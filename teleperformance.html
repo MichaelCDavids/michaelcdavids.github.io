@@ -2,145 +2,131 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>The Teleperformance Journey | Michael Davids</title>
+  <title>The Teleperformance Journey | Digital Transformation & Operational Excellence</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Modern typography aligned with main design system -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  
   <style>
     :root {
-      --brand: #a855f7;       /* Accenture / Teleperformance Purple Accent */
-      --brand-hover: #c084fc;
-      --bg: #0f172a;
-      --surface: #1e293b;
-      --text-main: #94a3b8;
-      --text-bold: #f8fafc;
-      --border: #334155;
-      --accent-glow: rgba(168, 85, 247, 0.15);
+      --tp-pink: #e11d48;
+      --tp-purple: #a855f7;
+      --tp-glow: rgba(168, 85, 247, 0.15);
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text-main);
-      margin: 0;
-      padding: 0;
-      line-height: 1.8;
-      font-size: 1.05rem;
-    }
-
-    .container {
-      max-width: 900px;
-      padding: 0 24px;
-      margin: 0 auto;
-    }
-
-    /* Navigation */
-    .nav {
-      border-bottom: 1px solid var(--border);
-      background: rgba(15, 23, 42, 0.8);
-    }
-
-    .nav-inner {
+    /* Parallax Hero Section */
+    .parallax-hero {
+      position: relative;
+      height: 65vh;
+      min-height: 460px;
+      background-image: linear-gradient(180deg, rgba(9, 13, 22, 0.7) 0%, rgba(9, 13, 22, 0.95) 100%), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1600&auto=format&fit=crop');
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 20px 0;
+      justify-content: center;
+      text-align: center;
+      padding: 0 24px;
     }
 
-    .nav-inner a {
-      color: var(--text-main);
-      margin-left: 20px;
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-
-    .nav-inner a:hover {
-      color: var(--text-bold);
-    }
-
-    /* Header */
-    header {
-      padding: 80px 0 40px;
-      text-align: left;
+    .parallax-content {
+      max-width: 850px;
     }
 
     .tag-hero {
       display: inline-block;
       padding: 6px 18px;
-      background: var(--brand);
-      color: #fff;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      color: var(--tp-purple);
       border-radius: 20px;
-      font-weight: 700;
       font-size: 0.75rem;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 24px;
-    }
-
-    h1 {
-      font-size: 3.5rem;
-      color: var(--text-bold);
-      margin: 10px 0;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-    }
-
-    .subtitle {
-      font-size: 1.4rem;
-      color: var(--brand);
-      font-weight: 500;
-      margin-top: 10px;
-    }
-
-    /* Article Body */
-    .article-content h2 {
-      font-size: 2rem;
-      margin-top: 50px;
-      color: var(--text-bold);
-      letter-spacing: -0.02em;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 10px;
-    }
-
-    .article-content h3 {
-      font-size: 1.3rem;
-      margin-top: 30px;
-      color: var(--text-bold);
-    }
-
-    .article-content p {
+      letter-spacing: 0.08em;
       margin-bottom: 20px;
     }
 
-    /* Cards and Grids */
+    .parallax-content h1 {
+      font-size: 3.4rem;
+      font-weight: 700;
+      color: var(--text-bold);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .parallax-content p {
+      font-size: 1.25rem;
+      color: #cbd5e1;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* Content Layout */
+    .article-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 24px 120px;
+    }
+
+    .meta-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
+      margin-bottom: 40px;
+    }
+
+    .meta-item {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: #64748b;
+    }
+
+    .article-body h2 {
+      font-size: 1.8rem;
+      color: var(--text-bold);
+      margin: 52px 0 18px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .article-body p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #94a3b8;
+      font-weight: 300;
+      margin-bottom: 24px;
+    }
+
+    /* Performance Grid Cards */
     .performance-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 24px;
-      margin: 30px 0;
+      margin: 40px 0;
     }
-
-    @media (max-width: 768px) {
-      .performance-grid {
-        grid-template-columns: 1fr;
-      }
-      h1 {
-        font-size: 2.5rem;
-      }
-    }
+    @media (max-width: 768px) { .performance-grid { grid-template-columns: 1fr; } }
 
     .stat-card {
       padding: 28px;
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 14px;
       background: var(--surface);
       position: relative;
       overflow: hidden;
+      transition: border-color 0.3s ease, transform 0.3s ease;
     }
-
+    .stat-card:hover {
+      border-color: rgba(168, 85, 247, 0.4);
+      transform: translateY(-3px);
+    }
     .stat-card::before {
       content: "";
       position: absolute;
@@ -148,155 +134,247 @@
       left: 0;
       width: 4px;
       height: 100%;
-      background: var(--brand);
+      background: var(--tp-purple);
+    }
+    .stat-card h3 {
+      font-size: 1.2rem;
+      color: var(--text-bold);
+      margin: 0 0 10px;
+      font-weight: 600;
+    }
+    .stat-card p {
+      font-size: 0.92rem;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .highlight-quote {
+      border-left: 3px solid var(--tp-purple);
+      background: var(--tp-glow);
+      padding: 28px 32px;
+      border-radius: 0 14px 14px 0;
+      margin: 40px 0;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--text-bold);
+      font-style: italic;
+      border-top: 1px solid rgba(168, 85, 247, 0.2);
+      border-right: 1px solid rgba(168, 85, 247, 0.2);
+      border-bottom: 1px solid rgba(168, 85, 247, 0.2);
     }
 
     .insight-box {
-      background: var(--accent-glow);
-      border: 1px solid var(--brand);
-      padding: 30px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      padding: 32px;
       margin: 40px 0;
-      border-radius: 12px;
-      color: var(--text-bold);
-    }
-
-    .insight-box ul {
-      margin: 15px 0 0;
-      padding-left: 20px;
-    }
-
-    .insight-box li {
-      margin-bottom: 12px;
+      border-radius: 16px;
       color: var(--text-main);
     }
-
-    .insight-box li strong {
+    .insight-box h3 {
       color: var(--text-bold);
+      margin-top: 0;
+      font-size: 1.3rem;
+      letter-spacing: -0.01em;
+    }
+    .insight-box ul {
+      margin: 16px 0 0;
+      padding-left: 20px;
+    }
+    .insight-box li {
+      margin-bottom: 12px;
+      line-height: 1.6;
+      font-weight: 300;
     }
 
-    .quote-section {
-      border-left: 3px solid var(--brand);
-      padding-left: 24px;
-      margin: 40px 0;
-      font-style: italic;
-      font-size: 1.15rem;
-      color: var(--text-bold);
-      background: rgba(30, 41, 59, 0.5);
-      padding-top: 16px;
-      padding-bottom: 16px;
-      border-radius: 0 8px 8px 0;
+    /* Secondary Parallax Break Divider */
+    .parallax-divider {
+      height: 320px;
+      background-image: linear-gradient(180deg, rgba(9, 13, 22, 0.85) 0%, rgba(9, 13, 22, 0.85) 100%), url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1600&auto=format&fit=crop');
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 60px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
 
-    /* Buttons */
+    .parallax-divider-text {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--tp-purple);
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(9, 13, 22, 0.9);
+      padding: 14px 30px;
+      border-radius: 8px;
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+    }
+
     .btn-cta {
       display: inline-block;
-      background: var(--brand);
+      background: var(--tp-purple);
       color: white;
-      padding: 18px 36px;
+      padding: 14px 32px;
       border-radius: 8px;
-      font-weight: 700;
+      font-weight: 600;
+      font-size: 0.9rem;
       text-decoration: none;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      margin-top: 20px;
-      box-shadow: 0 4px 14px 0 rgba(168, 85, 247, 0.39);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 14px 0 rgba(168, 85, 247, 0.35);
     }
-
     .btn-cta:hover {
-      background: var(--brand-hover);
-      transform: translateY(-3px);
+      background: #c084fc;
+      transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(168, 85, 247, 0.45);
     }
 
-    strong {
-      color: var(--text-bold);
+    /* Staggered Scroll Animations */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .fade-up.active {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    /* Footer */
-    footer {
-      padding: 40px 0;
-      border-top: 1px solid var(--border);
-      text-align: center;
-      color: #64748b;
-      font-size: 0.9rem;
-      margin-top: 60px;
+    @media (max-width: 768px) {
+      .parallax-hero { height: 50vh; background-attachment: scroll; }
+      .parallax-divider { background-attachment: scroll; }
+      .parallax-content h1 { font-size: 2.3rem; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Navigation -->
   <nav class="nav">
     <div class="container nav-inner">
-      <div class="brand"><strong>MD</strong></div>
-      <div class="links">
-        <a href="index.html">Home</a>
-        <a href="articles.html">Articles</a>
-      </div>
+      <a href="index.html" class="brand" style="text-decoration: none;">MICHAEL DAVIDS <span style="color: var(--tp-purple); font-weight: 400;">/ PERSPECTIVES</span></a>
+      <a href="articles.html" class="btn btn-outline" style="padding: 8px 18px;">← All Articles</a>
     </div>
   </nav>
 
-  <div class="container">
-    <header>
-      <div class="tag-hero">Operational Excellence</div>
-      <h1>The Teleperformance Journey</h1>
-      <p class="subtitle">Precision, resilience, and compliance within TP</p>
-    </header>
+  <!-- Parallax Hero -->
+  <header class="parallax-hero">
+    <div class="parallax-content fade-up">
+      <div class="tag-hero">Digital Business Services & Innovation</div>
+      <h1>The Teleperformance Experience</h1>
+      <p>Driving data precision, AI integration, and customer-centric transformation at global scale.</p>
+    </div>
+  </header>
 
-    <article class="article-content">
-      <p>Every software developer’s journey is defined not just by the code they write, but by the environments that shape their discipline. While building software requires technical vision and architectural scaling, true professional reliability is forged in operations—where precision, compliance, and focus are unyielding requirements.</p>
+  <!-- Main Article Container -->
+  <main class="article-container">
+    
+    <div class="meta-bar fade-up">
+      <span class="meta-item">AUTHOR: MICHAEL DAVIDS</span>
+      <span class="meta-item">ORGANIZATION: TELEPERFORMANCE</span>
+      <span class="meta-item">5 MIN READ</span>
+    </div>
 
-      <p>My experience at <strong>Teleperformance</strong> working on the campaign I'm currently placed on stands as a cornerstone of this operational maturity. It served as a daily exercise in high-stakes accountability, exact timekeeping, and team cohesion that directly informs my work as a full-stack engineer today.</p>
+    <article class="article-body">
+      
+      <p class="fade-up">In the world of global digital business services, <strong>Teleperformance (TP)</strong> stands at the forefront of combining human empathy with advanced technology. As an organization powering customer-centric solutions for the world’s leading brands, Teleperformance provides an environment where operational excellence, technological innovation, and team collaboration converge.</p>
 
-      <h2>1. Precision Timekeeping and Focused Execution</h2>
-      <p>In a global BPO environment supporting financial services and insurance firms, timekeeping is far more than an administrative metric—it is the foundation of service reliability and operational respect. Managing shift windows, queue efficiency, and break schedules requires surgical accuracy.</p>
+      <p class="fade-up">As a team member at Teleperformance, I see firsthand how the company leverages cutting-edge tools—including AI-assisted workflows, advanced analytics, and integrated management systems—to consistently elevate client outcomes and transform operational efficiency.</p>
 
-      <div class="performance-grid">
+      <h2 class="fade-up">Data Precision & Customer-Centric Systems</h2>
+      <p class="fade-up">At the core of the Teleperformance mission is a commitment to delivering pristine data accuracy and seamless client services. In modern enterprise operations, accurate data is the foundation of strategic decision-making. By refining workflows and adopting smart tools, we ensure that every customer touchpoint and system record meets the highest standards of quality.</p>
+
+      <div class="performance-grid fade-up">
         <div class="stat-card">
-          <h3>Uncompromising Accuracy</h3>
-          <p>Tracking schedules and shift logs precisely ensures continuous coverage and zero disruption for client workflows.</p>
+          <h3>AI & Smart Tool Integration</h3>
+          <p>Utilizing intelligent automation, knowledge automation platforms, and AI-assisted tools to streamline complex workflows and boost operational throughput.</p>
         </div>
         <div class="stat-card">
-          <h3>Sustained Deep Focus</h3>
-          <p>Maintaining peak concentration across high-volume tasks ensures every policy query or data entry point is executed with zero margin for error.</p>
+          <h3>Data Integrity & Analytics</h3>
+          <p>Ensuring rigorous accuracy across all data pipelines, enabling client partners to make informed, high-impact business decisions with total confidence.</p>
         </div>
       </div>
 
-      <div class="quote-section">
-        "Utmost care is not an abstract ideal—it is the habit of approaching every routine task with full intentionality, knowing that behind every record is a customer relying on your accuracy."
+      <div class="highlight-quote fade-up">
+        "Operational excellence is a continuous journey. By empowering team members at every level to identify process efficiencies, Teleperformance fosters an ecosystem of continuous innovation and business growth."
       </div>
 
-      <h2>2. Compliance, Safety, and Security First</h2>
-      <p>Handling sensitive customer and financial records under any campaign requires strict adherence to regulatory standards, data privacy laws, and security protocols. This experience built a natural <strong>security-first mindset</strong> that extends into modern system engineering.</p>
+      <h2 class="fade-up">Driving Productivity & Business Development</h2>
+      <p class="fade-up">One of the most rewarding aspects of working at Teleperformance is the open culture of continuous improvement. Innovation isn't restricted to executive floors—it actively flows from the operational frontline. Team members are encouraged to proactively identify bottlenecks, propose smarter workflows, and optimize data fidelity.</p>
 
-      <div class="insight-box">
-        <h3>Operational Compliance Pillars</h3>
+      <p class="fade-up">This proactive mindset creates a direct connection between daily operational tasks and broader organizational growth. When front-line systems operate with high efficiency and data integrity, clients achieve higher satisfaction, reduced operational overhead, and long-term scalable expansion.</p>
+
+    </article>
+  </main>
+
+  <!-- Parallax Divider Section -->
+  <div class="parallax-divider fade-up">
+    <div class="parallax-divider-text">
+      Human Touch × High-Tech Intelligence
+    </div>
+  </div>
+
+  <main class="article-container" style="padding-top: 0;">
+    <article class="article-body">
+      
+      <h2 class="fade-up">Culture, Collaboration & Global Resilience</h2>
+      <p class="fade-up">Beyond technology and systems, Teleperformance succeeds because of its vibrant, inclusive culture and shared commitment to excellence. Operating in a fast-paced global environment builds strong camaraderie, resilience, and mutual support across teams.</p>
+
+      <div class="insight-box fade-up">
+        <h3>Core Operational Principles at Teleperformance</h3>
         <ul>
-          <li><strong>Data Safeguarding:</strong> Strictly adhering to privacy guidelines and security protocols to prevent data breaches and safeguard identity.</li>
-          <li><strong>SOP Adherence:</strong> Executing standard operating procedures meticulously without shortcuts to maintain audit compliance.</li>
-          <li><strong>Proactive Risk Mitigation:</strong> Identifying workflow bottlenecks or security vulnerabilities early and following structured escalation paths.</li>
+          <li><strong>Customer-Centric Focus:</strong> Placing the customer experience at the center of every process enhancement and technological deployment.</li>
+          <li><strong>Process Optimization:</strong> Leveraging automated tools and analytics to continuously refine performance metrics and eliminate friction points.</li>
+          <li><strong>Continuous Growth:</strong> Encouraging innovation and leadership at every level to drive organizational development and professional growth.</li>
         </ul>
       </div>
 
-      <h2>3. Resilience Beyond the Desk: The Daily Commute</h2>
-      <p>The Teleperformance journey was defined as much by what happened outside the office as inside it. Navigating long bus commutes across Cape Town became a daily ritual in mental endurance and preparation.</p>
+      <p class="fade-up">Combining this operational discipline with full-stack software development creates a uniquely well-rounded perspective—ensuring that every digital product I build is architected with enterprise reliability, user empathy, and measurable business value.</p>
 
-      <p>Those transit hours provided time to reflect, plan, and build the grit necessary to bring high energy and focus to every shift. Arriving on time, regardless of transit complexities, reinforced a core principle: reliability is non-negotiable.</p>
-
-      <h2>4. The Unique Power of Team Culture</h2>
-      <p>What makes the TP journey truly memorable is the incredible sense of shared camaraderie. Operating in a fast-paced environment creates bonds forged through mutual support, high volume, and shared milestones.</p>
-
-      <p>Standing alongside a team, tackling complex customer scenarios together, and keeping morale high taught me that whether you are delivering customer solutions on a global campaign or building enterprise application architectures, <strong>success is always a collective effort</strong>.</p>
-
-      <section style="margin-top: 80px; text-align: center; border-top: 1px solid var(--border); padding-top: 60px; padding-bottom: 60px;">
-        <h2 style="color: var(--text-bold); margin-bottom: 20px; border-bottom: none;">Combining Rigor with Modern Engineering</h2>
-        <p style="max-width: 600px; margin: 0 auto 30px;">Applying operational discipline and enterprise precision to build scalable web and mobile systems.</p>
+      <!-- CTA Section -->
+      <section class="fade-up" style="margin-top: 80px; text-align: center; border-top: 1px solid var(--border); padding-top: 60px;">
+        <h2 style="color: var(--text-bold); margin-bottom: 16px;">Optimize Your Digital Workflows</h2>
+        <p style="max-width: 600px; margin: 0 auto 32px; color: #94a3b8; font-weight: 300;">Discover how combining operational rigor with full-stack software solutions elevates system performance.</p>
         <a href="index.html#contact" class="btn-cta">Consult on Your Project</a>
       </section>
-    </article>
 
-    <footer>
-      <p>&copy; 2026 Michael Davids. Full-Stack Engineer & Strategy Consultant.</p>
-    </footer>
-  </div>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer style="padding: 50px 0; border-top: 1px solid var(--border); text-align: center; background: #05080e;">
+    <p style="font-size: 0.8rem; color: #64748b;">© 2026 Michael Davids | Full-Stack Software Developer & Technical Consultant</p>
+  </footer>
+
+  <!-- Intersection Observer for Scroll Animations -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.fade-up').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
 
 </body>
 </html>

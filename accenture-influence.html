@@ -2,127 +2,379 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>The Accenture Influence | Michael Davids</title>
+  <title>The Accenture Influence | Enterprise Architecture & Global Impact</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/normalize.css">
+  
+  <!-- Modern typography aligned with main design system -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
+  
   <style>
     :root {
-      --brand: #a855f7;       /* Accenture Purple Inspiration */
-      --brand-hover: #c084fc;
-      --bg: #0f172a;
-      --surface: #1e293b;
-      --text-main: #94a3b8;
-      --text-bold: #f8fafc;
-      --border: #334155;
-      --accent-glow: rgba(168, 85, 247, 0.15);
+      --accent-purple: #a855f7;
+      --accent-purple-glow: rgba(168, 85, 247, 0.15);
+      --accent-purple-hover: #c084fc;
     }
 
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text-main); margin: 0; }
-    .container { max-width: 900px; padding: 0 24px; margin: 0 auto; }
-    
-    .article-content { line-height: 1.9; font-size: 1.1rem; }
-    .article-content h2 { font-size: 2.2rem; margin-top: 60px; color: var(--text-bold); letter-spacing: -0.02em; }
-    .article-content h3 { font-size: 1.5rem; margin-top: 40px; color: var(--text-bold); }
+    /* Parallax Hero Section */
+    .parallax-hero {
+      position: relative;
+      height: 65vh;
+      min-height: 460px;
+      background-image: linear-gradient(180deg, rgba(9, 13, 22, 0.65) 0%, rgba(9, 13, 22, 0.95) 100%), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto=format&fit=crop');
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 24px;
+    }
 
-    /* The High-Performance Grid */
-    .performance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 40px 0; }
+    .parallax-content {
+      max-width: 850px;
+    }
+
+    .tag-hero {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      color: var(--accent-purple);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+
+    .parallax-content h1 {
+      font-size: 3.4rem;
+      font-weight: 700;
+      color: var(--text-bold);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .parallax-content p {
+      font-size: 1.25rem;
+      color: #cbd5e1;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* Content Layout */
+    .article-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 24px 120px;
+    }
+
+    .meta-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
+      margin-bottom: 40px;
+    }
+
+    .meta-item {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: #64748b;
+    }
+
+    .article-body h2 {
+      font-size: 1.8rem;
+      color: var(--text-bold);
+      margin: 52px 0 18px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .article-body p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #94a3b8;
+      font-weight: 300;
+      margin-bottom: 24px;
+    }
+
+    /* High-Performance Grid Cards */
+    .performance-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 40px 0;
+    }
     @media (max-width: 768px) { .performance-grid { grid-template-columns: 1fr; } }
 
-    .stat-card { padding: 30px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); position: relative; overflow: hidden; }
-    .stat-card::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--brand); }
-    
-    .insight-box { 
-      background: var(--accent-glow); 
-      border: 1px solid var(--brand); 
-      padding: 30px; 
-      margin: 40px 0; 
-      border-radius: 12px; 
-      color: var(--text-bold);
+    .stat-card {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--surface);
       position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    .stat-card:hover {
+      border-color: rgba(168, 85, 247, 0.4);
+      transform: translateY(-3px);
+    }
+    .stat-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--accent-purple);
+    }
+    .stat-card h3 {
+      font-size: 1.2rem;
+      color: var(--text-bold);
+      margin: 0 0 10px;
+      font-weight: 600;
+    }
+    .stat-card p {
+      font-size: 0.92rem;
+      margin: 0;
+      line-height: 1.6;
     }
 
-    .tag-hero { display: inline-block; padding: 6px 18px; background: var(--brand); color: #fff; border-radius: 20px; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 24px; }
-    
-    .ingenuity-section { border-left: 2px solid var(--border); padding-left: 30px; margin: 50px 0; font-style: italic; }
+    .highlight-quote {
+      border-left: 3px solid var(--accent-purple);
+      background: var(--accent-purple-glow);
+      padding: 28px 32px;
+      border-radius: 0 14px 14px 0;
+      margin: 40px 0;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--text-bold);
+      font-style: italic;
+      border-top: 1px solid rgba(168, 85, 247, 0.2);
+      border-right: 1px solid rgba(168, 85, 247, 0.2);
+      border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+    }
 
-    .btn-cta { display: inline-block; background: var(--brand); color: white; padding: 18px 36px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); margin-top: 20px; box-shadow: 0 4px 14px 0 rgba(168, 85, 247, 0.39); }
-    .btn-cta:hover { background: var(--brand-hover); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(168, 85, 247, 0.45); }
+    .insight-box {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      padding: 32px;
+      margin: 40px 0;
+      border-radius: 16px;
+      color: var(--text-main);
+    }
+    .insight-box h3 {
+      color: var(--text-bold);
+      margin-top: 0;
+      font-size: 1.3rem;
+      letter-spacing: -0.01em;
+    }
+    .insight-box ul {
+      margin: 16px 0 0;
+      padding-left: 20px;
+    }
+    .insight-box li {
+      margin-bottom: 12px;
+      line-height: 1.6;
+      font-weight: 300;
+    }
 
-    strong { color: var(--text-bold); }
+    /* Secondary Parallax Break Divider */
+    .parallax-divider {
+      height: 320px;
+      background-image: linear-gradient(180deg, rgba(9, 13, 22, 0.85) 0%, rgba(9, 13, 22, 0.85) 100%), url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop');
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 60px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .parallax-divider-text {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent-purple);
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(9, 13, 22, 0.9);
+      padding: 14px 30px;
+      border-radius: 8px;
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+    }
+
+    .btn-cta {
+      display: inline-block;
+      background: var(--accent-purple);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 14px 0 rgba(168, 85, 247, 0.35);
+    }
+    .btn-cta:hover {
+      background: var(--accent-purple-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(168, 85, 247, 0.45);
+    }
+
+    /* Staggered Scroll Animations */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .fade-up.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .parallax-hero { height: 50vh; background-attachment: scroll; }
+      .parallax-divider { background-attachment: scroll; }
+      .parallax-content h1 { font-size: 2.3rem; }
+    }
   </style>
 </head>
 <body>
 
+  <!-- Navigation -->
   <nav class="nav">
-    <div class="container nav-inner" style="display: flex; justify-content: space-between; padding: 20px 0;">
-      <div class="brand"><strong>MD</strong></div>
-      <div class="links">
-        <a href="index.html" style="color: var(--text-main); margin-left: 20px; text-decoration: none;">Home</a>
-        <a href="articles.html" style="color: var(--text-main); margin-left: 20px; text-decoration: none;">Articles</a>
-      </div>
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" style="text-decoration: none;">MICHAEL DAVIDS <span style="color: var(--accent-purple); font-weight: 400;">/ PERSPECTIVES</span></a>
+      <a href="articles.html" class="btn btn-outline" style="padding: 8px 18px;">← All Articles</a>
     </div>
   </nav>
 
-  <div class="container">
-    <header style="padding: 100px 0 60px; text-align: left;">
-      <div class="tag-hero">Professional Strategy</div>
-      <h1 style="font-size: 3.8rem; color: var(--text-bold); margin: 10px 0; line-height: 1.1;">The Accenture Influence</h1>
-      <p style="font-size: 1.5rem; color: var(--brand); font-weight: 500;">Bridging enterprise rigor with modern agile engineering.</p>
-    </header>
+  <!-- Parallax Hero -->
+  <header class="parallax-hero">
+    <div class="parallax-content fade-up">
+      <div class="tag-hero">Systems Leadership & Strategy</div>
+      <h1>The Accenture Influence</h1>
+      <p>Bridging corporate enterprise rigor with high-velocity agile software engineering.</p>
+    </div>
+  </header>
 
-    <article class="article-content">
-      <p>In the world of technology, global powerhouses like Accenture don't just build software; they build **ecosystems of reliability**. Entering this environment provides a developer with more than just technical proficiency—it provides "technical armor." You learn that high-performance delivery is not a lucky outcome of a talented individual, but the result of a disciplined, repeatable process.</p>
+  <!-- Main Article Container -->
+  <main class="article-container">
+    
+    <div class="meta-bar fade-up">
+      <span class="meta-item">AUTHOR: MICHAEL DAVIDS</span>
+      <span class="meta-item">CATEGORY: ENTERPRISE ARCHITECTURE</span>
+      <span class="meta-item">7 MIN READ</span>
+    </div>
 
-      <h2>The High-Performance Delivery Model</h2>
-      <p>High performance in an enterprise context is measured by the delta between <strong>Innovation</strong> and <strong>Stability</strong>. My experience focused on the intersection of rapid deployment and zero-fault tolerance. This was achieved through three core pillars:</p>
+    <article class="article-body">
+      
+      <p class="fade-up">In the modern digital economy, global technology consultancies like <strong>Accenture</strong> set the global benchmark for enterprise architecture and system resilience. Operating at this scale instills a profound understanding of technical governance—equipping engineers with the discipline required to build software ecosystems where zero-fault tolerance and high-concurrency performance are baseline expectations.</p>
 
-      <div class="performance-grid">
+      <p class="fade-up">My tenure working within complex client ecosystems—including multi-regional robotic process automation (RPA) integrations, SAP data synchronizations, and critical infrastructure monitoring for enterprise clients like Sasol—provided invaluable mastery over full-lifecycle software delivery.</p>
+
+      <h2 class="fade-up">The High-Performance Delivery Model</h2>
+      <p class="fade-up">High performance in an enterprise context is defined by the precise balance between <strong>continuous innovation</strong> and <strong>uncompromising stability</strong>. Achieving this harmony requires repeatable frameworks, rigorous code standards, and robust architectural patterns that prevent technical debt before it manifests.</p>
+
+      <div class="performance-grid fade-up">
         <div class="stat-card">
           <h3>Methodological Precision</h3>
-          <p>Utilizing proprietary frameworks to ensure that every line of code serves a business requirement, minimizing waste and maximizing ROI.</p>
+          <p>Deploying structured development pipelines and strict integration protocols ensuring every architectural decision strictly advances business objectives.</p>
         </div>
         <div class="stat-card">
           <h3>Architectural Scalability</h3>
-          <p>Designing systems that don't just work for today’s 10,000 users, but are structurally sound for tomorrow’s 10 million.</p>
+          <p>Architecting decoupled backend models and cloud-native solutions designed to seamlessly scale from initial deployment to high-concurrency workloads.</p>
         </div>
       </div>
 
-      <h2>The Promise of Human Ingenuity</h2>
-      <p>At the heart of my professional philosophy is the former Accenture mantra: <strong>"Delivering on the promise of technology and human ingenuity."</strong> Technology alone is a commodity; it is the human element—the creative problem-solving and ethical implementation—that transforms a tool into a solution.</p>
-      
-      <div class="ingenuity-section">
-        "Human ingenuity is the ability to look at a legacy constraint and see a pathway to modernization. It is the refusal to accept 'that's how it's always been done' as a valid technical justification."
+      <div class="highlight-quote fade-up">
+        "Human ingenuity is the ability to analyze legacy complexity and establish a clear, modern pathway forward. It is the refusal to accept legacy constraints as a justification for compromised software architecture."
       </div>
 
-      <p>In my current work with <strong>Flutter</strong> and <strong>React</strong>, I apply this ingenuity by taking the heavy governance of the enterprise world and stripping away the bureaucracy, leaving only the high-quality results. I believe that a developer's greatest value is their ability to leverage their experience to foresee "bottlenecks" before they manifest as downtime.</p>
+      <h2 class="fade-up">Delivering Technology & Human Ingenuity</h2>
+      <p class="fade-up">At the heart of global technical consulting is the core principle that technology reaches its full potential when combined with human problem-solving. Automated business logic, cloud pipelines, and enterprise software are strategic tools—it is the engineer's role to craft these tools into seamless user experiences and resilient automated systems.</p>
 
-      <h2>The Enterprise-Agile Hybrid</h2>
-      <p>Many developers choose a side: either the slow-moving stability of the corporate world or the fast-breaking chaos of the startup. My mission is to occupy the <strong>center</strong>.</p>
+      <p class="fade-up">Whether engineering full-stack web platforms with <strong>React 18</strong> and <strong>TypeScript</strong> or building reactive cross-platform mobile products in <strong>Flutter</strong>, I apply these enterprise standards directly. By stripping away corporate bureaucracy while preserving high-caliber testing, modular design, and robust data layers, software can be delivered with both startup speed and enterprise-grade reliability.</p>
 
-      <div class="insight-box">
-        <h3>The Hybrid Advantage</h3>
+    </article>
+  </main>
+
+  <!-- Parallax Divider Section -->
+  <div class="parallax-divider fade-up">
+    <div class="parallax-divider-text">
+      Enterprise Rigor × Modern Speed
+    </div>
+  </div>
+
+  <main class="article-container" style="padding-top: 0;">
+    <article class="article-body">
+      
+      <h2 class="fade-up">The Hybrid Advantage: Speed with Structure</h2>
+      <p class="fade-up">Software developers often divide into two camps: those accustomed solely to fast-moving, loosely structured environments, and those bound by slow-moving corporate processes. The highest value lies precisely in the middle—combining corporate governance with modern, high-velocity engineering practices.</p>
+
+      <div class="insight-box fade-up">
+        <h3>Core Pillars of the Enterprise-Agile Methodology</h3>
         <ul>
-          <li><strong>Rigor:</strong> Documentation and testing protocols that ensure long-term maintainability.</li>
-          <li><strong>Agility:</strong> Utilizing React Server Components and Flutter’s reactive UI to pivot within days, not months.</li>
-          <li><strong>Accountability:</strong> Professional stakeholder communication that translates "technical debt" into "strategic opportunities."</li>
+          <li><strong>Structural Governance:</strong> Thorough documentation, strict type-safety, and automated testing protocols that guarantee long-term maintainability.</li>
+          <li><strong>Rapid Iteration:</strong> Leveraging modern state management, decoupled API layers, and rapid UI hydration to pivot within days rather than months.</li>
+          <li><strong>Strategic Ownership:</strong> Transparent stakeholder communication that translates complex technical architecture into clear business value and sustainable growth.</li>
         </ul>
       </div>
 
-      <p>I don't just provide code; I provide a partnership based on the understanding that your digital platform is a high-stakes asset. By combining corporate-grade discipline with a specialist's speed, I ensure that every project is a testament to what is possible when technology meets true ingenuity.</p>
+      <p class="fade-up">By marrying enterprise experience with modern software craftsmanship, digital platforms are transformed into dependable, scalable assets built to withstand high volume and evolving market needs.</p>
 
-      <section style="margin-top: 80px; text-align: center; border-top: 1px solid var(--border); padding-top: 60px; padding-bottom: 100px;">
-        <h2 style="color: var(--text-bold); margin-bottom: 20px;">Transform Your Infrastructure</h2>
-        <p style="max-width: 600px; margin: 0 auto 40px;">Leverage enterprise-level experience to scale your modern web or mobile application.</p>
+      <!-- CTA Section -->
+      <section class="fade-up" style="margin-top: 80px; text-align: center; border-top: 1px solid var(--border); padding-top: 60px;">
+        <h2 style="color: var(--text-bold); margin-bottom: 16px;">Scale Your Technical Infrastructure</h2>
+        <p style="max-width: 600px; margin: 0 auto 32px; color: #94a3b8; font-weight: 300;">Leverage enterprise-grade architecture and full-stack software consulting for your next platform deployment.</p>
         <a href="index.html#contact" class="btn-cta">Consult on Your Project</a>
       </section>
-    </article>
 
-    <footer style="padding: 40px 0; border-top: 1px solid var(--border); text-align: center; color: #64748b; font-size: 0.9rem;">
-      <p>&copy; 2026 Michael Davids. Full-Stack Engineer & Strategy Consultant.</p>
-    </footer>
-  </div>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer style="padding: 50px 0; border-top: 1px solid var(--border); text-align: center; background: #05080e;">
+    <p style="font-size: 0.8rem; color: #64748b;">© 2026 Michael Davids | Full-Stack Software Developer & Technical Consultant</p>
+  </footer>
+
+  <!-- Intersection Observer for Scroll Animations -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.fade-up').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
 
 </body>
 </html>

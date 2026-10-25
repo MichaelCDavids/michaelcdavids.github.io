@@ -2,121 +2,370 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Engineering Under Pressure | Michael Davids</title>
+  <title>Engineering Under Pressure | DVT Storefront Case Study</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/normalize.css">
+  
+  <!-- Modern typography aligned with main design system -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
+  
   <style>
     :root {
-      --bg: #030712;
-      --surface: #111827;
-      --accent-warm: #f59e0b; /* Amber for "Under Pressure" */
+      --accent-warm: #f59e0b;
+      --accent-warm-glow: rgba(245, 158, 11, 0.15);
+      --accent-warm-hover: #fbbf24;
       --accent-cool: #38bdf8;
-      --text-main: #94a3b8;
-      --text-bold: #f8fafc;
-      --border: #1f2937;
     }
 
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text-main); margin: 0; line-height: 1.9; }
-    .container { max-width: 900px; padding: 0 24px; margin: 0 auto; }
-    
-    .article-content { font-size: 1.1rem; }
-    .article-content h2 { font-size: 2.2rem; margin-top: 60px; color: var(--text-bold); letter-spacing: -0.02em; }
-    .article-content h3 { font-size: 1.4rem; margin-top: 40px; color: var(--text-bold); }
+    /* Parallax Hero Section */
+    .parallax-hero {
+      position: relative;
+      height: 65vh;
+      min-height: 460px;
+      background-image: linear-gradient(180deg, rgba(9, 13, 22, 0.7) 0%, rgba(9, 13, 22, 0.95) 100%), url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1600&auto=format&fit=crop');
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 24px;
+    }
 
-    /* The "Constraint" Bento */
-    .constraint-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 40px 0; }
+    .parallax-content {
+      max-width: 850px;
+    }
+
+    .tag-hero {
+      display: inline-block;
+      padding: 6px 18px;
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      color: var(--accent-warm);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+
+    .parallax-content h1 {
+      font-size: 3.4rem;
+      font-weight: 700;
+      color: var(--text-bold);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .parallax-content p {
+      font-size: 1.25rem;
+      color: #cbd5e1;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* Content Layout */
+    .article-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 24px 120px;
+    }
+
+    .meta-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
+      margin-bottom: 40px;
+    }
+
+    .meta-item {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: #64748b;
+    }
+
+    .article-body h2 {
+      font-size: 1.8rem;
+      color: var(--text-bold);
+      margin: 52px 0 18px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .article-body p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #94a3b8;
+      font-weight: 300;
+      margin-bottom: 24px;
+    }
+
+    /* Constraint Grid Cards */
+    .constraint-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 40px 0;
+    }
     @media (max-width: 768px) { .constraint-grid { grid-template-columns: 1fr; } }
 
-    .stat-card { padding: 30px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); position: relative; }
-    .stat-card.warm { border-top: 4px solid var(--accent-warm); }
-    .stat-card.cool { border-top: 4px solid var(--accent-cool); }
-    
-    .stat-card h4 { color: var(--text-bold); margin: 0 0 10px 0; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+    .stat-card {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--surface);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    .stat-card:hover {
+      border-color: rgba(245, 158, 11, 0.4);
+      transform: translateY(-3px);
+    }
+    .stat-card.warm::before {
+      content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent-warm);
+    }
+    .stat-card.cool::before {
+      content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent-cool);
+    }
+    .stat-card h3 {
+      font-size: 1.2rem;
+      color: var(--text-bold);
+      margin: 0 0 10px;
+      font-weight: 600;
+    }
+    .stat-card p {
+      font-size: 0.92rem;
+      margin: 0;
+      line-height: 1.6;
+    }
 
-    /* The AI Symphony Box */
-    .ai-box { 
-      background: linear-gradient(145deg, #1e1b4b, #030712);
-      border: 1px solid #4338ca;
-      padding: 40px;
-      margin: 50px 0;
-      border-radius: 20px;
+    .highlight-quote {
+      border-left: 3px solid var(--accent-warm);
+      background: var(--accent-warm-glow);
+      padding: 28px 32px;
+      border-radius: 0 14px 14px 0;
+      margin: 40px 0;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--text-bold);
+      font-style: italic;
+      border-top: 1px solid rgba(245, 158, 11, 0.2);
+      border-right: 1px solid rgba(245, 158, 11, 0.2);
+      border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+    }
+
+    .ai-box {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      padding: 32px;
+      margin: 40px 0;
+      border-radius: 16px;
+      color: var(--text-main);
       position: relative;
     }
-    .ai-box::after { content: "AI-AUGMENTED"; position: absolute; top: -12px; right: 30px; background: #4338ca; color: white; padding: 2px 12px; font-size: 0.7rem; font-weight: 800; border-radius: 4px; }
+    .ai-box h3 {
+      color: var(--text-bold);
+      margin-top: 0;
+      font-size: 1.3rem;
+      letter-spacing: -0.01em;
+    }
 
-    .quote-block { font-family: 'Fira Code', monospace; font-size: 1rem; color: var(--accent-cool); border-left: 2px solid var(--accent-cool); padding-left: 30px; margin: 40px 0; }
+    /* Secondary Parallax Break Divider */
+    .parallax-divider {
+      height: 320px;
+      background-image: linear-gradient(180deg, rgba(9, 13, 22, 0.85) 0%, rgba(9, 13, 22, 0.85) 100%), url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1600&auto=format&fit=crop');
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 60px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
 
-    .tag-hero { display: inline-block; padding: 6px 18px; background: rgba(245, 158, 11, 0.1); border: 1px solid var(--accent-warm); color: var(--accent-warm); border-radius: 20px; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 24px; }
-    
-    .btn-back { color: var(--text-main); text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; margin-bottom: 40px; transition: color 0.2s; }
-    .btn-back:hover { color: var(--accent-cool); }
+    .parallax-divider-text {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent-warm);
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(9, 13, 22, 0.9);
+      padding: 14px 30px;
+      border-radius: 8px;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+    }
 
-    strong { color: var(--text-bold); }
-    .highlight { color: var(--accent-warm); }
+    .btn-cta {
+      display: inline-block;
+      background: var(--accent-warm);
+      color: #090d16;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 14px 0 rgba(245, 158, 11, 0.35);
+    }
+    .btn-cta:hover {
+      background: var(--accent-warm-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.45);
+    }
+
+    /* Staggered Scroll Animations */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .fade-up.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .parallax-hero { height: 50vh; background-attachment: scroll; }
+      .parallax-divider { background-attachment: scroll; }
+      .parallax-content h1 { font-size: 2.3rem; }
+    }
   </style>
 </head>
 <body>
 
-  <div class="container" style="padding-top: 60px;">
-    <a href="index.html" class="btn-back">← Return to Architecture</a>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" style="text-decoration: none;">MICHAEL DAVIDS <span style="color: var(--accent-warm); font-weight: 400;">/ PERSPECTIVES</span></a>
+      <a href="articles.html" class="btn btn-outline" style="padding: 8px 18px;">← All Articles</a>
+    </div>
+  </nav>
+
+  <!-- Parallax Hero -->
+  <header class="parallax-hero">
+    <div class="parallax-content fade-up">
+      <div class="tag-hero">Case Study & Learning Journey</div>
+      <h1>Engineering Under Pressure</h1>
+      <p>Lessons learned while tackling real-world code assessments, hardware constraints, and high-velocity product delivery.</p>
+    </div>
+  </header>
+
+  <!-- Main Article Container -->
+  <main class="article-container">
     
-    <header style="padding: 40px 0 60px;">
-      <div class="tag-hero">Case Study: DVT Storefront</div>
-      <h1 style="font-size: 4rem; color: var(--text-bold); margin: 10px 0; line-height: 1.1; letter-spacing: -0.04em;">Engineering <br>Under Pressure</h1>
-      <p style="font-size: 1.4rem; color: var(--text-main); font-weight: 400; max-width: 700px;">A narrative on balancing advanced React patterns with hardware limitations and the emergence of AI-augmented development.</p>
-    </header>
+    <div class="meta-bar fade-up">
+      <span class="meta-item">AUTHOR: MICHAEL DAVIDS</span>
+      <span class="meta-item">PROJECT: DVT STOREFRONT</span>
+      <span class="meta-item">5 MIN READ</span>
+    </div>
 
-    <article class="article-content">
-      <p>In senior-level engineering, the environment is rarely perfect. True proficiency isn't just about writing clean code in a state-of-the-art lab; it's about <strong>delivering production-grade systems</strong> when the hardware is failing, the timeline is compressed, and the stakes are personal.</p>
+    <article class="article-body">
+      
+      <p class="fade-up">Every technical assessment is more than a simple test of syntax—it serves as a mirror reflecting an engineer’s growth, adaptability, and problem-solving mindset. The DVT Storefront coding challenge was a pivotal milestone in my developer journey, shedding light on what it truly takes to build production-grade applications under compressed timelines.</p>
 
-      <div class="quote-block">
-        "The DVT Storefront challenge was a test of architectural resilience. It was the realization that your environment is a variable, but your output must remain a constant."
-      </div>
+      <p class="fade-up">Hands down, the absolute best and most enjoyable way to learn a technology or language is to **build real products with it under real constraints**. This project challenged me to level up my workflow, think several steps ahead, and take total ownership of product quality.</p>
 
-      <h2>1. The Lean Engine Mindset</h2>
-      <p>During this build, I was met with significant <span class="highlight">hardware constraints</span>. Developing a high-performance React application while managing limited system resources required a "lean" engineering mindset. I had to treat my RAM as a precious resource, optimizing my development workflow and utilizing cloud-based staging to ensure the end-user experience didn't suffer from my local limitations.</p>
+      <h2 class="fade-up">Navigating Hardware Constraints & Lean Engineering</h2>
+      <p class="fade-up">Building a feature-complete React application while managing hardware resource limits proved to be a fantastic exercise in discipline. Rather than allowing constraints to slow down delivery, it forced me to adopt a **lean engineering workflow**—treating system memory carefully, minimizing unnecessary re-renders, and using cloud-based deployments for rapid verification.</p>
 
-      <div class="constraint-grid">
+      <div class="constraint-grid fade-up">
         <div class="stat-card warm">
-          <h4>Thermal Constraint</h4>
-          <p>Compiling large TypeScript bundles on restricted hardware meant every hot-reload had to count. Zero waste in logic.</p>
+          <h3>Lean Execution</h3>
+          <p>Compiling TypeScript bundles efficiently meant making every iteration count—eliminating redundant logic and keeping component states clean.</p>
         </div>
         <div class="stat-card cool">
-          <h4>Architectural Win</h4>
-          <p>Achieved 60fps responsiveness by moving heavy logic into custom hooks and minimizing re-renders.</p>
+          <h3>Architectural Win</h3>
+          <p>Maintained smooth 60fps UI interactions by encapsulating complex data fetching and cart persistence inside custom, reusable hooks.</p>
         </div>
       </div>
 
-      <div class="ai-box">
-        <h3>The AI-Augmented Symphony</h3>
-        <p>One of the most profound shifts in this build was the integration of AI as a <strong>Pair-Architect</strong>. By offloading boilerplate and repetitive syntax to AI, I was able to dedicate my cognitive load to high-order decisions: <strong>Context API state management</strong>, data persistence, and the integrity of the component hierarchy.</p>
-        <p style="margin-bottom: 0;">It wasn't just about speed; it was about <strong>precision under fire</strong>.</p>
+      <div class="highlight-quote fade-up">
+        "The greatest takeaway from this assessment was learning to be proactive rather than reactive—discovering how working smarter and anticipating bottlenecks transforms pressure into creative momentum."
       </div>
 
-      <h2>2. Resilience as a Metric</h2>
-      <p>Software engineering is often viewed through the lens of syntax, but seniority is measured in **mental resilience**. Balancing a high-stakes professional assessment with immediate life responsibilities requires a disciplined approach to time-blocking and focus.</p>
+      <h2 class="fade-up">AI-Augmented Development: Working Smarter</h2>
+      <p class="fade-up">One of the most rewarding parts of this project was using AI as an intelligent **pair-programmer**. Offloading routine boilerplate and repetitive setup to AI allowed me to focus my full energy on high-value architectural decisions: global state management, responsive UI design, and data synchronization.</p>
+
+      <div class="ai-box fade-up">
+        <h3>Key Growth Takeaways from the Build</h3>
+        <ul style="margin: 16px 0 0; padding-left: 20px; line-height: 1.7;">
+          <li><strong>Proactive Workflows:</strong> Clear blueprinting upfront saves hours of refactoring when working under strict deadlines.</li>
+          <li><strong>Real-World Expectations:</strong> Delivering clean, maintainable code quickly requires an unwavering focus on core user flows first.</li>
+          <li><strong>Building to Learn:</strong> Nothing beats the excitement and retention of learning React and TypeScript patterns by shipping a tangible, live app.</li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- Parallax Divider Section -->
+  <div class="parallax-divider fade-up">
+    <div class="parallax-divider-text">
+      Practical Experience × Continuous Growth
+    </div>
+  </div>
+
+  <main class="article-container" style="padding-top: 0;">
+    <article class="article-body">
       
-      <p>I chose to implement a robust <strong>Context API</strong> system for cart persistence, avoiding the weight of external libraries. This decision—made under pressure—ensured the app remained fast, modular, and maintainable, regardless of the stress on the development machine.</p>
+      <h2 class="fade-up">Final Reflections & Moving Forward</h2>
+      <p class="fade-up">Tackling the DVT Storefront challenge provided a clear signal of where the software industry is heading and what modern development teams expect. It reinforced the value of resilience, continuous learning, and taking pride in every line of code shipped.</p>
 
-      <h2>Final Reflection</h2>
-      <p>The DVT Storefront was more than a technical submission; it was a proof of concept for the **2026 Developer Workflow**. By combining thorough preparation, AI collaboration, and a refusal to let external constraints dictate the quality of the final product, I delivered a system that stands as a testament to engineering excellence under pressure.</p>
+      <p class="fade-up">As I continue to expand my full-stack expertise across React, Flutter, and Java backends, the lessons from this project remain a guiding foundation: stay proactive, work smarter, and embrace every build as an opportunity to grow.</p>
 
-      <section style="margin-top: 80px; text-align: center; border-top: 1px solid var(--border); padding-top: 60px; padding-bottom: 100px;">
-        <h2 style="color: var(--text-bold); margin-bottom: 20px;">Review the Infrastructure</h2>
-        <p style="max-width: 600px; margin: 0 auto 40px;">Experience the result of engineering under pressure. Explore the codebase and the live deployment.</p>
-        <div style="display: flex; gap: 15px; justify-content: center;">
-            <a href="https://github.com/MichaelCDavids" class="btn-back" style="border: 1px solid var(--border); padding: 12px 24px; border-radius: 8px;">View Source</a>
-            <a href="https://react-store-michael-9816-c55bd.web.app/" class="btn-back" style="background: var(--accent-cool); color: #030712; padding: 12px 24px; border-radius: 8px; font-weight: 700;">Launch Demo</a>
+      <!-- CTA Section -->
+      <section class="fade-up" style="margin-top: 80px; text-align: center; border-top: 1px solid var(--border); padding-top: 60px;">
+        <h2 style="color: var(--text-bold); margin-bottom: 16px;">Explore the Codebase</h2>
+        <p style="max-width: 600px; margin: 0 auto 32px; color: #94a3b8; font-weight: 300;">Review the source code and inspect the live deployed storefront implementation.</p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="https://github.com/MichaelCDavids" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 12px 28px;">GitHub Repository</a>
+          <a href="https://react-store-michael-9816-c55bd.web.app/" target="_blank" rel="noopener noreferrer" class="btn-cta">Launch Storefront Demo</a>
         </div>
       </section>
-    </article>
 
-    <footer style="padding: 40px 0; border-top: 1px solid var(--border); text-align: center; color: #64748b; font-size: 0.9rem;">
-      <p>&copy; 2026 Michael Davids • Engineering & Strategy Consultant</p>
-    </footer>
-  </div>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer style="padding: 50px 0; border-top: 1px solid var(--border); text-align: center; background: #05080e;">
+    <p style="font-size: 0.8rem; color: #64748b;">© 2026 Michael Davids | Full-Stack Software Developer & Technical Consultant</p>
+  </footer>
+
+  <!-- Intersection Observer for Scroll Animations -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.fade-up').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
 
 </body>
 </html>

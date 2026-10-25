@@ -4,84 +4,237 @@
   <meta charset="utf-8">
   <title>Technical Articles | Michael Davids</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
-  <link rel="stylesheet" href="css/normalize.css">
+  
+  <!-- Calmer, clean modern typography matching main index -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
+  
   <style>
-    /* Reusing root variables for consistency */
-    :root {
-      --bg-dark: #0f172a;
-      --card-bg: #1e293b;
-      --text-main: #f1f5f9;
-      --text-muted: #94a3b8;
-      --accent-blue: #38bdf8;
-      --border: #334155;
+    /* Article Page Specific Layout Enhancements */
+    .header-block {
+      padding: 60px 0 40px;
     }
-    body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Raleway', sans-serif; margin: 0; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 60px 24px; }
-    
-    .nav { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 15px 0; position: sticky; top: 0; z-index: 1000; }
-    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
-    .nav a { color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; margin-left: 24px; }
-    
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 32px; margin-top: 40px; }
-    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 40px; transition: 0.3s; display: flex; flex-direction: column; }
-    .card:hover { border-color: var(--accent-blue); transform: translateY(-5px); }
-    
-    .btn { background: var(--accent-blue); color: #0f172a; padding: 12px; text-decoration: none; border-radius: 6px; font-weight: 700; text-align: center; text-transform: uppercase; font-size: 0.8rem; margin-top: auto; }
-    .tech-tag { font-size: 0.6rem; color: var(--accent-blue); background: #0f172a; padding: 4px 8px; border-radius: 4px; border: 1px solid var(--border); font-weight: 700; margin-bottom: 15px; display: inline-block; }
+    .header-block h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--text-bold);
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+    .header-block p {
+      font-size: 1.15rem;
+      color: var(--text-main);
+      font-weight: 300;
+      max-width: 680px;
+      line-height: 1.6;
+    }
+
+    /* Asymmetric & Dynamic Grid System */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    /* Card Layout Variations */
+    .card-featured {
+      grid-column: span 12;
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(17, 24, 39, 0.9) 100%);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      padding: 44px;
+      position: relative;
+    }
+    .card-featured::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; width: 250px; height: 100%;
+      background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.12), transparent 70%);
+      pointer-events: none;
+    }
+
+    .card-wide { grid-column: span 7; }
+    .card-narrow { grid-column: span 5; }
+    .card-half { grid-column: span 6; }
+
+    @media (max-width: 900px) {
+      .card-featured, .card-wide, .card-narrow, .card-half {
+        grid-column: span 12;
+      }
+    }
+
+    /* Micro Hover Mechanics & Typography */
+    .article-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .read-time {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: #64748b;
+    }
+
+    .card h3 {
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--text-bold);
+      margin: 8px 0 12px;
+      letter-spacing: -0.01em;
+      transition: color 0.2s ease;
+    }
+    .card:hover h3 {
+      color: #818cf8;
+    }
+
+    .card p {
+      line-height: 1.6;
+      font-weight: 300;
+      color: #94a3b8;
+      margin-bottom: 28px;
+    }
+
+    .article-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      font-size: 0.88rem;
+      color: var(--text-bold);
+      text-decoration: none;
+      margin-top: auto;
+      transition: gap 0.2s ease, color 0.2s ease;
+    }
+    .article-link span {
+      transition: transform 0.2s ease;
+    }
+    .card:hover .article-link {
+      color: #38bdf8;
+    }
+    .card:hover .article-link span {
+      transform: translateX(4px);
+    }
+
+    /* Staggered Scroll Entrance Animations */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .fade-up.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger-1 { transition-delay: 0.05s; }
+    .stagger-2 { transition-delay: 0.15s; }
+    .stagger-3 { transition-delay: 0.25s; }
+    .stagger-4 { transition-delay: 0.35s; }
+    .stagger-5 { transition-delay: 0.45s; }
   </style>
 </head>
 <body>
 
   <nav class="nav">
     <div class="container nav-inner">
-      <a href="index.html" style="color: white; text-decoration: none; letter-spacing: 2px;"><strong>MD / ARTICLES</strong></a>
-      <a href="index.html" style="border: 1px solid var(--border); padding: 6px 16px; border-radius: 4px;">Back Home</a>
+      <a href="index.html" class="brand" style="text-decoration: none;">MICHAEL DAVIDS <span style="color: var(--accent-secondary); font-weight: 400;">/ PERSPECTIVES</span></a>
+      <a href="index.html" class="btn btn-outline" style="padding: 8px 18px;">← Portfolio</a>
     </div>
   </nav>
 
   <div class="container">
-    <h1 style="font-size: 2.5rem; margin-bottom: 10px;">Technical Writing</h1>
-    <p style="color: var(--text-muted);">Thoughts on architecture, mobile ecosystems, and full-stack development.</p>
+    <header class="header-block fade-up">
+      <h1>Technical Insights & Essays</h1>
+      <p>Architectural notes, system design patterns, software leadership, and continuous engineering studies.</p>
+    </header>
 
-    <div class="grid">
-      <div class="card">
-        <div><span class="tech-tag">Operational Excellence</span></div>
-        <h3>The Teleperformance Journey</h3>
-        <p>Precision timekeeping, compliance rigor, and shared resilience on the Aviva campaign.</p>
-        <a href="teleperformance.html" class="btn">Read Article</a>
-      </div>
+    <div class="articles-grid">
 
-      <div class="card">
-        <div><span class="tech-tag">Career & Architecture</span></div>
-        <h3>The Accenture Influence</h3>
-        <p>A look at enterprise-level engineering standards and global consulting workflows.</p>
-        <a href="accenture-influence.html" class="btn">Read Article</a>
-      </div>
+      <!-- Featured Spotlight Card -->
+      <article class="card card-featured fade-up stagger-1">
+        <div class="article-meta">
+          <span class="tech-tag">Systems Architecture & RPA</span>
+          <span class="read-time">7 MIN READ</span>
+        </div>
+        <h3>The Accenture Influence: Enterprise Standards & Global Workflows</h3>
+        <p>An in-depth analysis of high-availability enterprise integration, strict governance models, and translating multi-regional SAP and Blue Prism automation architectures into nimble development workflows.</p>
+        <a href="accenture-influence.html" class="article-link">Read Architectural Case Study <span>→</span></a>
+      </article>
 
-      <div class="card">
-        <div><span class="tech-tag">Flutter</span></div>
-        <h3>Mobile Efficiency with Flutter</h3>
-        <p>Why Flutter remains the premier choice for high-performance mobile deployments.</p>
-        <a href="article-flutter.html" class="btn">Read Article</a>
-      </div>
+      <!-- Asymmetric Pair Row 1 -->
+      <article class="card card-wide fade-up stagger-2">
+        <div class="article-meta">
+          <span class="tech-tag">Cross-Platform Engineering</span>
+          <span class="read-time">5 MIN READ</span>
+        </div>
+        <h3>Mobile Efficiency with Flutter: Architecture at Scale</h3>
+        <p>Evaluating state decoupling strategies, high-concurrency UI rendering, and why Flutter remains the premier runtime for rapid cross-platform application deployments.</p>
+        <a href="article-flutter.html" class="article-link">Explore Mobile Strategy <span>→</span></a>
+      </article>
 
-      <div class="card">
-        <div><span class="tech-tag">Technical Assessment</span></div>
-        <h3>DVT Coding Challenge</h3>
-        <p>A technical breakdown of the storefront assessment and scalable UI patterns.</p>
-        <a href="coding-challenge.html" class="btn">Read Article</a>
-      </div>
+      <article class="card card-narrow fade-up stagger-3">
+        <div class="article-meta">
+          <span class="tech-tag">Operational Leadership</span>
+          <span class="read-time">4 MIN READ</span>
+        </div>
+        <h3>Operational Excellence & Resilience: The Teleperformance Practice</h3>
+        <p>Lessons in strict SLA execution, client compliance, and maintaining precision under high-volume operational environments.</p>
+        <a href="teleperformance.html" class="article-link">Read Operational Analysis <span>→</span></a>
+      </article>
 
-      <div class="card">
-        <div><span class="tech-tag">Frontend</span></div>
-        <h3>Learning React</h3>
-        <p>Mastering modern React patterns, from the virtual DOM to complex state hooks.</p>
-        <a href="learning-react.html" class="btn">Read Article</a>
-      </div>
+      <!-- Balanced Split Row 2 -->
+      <article class="card card-half fade-up stagger-4">
+        <div class="article-meta">
+          <span class="tech-tag">Technical Assessment</span>
+          <span class="read-time">6 MIN READ</span>
+        </div>
+        <h3>Deconstructing the DVT Assessment: Atomic UI & Hydration</h3>
+        <p>A deep dive into building modular e-commerce storefronts, managing global reactive state with Zustand, and optimizing client-side hydration patterns.</p>
+        <a href="coding-challenge.html" class="article-link">Read Breakdown <span>→</span></a>
+      </article>
+
+      <article class="card card-half fade-up stagger-5">
+        <div class="article-meta">
+          <span class="tech-tag">Frontend Foundations</span>
+          <span class="read-time">5 MIN READ</span>
+        </div>
+        <h3>Mastering Modern React 18: Beyond the Virtual DOM</h3>
+        <p>A practical breakdown of concurrent rendering, atomic component encapsulation, custom hook design patterns, and state synchronization.</p>
+        <a href="learning-react.html" class="article-link">Read Article <span>→</span></a>
+      </article>
+
     </div>
   </div>
+
+  <footer style="padding: 50px 0; border-top: 1px solid var(--border); text-align: center; background: #05080e; margin-top: 80px;">
+    <p style="font-size: 0.8rem; color: #64748b;">© 2026 Michael Davids | Full-Stack Software Developer & Technical Consultant</p>
+  </footer>
+
+  <!-- Hardware-Accelerated Staggered Observer Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.fade-up').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
 
 </body>
 </html>
